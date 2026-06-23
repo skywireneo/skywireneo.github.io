@@ -1,0 +1,21 @@
+<div class="section-divider"></div>
+<!-- Образование -->
+<section class="card glass-card animate-on-scroll" id="education">
+
+    <h2><i class="fas {{ site.data.education.icon }}"></i>{{ site.data.education.title }}</h2>
+
+    {% for item in site.data.education.items %}
+    <div class="experience-item">
+        <div class="period">{{ item.period }}</div>
+        <h3>{{ item.degree }}: {{ item.specialty }} • {{ item.institution }}</h3>
+        <p>Направление: {{ item.direction }}</p>
+        {% if item.thesis %}
+        <p>ВКР: {{ item.thesis }}</p>
+        {% endif %}
+        {% if item.link %}
+        <p><a href="{{ item.link }}" target="_blank">{{ item.linkText }}</a></p>
+        {% endif %}
+
+    </div>
+    {% endfor %}
+</section>

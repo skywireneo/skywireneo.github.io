@@ -1,0 +1,27 @@
+<header>
+
+    <!-- Particles background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Header controls: theme and status buttons -->
+    <div class="header-controls">
+        <button class="theme-toggle" id="themeToggle"><i class="fas fa-sun"></i> <span>Сменить тему</span></button>
+        <button class="status-toggle" id="statusToggle" title="Статус и время ответа">
+            <i class="fas fa-circle status-icon" id="statusIcon"></i>
+            <span id="statusText">Статус</span>
+        </button>
+    </div>
+
+    <div class="avatar-container">
+        <img loading="lazy" src="" alt="" class="avatar" data-avatar>
+    </div>
+    <h1 id="profileName"></h1>
+    <div class="subtitle" id="profileTitle"></div>
+    <div class="personal-info" id="profileLocation"></div>
+    <div class="status" id="profileStatus"></div>
+
+    <div class="contacts" id="profileContacts">
+        <!-- Contacts and resume button will be loaded dynamically from JSON -->
+    </div>
+
+</header>

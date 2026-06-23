@@ -1,0 +1,61 @@
+<div class="section-divider"></div>
+<!-- Экстра опыт - Аккордион (предыдущий дизайн) -->
+<section class="card glass-card animate-on-scroll" id="extra-experience">
+
+    <div class="experience-accordion">
+        <div class="accordion-item" data-target="extra-content">
+            <div class="accordion-header">
+                <div style="display: flex; align-items: center;">
+                    <h2 style="margin: 0 0.8rem 0 0;"><i class="fas fa-fire"></i> Экстра опыт</h2>
+                    <span class="accordion-subtitle">(кликните для открытия)</span>
+                </div>
+                <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-content" id="extra-content">
+        {% assign extraProjects = site.data.extra-experience.extraProjects %}
+
+        {% for project in extraProjects %}
+        <div class="project-card extra-project" style="margin-bottom: 1.8rem;">
+            <div class="project-header">
+                <div class="project-title-section">
+                    <h3>{{ project.title }}</h3>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <div class="project-description">
+                    <p>{{ project.description }}</p>
+                </div>
+
+                {% if project.screenshots and project.screenshots.size > 0 %}
+                <div class="project-images-section">
+                    <div class="project-images">
+                        {% for screenshot in project.screenshots %}
+                        <img loading="lazy" src="{{ screenshot.path }}" alt="{{ screenshot.title }}"
+                            data-title="{{ screenshot.title }}" data-desc="{{ screenshot.desc }}">
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+        {% assign simpleList = site.data.extra-experience.simpleList %}
+        {% if simpleList %}
+        <div class="extra-list-section glass-card" style="margin-top: 1.5rem;">
+            <h3 style="margin-bottom: 1rem;"><i class="fas fa-plus" style="margin-right: 0.5rem;"></i> А так же...</h3>
+            <ul class="extra-list"
+                style="list-style: disc; padding-left: 1.5rem; color: var(--text-secondary); margin: 0.5rem 0;">
+                {% for item in simpleList %}
+                <li style="margin-bottom: 0.6rem; line-height: 1.6;">{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+</section>

@@ -1,0 +1,323 @@
+/* Project cards - compact design */
+.project-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 0;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--primary));
+    opacity: 0.6;
+}
+
+.project-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent);
+}
+
+
+/* Project header - compact with year, title, status and links */
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.project-year {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: var(--card-bg);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.project-title-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.project-title-section h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.project-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.project-status.in-progress {
+    background: rgba(245, 158, 11, 0.12);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.project-status.completed {
+    background: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.project-status::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+/* Project links in header - compact */
+.project-header-links {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.project-link.github {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--border);
+}
+
+.project-link.github:hover {
+    background: #24292e;
+    color: #fff;
+    border-color: #24292e;
+    transform: translateY(-1px);
+}
+
+.project-link.project-details {
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    color: #fff;
+    border-color: transparent;
+    font-weight: 600;
+}
+
+.project-link.project-details:hover {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.project-link.releases {
+    background: transparent;
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.project-link.releases:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+/* Disabled (non-clickable) action button */
+.project-link.project-disabled {
+    background: transparent;
+    color: var(--text-muted);
+    border-color: var(--border);
+    cursor: not-allowed;
+    opacity: 0.85;
+}
+
+.project-link.project-disabled:hover {
+    background: transparent;
+    color: var(--text-muted);
+    border-color: var(--border);
+    transform: none;
+    box-shadow: none;
+}
+
+.project-link i {
+    font-size: 0.85rem;
+}
+
+/* Project content - compact */
+.project-content {
+    padding: 1rem 1.25rem;
+}
+
+/* Project description sections - compact */
+.project-description {
+    margin-bottom: 1rem;
+}
+
+.project-section {
+    margin-bottom: 0.75rem;
+}
+
+.project-section:last-child {
+    margin-bottom: 0;
+}
+
+.project-section-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.project-section-title i {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.project-section p {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+/* Project tech tags - compact */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.project-tech .tech-tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    background: var(--bg);
+    border-color: var(--border);
+}
+
+/* Project images section - darker background, smaller images */
+.project-images-section {
+    background: var(--bg);
+    margin: 0 -1.25rem -1rem;
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--border);
+}
+
+.project-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.5rem;
+}
+
+.project-images img {
+    width: 100%;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid var(--border);
+}
+
+.project-images img:hover {
+    transform: scale(1.02);
+    border-color: var(--accent);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-header {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .project-header-links {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .project-title-section h3 {
+        font-size: 1rem;
+    }
+
+    .project-images {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+
+    .project-images img {
+        height: 60px;
+    }
+}
+
+/* No projects found message */
+.no-projects-message {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
+    animation: fadeIn 0.3s ease;
+}
+
+.no-projects-message i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+    display: block;
+}
+
+.no-projects-message p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

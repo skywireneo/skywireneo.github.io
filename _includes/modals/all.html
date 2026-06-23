@@ -1,0 +1,216 @@
+<!-- Лайтбокс -->
+<div id="lightbox">
+    <!-- Верхняя панель -->
+    <div class="lightbox-header">
+        <div class="lightbox-counter" id="lightboxCounter">1 / 9</div>
+        <div class="lightbox-title">
+            <div class="lightbox-project-name" id="lightboxProjectName">Название проекта</div>
+            <div class="lightbox-image-title" id="lightboxImageTitle">Название изображения</div>
+        </div>
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+    </div>
+
+    <!-- Основное изображение -->
+    <div class="lightbox-main">
+        <button id="prevBtn" class="carousel-btn">&#10094;</button>
+        <img id="lightboxImg" src="" alt="">
+        <button id="nextBtn" class="carousel-btn">&#10095;</button>
+    </div>
+
+    <!-- Миниатюры снизу -->
+    <div class="lightbox-thumbnails-wrapper">
+        <div class="lightbox-thumbnails" id="lightboxThumbnails"></div>
+    </div>
+</div>
+
+
+<!-- Модальное окно технологии -->
+<div id="techModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="techModalTitle"><i class="fas fa-code"
+                    style="color: var(--accent); margin-right: 0.5rem;"></i><span>Технология</span></h3>
+            <button class="modal-close" id="techModalClose">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="tech-modal-progress">
+                <div class="progress-header">
+                    <span class="progress-label">Уровень владения</span>
+                    <span class="progress-percent" id="techModalPercent">90%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="techModalProgress" style="width: 90%;"></div>
+                </div>
+            </div>
+            <p id="techModalDescription">Описание технологии...</p>
+            <div class="tech-modal-projects" id="techModalProjects">
+                <h4><i class="fas fa-rocket"></i> Проекты с использованием:</h4>
+                <ul id="techModalProjectList"></ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-secondary" id="techModalCloseBtn">Закрыть</button>
+        </div>
+    </div>
+</div>
+
+<!-- Панель разработчика -->
+<div id="devPanel" class="dev-panel">
+    <div class="dev-panel-header">
+        <span class="dev-panel-title">🎮 Режим разработчика активирован</span>
+        <button class="dev-panel-close"
+            onclick="document.getElementById('devPanel').classList.remove('active')">&times;</button>
+    </div>
+    <div class="dev-panel-content">
+        <p class="dev-panel-hint">Нажми клавишу ещё раз для выключения режима</p>
+
+        <!-- Вкладка: Для разраба -->
+        <div class="dev-tab-content active" id="tab-developer">
+            <div class="dev-commands">
+                <div class="dev-command" data-mode="easter-egg-map">
+                    <span class="dev-key">E</span>
+                    <span class="dev-desc">🗺️ Карта пасхалок</span>
+                </div>
+                <div class="dev-command" data-mode="offline-sim"
+                    onclick="window.OfflineIndicator && window.OfflineIndicator.toggleSimulation()">
+                    <span class="dev-key"
+                        style="background: linear-gradient(135deg, #f59e0b, #ef4444); color: #fff; border-color: #f59e0b;">OFF</span>
+                    <span class="dev-desc">📡 Симуляция офлайн (тест)</span>
+                </div>
+                <div class="dev-command status-test-toggle"
+                    style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px; padding: 12px; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 8px;">
+                    <div style="display: flex; align-items: center; gap: 8px; font-weight: 600; color: #a78bfa;">
+                        <i class="fas fa-user-clock"></i>
+                        <span>Тест статуса доступности</span>
+                        <span style="font-size: 0.75rem; color: #64748b; font-weight: normal;">(не связано с
+                            интернетом)</span>
+                    </div>
+                    <div class="status-test-buttons" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <button class="status-test-btn active" data-status="auto"
+                            onclick="window.TimeStatusTest && window.TimeStatusTest.setAuto()"
+                            style="flex: 1; min-width: 80px; padding: 6px 12px; border: 1px solid #64748b; background: rgba(100, 116, 139, 0.2); color: #94a3b8; border-radius: 6px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s;">
+                            <i class="fas fa-clock"></i> Авто
+                        </button>
+                        <button class="status-test-btn" data-status="online"
+                            onclick="window.TimeStatusTest && window.TimeStatusTest.setOnline()"
+                            style="flex: 1; min-width: 80px; padding: 6px 12px; border: 1px solid #22c55e; background: rgba(34, 197, 94, 0.1); color: #4ade80; border-radius: 6px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s;">
+                            <i class="fas fa-circle" style="color: #22c55e;"></i> Онлайн
+                        </button>
+                        <button class="status-test-btn" data-status="offline"
+                            onclick="window.TimeStatusTest && window.TimeStatusTest.setOffline()"
+                            style="flex: 1; min-width: 80px; padding: 6px 12px; border: 1px solid #ef4444; background: rgba(239, 68, 68, 0.1); color: #f87171; border-radius: 6px; cursor: pointer; font-size: 0.85rem; transition: all 0.2s;">
+                            <i class="fas fa-circle" style="color: #ef4444;"></i> Офлайн
+                        </button>
+                    </div>
+                </div>
+                <div class="dev-command" data-mode="seasonal-preview"
+                    onclick="window.SeasonalManager && window.SeasonalManager.openPreviewPanel()"
+                    style="grid-column: 1 / -1; margin-top: 8px;">
+                    <span class="dev-key"
+                        style="background: linear-gradient(135deg, #f59e0b, #ec4899); color: #fff; border-color: #f59e0b;">🎨</span>
+                    <span class="dev-desc">Сезонные стили (12 тем)</span>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- Модальное окно резюме -->
+<div id="resumeModal">
+
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h3 id="resumeModalTitle"></h3>
+            <button class="modal-close" id="modalClose">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p id="resumeModalDesc1"></p>
+            <p id="resumeModalDesc2"></p>
+            <div class="email-box">
+                <span class="email-text" id="resumeModalEmail"></span>
+
+                <button class="copy-btn" id="copyEmail">
+                    <i class="fas fa-copy"></i> <span>Копировать</span>
+                </button>
+            </div>
+            <p id="resumeModalHint" style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;"></p>
+
+        </div>
+        <div class="modal-footer">
+            <a href="" download class="modal-btn modal-btn-primary" id="resumeDownloadLink">
+                <i class="fas fa-download"></i> Ограниченная версия
+            </a>
+            <button class="modal-btn modal-btn-secondary" id="modalCloseBtn">Закрыть</button>
+
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно статуса -->
+<div id="timeStatusModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3><i class="fas fa-clock" style="color: var(--accent); margin-right: 0.5rem;"></i>Статус и время
+                ответа</h3>
+            <button class="modal-close" id="timeStatusModalClose">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="time-status-section">
+                <div class="current-time-display">
+                    <i class="far fa-clock"></i>
+                    <span id="modalCurrentTime">--:--</span>
+                    <span class="time-zone-badge">MSK (UTC+3)</span>
+                </div>
+                <div class="availability-status" id="modalAvailabilityStatus">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Проверка...</span>
+                </div>
+            </div>
+
+            <div class="schedule-info">
+                <h4><i class="fas fa-calendar-week"></i> <span id="scheduleTitle">Режим работы</span></h4>
+                <div class="schedule-bar-container">
+                    <div class="modal-schedule-bar">
+                        <div class="modal-schedule-progress" id="modalScheduleProgress"></div>
+                        <div class="modal-schedule-markers">
+                            <span class="modal-marker" id="markerStart" style="left: 0%">10:00</span>
+                            <span class="modal-marker" id="markerMiddle" style="left: 50%">14:00</span>
+                            <span class="modal-marker" id="markerEnd" style="left: 100%">19:00</span>
+                        </div>
+
+                    </div>
+                </div>
+                <p class="schedule-note" id="scheduleNote">Понедельник – Пятница: 10:00 – 19:00 (МСК)</p>
+            </div>
+
+            <div class="response-info">
+                <h4><i class="fas fa-reply"></i> <span id="responseTimeTitle">Время ответа</span></h4>
+                <p id="responseTimeText">Обычно отвечаю в течение <strong>2 рабочих дней</strong> по рабочим дням.</p>
+
+                <p class="response-hint" id="responseHint">💡 Для быстрого ответа, пожалуйста, укажите:</p>
+                <ul class="response-checklist" id="responseChecklist">
+                    <li>Краткое описание задачи/проекта</li>
+                    <li>Технологии/стек (если важно)</li>
+                    <li>Сроки и бюджет (примерные)</li>
+                    <li>Удобный способ связи</li>
+                </ul>
+            </div>
+
+            <div class="urgent-note">
+                <i class="fas fa-exclamation-circle"></i>
+                <p id="urgentNote">Срочные вопросы? Напишите в Telegram — там отвечаю быстрее всего.</p>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-secondary" id="timeStatusModalCloseBtn">Закрыть</button>
+        </div>
+    </div>
+</div>

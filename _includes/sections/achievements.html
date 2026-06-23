@@ -1,0 +1,339 @@
+<div class="section-divider"></div>
+<!-- Достижения -->
+<section class="card glass-card animate-on-scroll" id="achievements" style="display: none;">
+    <h2><i class="fas {{ site.data.achievements.icon }}"></i>{{ site.data.achievements.title }}</h2>
+
+    <!-- Табы категорий -->
+    <div class="achievements-tabs" id="achievementsTabs"></div>
+
+    <!-- Контент категорий -->
+    <div class="achievements-content" id="achievementsContent"></div>
+</section>
+
+<script>
+    (function () {
+        const achievementsData = {{ site.data.achievements | jsonify
+    }};
+    let activeCategory = null;
+
+    // Фильтрация категорий с элементами
+    const validCategories = Object.entries(achievementsData.categories)
+        .filter(([key, cat]) => cat.items && cat.items.length > 0)
+        .map(([key, cat]) => ({ key, ...cat }));
+
+    // Если нет ни одной категории с элементами - скрываем весь блок
+    if (validCategories.length === 0) {
+        return;
+    }
+
+    // Сортировка элементов по дате (новые сверху)
+    function sortByDate(items) {
+        return [...items].sort((a, b) => {
+            const dateA = parseDate(a.date);
+            const dateB = parseDate(b.date);
+            return dateB - dateA;
+        });
+    }
+
+    function parseDate(dateStr) {
+        if (!dateStr) return new Date(0);
+        const parts = dateStr.split('.');
+        if (parts.length === 3) {
+            return new Date(parts[2], parts[1] - 1, parts[0]);
+        }
+        return new Date(0);
+    }
+
+    // Рендер табов
+    function renderTabs() {
+        const tabsContainer = document.getElementById('achievementsTabs');
+        tabsContainer.innerHTML = validCategories.map((cat, index) => `
+            <button class="achievements-tab ${index === 0 ? 'active' : ''}" 
+                    data-category="${cat.key}"
+                    onclick="window.showAchievementCategory('${cat.key}')">
+                <i class="fas ${cat.icon}"></i>
+                <span>${cat.name}</span>
+                <span class="achievements-tab-count">${cat.items.length}</span>
+            </button>
+        `).join('');
+    }
+
+    // Рендер контента категории
+    function renderCategory(categoryKey) {
+        const category = validCategories.find(c => c.key === categoryKey);
+        if (!category) return '';
+
+        const sortedItems = sortByDate(category.items);
+
+        return sortedItems.map(item => {
+            const hasImages = item.images && item.images.length > 0;
+            const imagesJson = hasImages ? encodeURIComponent(JSON.stringify(item.images)) : '';
+
+            // Соавторы (для статей)
+            const coAuthorsHtml = item.co_authors && item.co_authors.length > 0 ? `
+                <div class="achievement-coauthors">
+                    <i class="fas fa-users"></i> ${item.co_authors.join(', ')}
+                </div>
+            ` : '';
+
+            // Теги (для статей)
+            const tagsHtml = item.tags && item.tags.length > 0 ? `
+                <div class="achievement-tags">
+                    ${item.tags.map(tag => `<span class="achievement-tag">${tag}</span>`).join('')}
+                </div>
+            ` : '';
+
+            // Избранные (для статей)
+            const featuredBadge = item.is_featured ? `
+                <span class="achievement-featured" title="Избранное">
+                    <i class="fas fa-star"></i>
+                </span>
+            ` : '';
+
+            // Организатор (для конференций)
+            const organizerHtml = item.organizer ? `
+                <div class="achievement-organizer">
+                    <i class="fas fa-building"></i> ${item.organizer}
+                </div>
+            ` : '';
+
+            // Issuer и credential_id (для сертификатов/другого)
+            const issuerHtml = item.issuer ? `
+                <div class="achievement-issuer">
+                    <i class="fas fa-certificate"></i> ${item.issuer}
+                </div>
+            ` : '';
+
+            const credentialHtml = item.credential_id ? `
+                <div class="achievement-credential">
+                    <i class="fas fa-id-card"></i> ID: ${item.credential_id}
+                </div>
+            ` : '';
+
+            return `
+                <div class="achievement-item">
+                    <div class="achievement-header">
+                        <h3 class="achievement-title">
+                            ${item.title}
+                            ${featuredBadge}
+                        </h3>
+                        ${item.role ? `<span class="achievement-role">${item.role}</span>` : ''}
+                    </div>
+                    
+                    ${item.event || item.publication ? `
+                        <div class="achievement-meta">
+                            ${item.publication ? `
+                                <span class="achievement-publication">
+                                    <i class="fas fa-newspaper"></i> ${item.publication}
+                                </span>
+                            ` : ''}
+                            ${item.event ? `
+                                <span class="achievement-event">
+                                    <i class="fas fa-calendar-alt"></i> ${item.event}
+                                </span>
+                            ` : ''}
+                        </div>
+                    ` : ''}
+
+                    ${item.location ? `
+                        <div class="achievement-location">
+                            <i class="fas fa-map-marker-alt"></i> ${item.location}
+                        </div>
+                    ` : ''}
+                    
+                    ${organizerHtml}
+                    
+                    ${issuerHtml}
+                    
+                    ${credentialHtml}
+
+                    ${item.date ? `
+                        <div class="achievement-date">
+                            <i class="fas fa-clock"></i> ${item.date}
+                        </div>
+                    ` : ''}
+
+                    ${item.description ? `
+                        <p class="achievement-description">${item.description}</p>
+                    ` : ''}
+
+                    ${coAuthorsHtml}
+                    
+                    ${tagsHtml}
+
+                    ${hasImages ? `
+                        <div class="achievement-images">
+                            <button class="achievement-gallery-btn" onclick="openAchievementGallery('${imagesJson}')">
+                                <i class="fas fa-images"></i>
+                                <span>Показать изображения (${item.images.length})</span>
+                            </button>
+                        </div>
+                    ` : ''}
+
+                    ${item.link ? `
+                        <div class="achievement-link">
+                            <a href="${item.link}" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-external-link-alt"></i> Подробнее
+                            </a>
+                        </div>
+                    ` : ''}
+                </div>
+            `;
+        }).join('');
+    }
+
+    // Показать категорию
+    window.showAchievementCategory = function (categoryKey) {
+        if (activeCategory === categoryKey) return;
+
+        const contentContainer = document.getElementById('achievementsContent');
+
+        // Анимация исчезновения
+        contentContainer.classList.add('achievements-content-exit');
+
+        // Ждем завершения анимации исчезновения, затем обновляем контент
+        setTimeout(() => {
+            activeCategory = categoryKey;
+
+            // Обновляем активный таб
+            document.querySelectorAll('.achievements-tab').forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.category === categoryKey);
+            });
+
+            // Рендерим новый контент
+            contentContainer.innerHTML = renderCategory(categoryKey);
+
+            // Сбрасываем класс выхода и добавляем класс входа
+            contentContainer.classList.remove('achievements-content-exit');
+            contentContainer.classList.add('achievements-content-enter');
+
+            // Удаляем класс входа после завершения анимации
+            setTimeout(() => {
+                contentContainer.classList.remove('achievements-content-enter');
+            }, 300);
+        }, 200);
+    };
+
+    // Инициализация
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('achievements').style.display = 'block';
+        renderTabs();
+        // Показываем первую категорию
+        if (validCategories.length > 0) {
+            window.showAchievementCategory(validCategories[0].key);
+        }
+    });
+}) ();
+</script>
+
+<!-- Галерея достижений (модальное окно) -->
+<div id="achievementGallery">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="achievementGalleryTitle">
+                <i class="fas fa-images" style="color: var(--accent); margin-right: 0.5rem;"></i>
+                <span>Изображения</span>
+            </h3>
+            <button class="modal-close" id="achievementGalleryClose">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="achievement-gallery-container">
+                <div class="achievement-gallery-main">
+                    <img id="achievementMainImage" src="" alt="">
+                    <button class="gallery-nav prev" id="achievementGalleryPrev">&#10094;</button>
+                    <button class="gallery-nav next" id="achievementGalleryNext">&#10095;</button>
+                </div>
+                <div class="achievement-gallery-thumbs" id="achievementGalleryThumbs"></div>
+            </div>
+            <div class="achievement-image-info" id="achievementImageInfo"></div>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn modal-btn-secondary" id="achievementGalleryCloseBtn">Закрыть</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        let galleryImages = [];
+        let galleryIndex = 0;
+
+        window.openAchievementGallery = function (imagesJson) {
+            galleryImages = JSON.parse(decodeURIComponent(imagesJson));
+            galleryIndex = 0;
+
+            const modal = document.getElementById('achievementGallery');
+            modal.style.display = 'flex';
+            void modal.offsetWidth;
+            modal.classList.add('active');
+            document.body.classList.add('modal-open');
+
+            updateGallery();
+        };
+
+        function updateGallery() {
+            const img = galleryImages[galleryIndex];
+            const mainImg = document.getElementById('achievementMainImage');
+            const info = document.getElementById('achievementImageInfo');
+            const thumbs = document.getElementById('achievementGalleryThumbs');
+
+            mainImg.src = img.src;
+            mainImg.alt = img.title || '';
+            info.innerHTML = img.desc ? `<span>${img.desc}</span>` : '';
+            if (img.title) {
+                info.innerHTML = `<strong>${img.title}</strong>${img.desc ? ' — ' + img.desc : ''}`;
+            }
+
+            // Миниатюры
+            thumbs.innerHTML = galleryImages.map((item, idx) => `
+            <img src="${item.src}" 
+                 class="achievement-thumb ${idx === galleryIndex ? 'active' : ''}"
+                 onclick="switchAchievementImage(${idx})"
+                 alt="${item.title || ''}">
+        `).join('');
+
+            // Скролл к активной миниатюре
+            setTimeout(() => {
+                const active = thumbs.querySelector('.active');
+                if (active) active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }, 100);
+        }
+
+        window.switchAchievementImage = function (index) {
+            galleryIndex = index;
+            updateGallery();
+        };
+
+        function changeGalleryIndex(step) {
+            galleryIndex = (galleryIndex + step + galleryImages.length) % galleryImages.length;
+            updateGallery();
+        }
+
+        function closeGallery() {
+            const modal = document.getElementById('achievementGallery');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+            }, 300);
+        }
+
+        // Event listeners
+        document.getElementById('achievementGalleryClose').addEventListener('click', closeGallery);
+        document.getElementById('achievementGalleryCloseBtn').addEventListener('click', closeGallery);
+        document.getElementById('achievementGalleryPrev').addEventListener('click', () => changeGalleryIndex(-1));
+        document.getElementById('achievementGalleryNext').addEventListener('click', () => changeGalleryIndex(1));
+
+        // Закрытие по фону
+        document.getElementById('achievementGallery').addEventListener('click', function (e) {
+            if (e.target === this) closeGallery();
+        });
+
+        // Закрытие по Escape
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && document.getElementById('achievementGallery').style.display === 'flex') {
+                closeGallery();
+            }
+        });
+    })();
+</script>

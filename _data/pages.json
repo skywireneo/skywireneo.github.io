@@ -1,0 +1,18 @@
+{
+    "calculator": {
+        "title": "Для заказчика — Андрей SkyWireNEO",
+        "preloaderName": "Для заказчика",
+        "description": "Информация для заказчиков: условия сотрудничества, процесс разработки, калькулятор стоимости.",
+        "keywords": "заказчик, сотрудничество, процесс разработки, backend, fullstack, заказ, проект, калькулятор",
+        "og_title": "Для заказчика — Андрей SkyWireNEO",
+        "og_description": "Всё, что нужно знать заказчику: условия, процесс, стоимость.",
+        "canonical": "https://skywireneo.github.io/calculator.html",
+        "twitter_title": "Для заказчика — Андрей SkyWireNEO",
+        "twitter_description": "Всё, что нужно знать заказчику: условия, процесс, стоимость.",
+        "json_ld_person": false,
+        "extra_css": [
+            "./css/calculator.css",
+            "./css/client-page.css"
+        ]
+    }
+}

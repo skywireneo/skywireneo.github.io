@@ -1,0 +1,36 @@
+<div class="section-divider"></div>
+<!-- Сейчас изучаю -->
+<section class="card glass-card animate-on-scroll learning-section" id="learning">
+    <h2><i class="fas fa-book-open"></i>Сейчас изучаю</h2>
+    <p class="learning-intro">Технологии, над которыми работаю в данный момент</p>
+
+    <div class="learning-grid">
+        {% assign learning_techs = site.data.technologies.technologies | where: "flags.isLearning", true %}
+        {% for tech in learning_techs %}
+        <div class="learning-card">
+            <div class="learning-card-header">
+                <div class="learning-icon">
+                    <i class="{{ tech.icon }}"></i>
+                </div>
+                <h3>{{ tech.name }}</h3>
+                <span class="learning-status">В процессе</span>
+            </div>
+
+            <div class="learning-progress">
+                <div class="progress-header">
+                    <span class="progress-label">Прогресс изучения</span>
+                    <span class="progress-percent">{{ tech.details.level }}%</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: {{ tech.details.level }}%;"></div>
+                </div>
+            </div>
+
+            <p class="learning-description">
+                {{ tech.flags.learningDescription }}
+            </p>
+
+        </div>
+        {% endfor %}
+    </div>
+</section>

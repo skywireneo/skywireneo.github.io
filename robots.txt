@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Запрет индексации служебных файлов
+Disallow: /css/
+Disallow: /js/
+Disallow: /assets/img/
+
+# Sitemap
+Sitemap: https://skywireneo.github.io/sitemap.xml

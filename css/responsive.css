@@ -1,0 +1,96 @@
+/* Lightbox mobile */
+@media (max-width: 768px) {
+    .lightbox-header {
+        padding: 0.75rem 1rem;
+    }
+
+    .lightbox-project-name {
+        font-size: 1rem;
+    }
+
+    .lightbox-image-title {
+        font-size: 0.8rem;
+    }
+
+    .lightbox-main {
+        padding: 0 50px;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        padding: 0.5rem;
+    }
+
+    #prevBtn {
+        left: 10px;
+    }
+
+    #nextBtn {
+        right: 10px;
+    }
+
+    .lightbox-thumb {
+        width: 60px;
+        height: 45px;
+    }
+}
+
+/* Modal mobile */
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 1.5rem;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+    }
+
+    .modal-btn {
+        width: 100%;
+    }
+
+    .email-box {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Sticky nav mobile hamburger */
+@media (max-width: 768px) {
+    .desktop-nav-links {
+        display: none !important;
+    }
+
+    .desktop-nav-info {
+        display: none !important;
+    }
+
+    .mobile-menu-toggle {
+        display: block !important;
+    }
+
+    .sticky-nav {
+        padding: 0.75rem 1rem;
+    }
+
+    .sticky-nav-content {
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 480px) {
+    .sticky-nav-links {
+        gap: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .sticky-nav-links a {
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        flex: 1;
+        text-align: center;
+        min-width: 70px;
+    }
+}

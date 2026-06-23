@@ -1,0 +1,119 @@
+/* Defender Day Theme - 23 февраля */
+/* Анимации для военной тематики */
+
+@keyframes medalShine {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+        filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.5));
+    }
+
+    50% {
+        transform: scale(1.1) rotate(5deg);
+        filter: drop-shadow(0 0 20px rgba(34, 197, 94, 0.8));
+    }
+}
+
+@keyframes ribbonWave {
+
+    0%,
+    100% {
+        transform: rotate(-10deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(10deg) scale(1.1);
+    }
+}
+
+@keyframes tankMove {
+    0% {
+        left: -100px;
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-5px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(-3px);
+    }
+
+    100% {
+        left: calc(100% + 100px);
+        transform: translateY(0);
+    }
+}
+
+@keyframes planeFly {
+    0% {
+        right: -50px;
+        top: 150px;
+        transform: scaleX(1);
+    }
+
+    40% {
+        top: 100px;
+    }
+
+    50% {
+        transform: scaleX(1);
+    }
+
+    51% {
+        transform: scaleX(-1);
+    }
+
+    100% {
+        right: calc(100% + 50px);
+        top: 200px;
+        transform: scaleX(-1);
+    }
+}
+
+@keyframes fireworkPop {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    20% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+
+    40% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+/* Стили для баннера */
+.defender-day-banner {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 101, 52, 0.2)) !important;
+    border: 1px solid rgba(34, 197, 94, 0.4) !important;
+    color: #4ade80 !important;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+}
+
+/* Дополнительные военные элементы */
+.defender-day-tank {
+    font-family: monospace;
+    letter-spacing: -2px;
+}
+
+.defender-day-plane {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}

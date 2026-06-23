@@ -1,0 +1,131 @@
+{% assign page_data = site.data.pages[page.page_id] %}
+{% assign title = page_data.title | default: "Backend / Fullstack Разработчик / Программный инженер / Менеджер по ИТ"
+%}
+{% assign description = page_data.description | default: "Backend / Fullstack Разработчик / Программный инженер из
+Москвы. Node.js, Python, PostgreSQL, Docker, Kubernetes." %}
+{% assign keywords = page_data.keywords | default: "backend developer, fullstack, Node.js, Python, PostgreSQL, Golang,
+Docker, Kubernetes, микросервисы, REST API, gRPC, React, Java, CI/CD, Москва" %}
+{% assign og_title = page_data.og_title | default: title %}
+{% assign og_description = page_data.og_description | default: description %}
+{% assign canonical_url = page_data.canonical | default: "https://skywireneo.github.io/" %}
+{% assign twitter_title = page_data.twitter_title | default: og_title %}
+{% assign twitter_description = page_data.twitter_description | default: og_description %}
+{% assign extra_css = page_data.extra_css | default: empty_array %}
+
+<meta name="description" content="{{ description }}" />
+<meta name="author" content="{{ site.author.name }}">
+
+<link rel="canonical" href="{{ canonical_url }}" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ og_title }}" />
+<meta property="og:description" content="{{ og_description }}" />
+<meta property="og:url" content="{{ canonical_url }}" />
+<meta property="og:image" content="https://skywireneo.github.io/assets/img/preview.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Портфолио Андрея SkyWireNEO" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="article:author" content="{{ site.author.name }}" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ twitter_title }}" />
+<meta name="twitter:description" content="{{ twitter_description }}" />
+<meta name="twitter:image" content="https://skywireneo.github.io/assets/img/preview.jpg" />
+
+<meta name="keywords" content="{{ keywords }}">
+
+<link rel="alternate" hreflang="ru" href="{{ canonical_url }}">
+
+{% if page_data.json_ld_person %}
+<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"name": "Андрей SkyWireNEO",
+		"jobTitle": "Backend Developer",
+		"url": "https://skywireneo.github.io/",
+		"image": "https://skywireneo.github.io/assets/img/preview.jpg",
+		"email": "skywireneo@yandex.ru",
+		"sameAs": [
+			"https://github.com/skywireneo",
+			"https://t.me/andrierr"
+		],
+		"address": {
+			"@type": "PostalAddress",
+			"addressLocality": "Москва",
+			"addressCountry": "Россия"
+		},
+		"hasOccupation": {
+			"@type": "Occupation",
+			"name": "Backend Developer",
+			"occupationLocation": {
+				"@type": "City",
+				"name": "Москва"
+			},
+			"skills": ["Node.js", "Python", "PostgreSQL", "Docker", "Kubernetes", "React", "gRPC", "Redis"]
+		},
+		"knowsAbout": [
+			"Backend Development", "Node.js", "Python", "PostgreSQL", "Docker", "Kubernetes",
+			"Microservices", "REST API", "gRPC", "Redis", "React", "CI/CD", "System Design"
+		],
+		"workExample": [
+			{
+				"@type": "CreativeWork",
+				"name": "Чёрный список сотрудников ПВЗ",
+				"description": "Проект с потенциалом коммерциализации для анонимной обратной связи в логистике.",
+				"url": "https://github.com/skywireneo/BlackListPVZ",
+				"dateCreated": "2025",
+				"keywords": ["Node.js", "React", "PostgreSQL", "Redis", "gRPC", "Docker", "Kubernetes"],
+				"inLanguage": "ru"
+			},
+			{
+				"@type": "CreativeWork",
+				"name": "EmergencyLogiApp",
+				"description": "Система для распределения ресурсов и управления логистикой в условиях чрезвычайных ситуаций.",
+				"url": "https://github.com/skywireneo/EmergencyLogiApp",
+				"dateCreated": "2024",
+				"keywords": ["Node.js", "React", "PostgreSQL", "GraphHopper", "OpenStreetMap"],
+				"inLanguage": "ru"
+			}
+		],
+		"employee": {
+			"@type": "EmployeeRole",
+			"roleName": "Middle Backend-разработчик",
+			"worksFor": { "@type": "Organization", "name": "ComfortSoft" },
+			"startDate": "2023-09",
+			"endDate": "2025-10"
+		},
+		"alumniOf": {
+			"@type": "EducationalOrganization",
+			"name": "РТУ МИРЭА",
+			"alternateName": "Институт информационных технологий",
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "Москва",
+				"addressCountry": "Россия"
+			}
+		}
+	}
+</script>
+{% endif %}
+
+<!-- Preconnect & Preload -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+	as="style" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+
+<!-- CSS Bundle (Optimized) -->
+<link rel="stylesheet" href="/css/main.min.css?v={{ 'now' | date: '%Y%m%d%H%M' }}" />
+<link rel="stylesheet" href="/css/sections.css?v={{ 'now' | date: '%Y%m%d%H%M' }}" />
+
+{% for css_file in extra_css %}
+<link rel="stylesheet" href="{{ css_file }}" />
+{% endfor %}

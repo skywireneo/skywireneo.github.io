@@ -1,0 +1,305 @@
+{
+    "projects": [
+        {
+            "id": "blacklist-pvz",
+            "title": "Чёрный список сотрудников ПВЗ",
+            "description": "Проект, ориентированный на решение проблемы анонимной обратной связи в секторе ПВЗ и безопасности контрагентов. Гибрид монолита и микросервисов.",
+            "year": "2025",
+            "status": "in-progress",
+            "url": null,
+            "gitlab": null,
+            "screenshots": [
+                {
+                    "path": "/assets/img/projects/BL-1.png",
+                    "title": "Главная страница (dev вид)",
+                    "desc": "Общий вид интерфейса системы"
+                },
+                {
+                    "path": "/assets/img/projects/BL-2.png",
+                    "title": "Планы оплат (dev вид)",
+                    "desc": "Коммерческая настраиваемая составляющая"
+                },
+                {
+                    "path": "/assets/img/projects/BL-3.png",
+                    "title": "Профиль (dev вид)",
+                    "desc": "Страница аккаунта"
+                },
+                {
+                    "path": "/assets/img/projects/BL-4.png",
+                    "title": "Инциденты (dev вид)",
+                    "desc": "Страница инцидентов с календарём планирования публикаций"
+                },
+                {
+                    "path": "/assets/img/projects/BL-5.png",
+                    "title": "Страница инцидента (dev вид)",
+                    "desc": "Описание инцидента с кнопками действий"
+                },
+                {
+                    "path": "/assets/img/projects/BL-6.png",
+                    "title": "Самопроверка (dev вид)",
+                    "desc": "Страница отчёта проверки самого себя"
+                },
+                {
+                    "path": "/assets/img/projects/BL-7.png",
+                    "title": "Поддержка (dev вид)",
+                    "desc": "Чат поддержки"
+                },
+                {
+                    "path": "/assets/img/projects/BL-8.png",
+                    "title": "Настройки (dev вид)",
+                    "desc": "Страница настроек системы"
+                },
+                {
+                    "path": "/assets/img/projects/BL-9.png",
+                    "title": "Пользователи (dev вид)",
+                    "desc": "Страница управления пользователями"
+                }
+            ],
+            "sections": [
+                {
+                    "title": "О проекте",
+                    "content": "Проект, ориентированный на решение проблемы анонимной обратной связи в секторе ПВЗ и безопасности контрагентов. Изначально задуман как монолит, но эволюционировал в гибрид монолита и микросервисов. Создан как полигон для изучения новых технологий, но разрабатывается в целях реализации по заказу."
+                },
+                {
+                    "title": "Архитектура",
+                    "content": "Гибрид монолита и микросервисов, Redis, gRPC, REST и RabbitMQ для связи между сервисами."
+                },
+                {
+                    "title": "Инфраструктура",
+                    "content": "Docker Compose, CI/CD, деплой, мониторинг, nginx."
+                },
+                {
+                    "title": "Особенности",
+                    "content": "Шифрование данных, гибкая настройка сервиса и доступов через UI, подготовка к масштабированию."
+                }
+            ]
+        },
+        {
+            "id": "UAV_dispatcher_navigation",
+            "title": "Система управления обменом сообщениями управления воздушным движением",
+            "description": "Рынок гражданских БПЛА растёт и необходима система передачи управляющих сообщений для таких беспилотных систем, существующие системы не позволяют исключить человека-оператора в ходе обмена сообщениями с БПЛА. Созданная система решает эту проблему на основе требований и рекомендаций ИКАО.",
+            "year": "2026",
+            "status": "completed",
+            "url": null,
+            "gitlab": null,
+            "screenshots": [
+                {
+                    "path": "/assets/img/projects/UAV-1.png",
+                    "title": "Прикладной протокол",
+                    "desc": "Выбор формата полезной нагрузки и заголовки"
+                },
+                {
+                    "path": "/assets/img/projects/UAV-2.png",
+                    "title": "Прикладной протокол",
+                    "desc": "Типы сообщений и флагов протокола"
+                },
+                {
+                    "path": "/assets/img/projects/UAV-3.png",
+                    "title": "Архитектура",
+                    "desc": "Общая архитектура системы из имитаторов диспетчерского центра, бпла и узлов центрального и регионального"
+                },
+                {
+                    "path": "/assets/img/projects/UAV-4.png",
+                    "title": "ЖЦ команд",
+                    "desc": "жизненный цикл команд системы"
+                },
+                {
+                    "path": "/assets/img/projects/UAV-5.png",
+                    "title": "Расшифровка сообщения",
+                    "desc": "Вид сообщения по новому протоколу в системе"
+                },
+                {
+                    "path": "/assets/img/projects/UAV-6.png",
+                    "title": "Экспериментальный сценарий",
+                    "desc": "Передача сообщений через систему"
+                },
+                {
+                    "path": "/assets/img/projects/UAV-7.png",
+                    "title": "Экспериментальный сценарий",
+                    "desc": "Перемещение БПЛА между регионами"
+                },
+                {
+                    "path": "/assets/img/projects/UAV-8.png",
+                    "title": "Экспериментальный сценарий",
+                    "desc": "Работа системы алертов"
+                },
+                {
+                    "path": "/assets/img/projects/UAV-9.png",
+                    "title": "Экспериментальный сценарий",
+                    "desc": "Работа системы логов и алертов"
+                }
+            ],
+            "sections": [
+                {
+                    "title": "О проекте",
+                    "content": "Проект, ориентированный на решение проблемы передачи информации между диспетчерскими центрами и БПЛА при помощи новой федеральной системы и нового протокола."
+                }
+            ]
+        },
+        {
+            "id": "emergency-logi-app",
+            "title": "Приложение для моделирования логистических маршрутов в ЧС",
+            "description": "Система для распределения ресурсов и управления логистикой в условиях чрезвычайных ситуаций.",
+            "year": "2024",
+            "status": "completed",
+            "url": "https://github.com/skywireneo/EmergencyLogiApp",
+            "gitlab": "",
+            "screenshots": [
+                {
+                    "path": "/assets/img/projects/EmergencyLogiApp-1.png",
+                    "title": "Карта складов",
+                    "desc": "Интерактивная карта с расположением складов"
+                },
+                {
+                    "path": "/assets/img/projects/EmergencyLogiApp-2.png",
+                    "title": "Страница склада",
+                    "desc": "Описание и содержание склада"
+                },
+                {
+                    "path": "/assets/img/projects/EmergencyLogiApp-3.png",
+                    "title": "Распределение ресурсов",
+                    "desc": "Управление транспортом и грузами"
+                },
+                {
+                    "path": "/assets/img/projects/EmergencyLogiApp-4.png",
+                    "title": "Создание паттерна происшествия",
+                    "desc": "Паттерн для будущих заполнений и валидация происшествий"
+                },
+                {
+                    "path": "/assets/img/projects/EmergencyLogiApp-5.png",
+                    "title": "Паттерн происшествия",
+                    "desc": "Паттерн для будущих заполнений и валидация происшествий"
+                },
+                {
+                    "path": "/assets/img/projects/EmergencyLogiApp-6.png",
+                    "title": "Отчёт часть 1",
+                    "desc": "Отчёт по расчётам системы"
+                },
+                {
+                    "path": "/assets/img/projects/EmergencyLogiApp-7.png",
+                    "title": "Отчёт часть 2",
+                    "desc": "Отчёт по расчётам системы"
+                },
+                {
+                    "path": "/assets/img/projects/EmergencyLogiApp-8.png",
+                    "title": "Отчёт часть 3",
+                    "desc": "Отчёт по расчётам системы"
+                }
+            ],
+            "sections": [
+                {
+                    "title": "О проекте",
+                    "content": "Система для распределения ресурсов и управления логистикой в условиях чрезвычайных ситуаций. Интеграция с OpenStreetMap через GraphHopper, экспорт данных во внешние системы."
+                }
+            ]
+        },
+        {
+            "id": "faq-uni",
+            "title": "Система поддержки с базой знаний и live-чатом",
+            "description": "Онлайн справка (FAQ) с live-чатом для поддержки пользователей, интеграция с iframe и API для сайтов.",
+            "year": "2023",
+            "status": "completed",
+            "url": "https://github.com/skywireneo/FAQ-uni",
+            "gitlab": "",
+            "screenshots": [
+                {
+                    "path": "/assets/img/projects/help-1.png",
+                    "title": "Пользователи",
+                    "desc": "Настройка пользователей системы"
+                },
+                {
+                    "path": "/assets/img/projects/help-2.png",
+                    "title": "Live-чат",
+                    "desc": "Окно диалога с поддержкой (сторона клиента)"
+                },
+                {
+                    "path": "/assets/img/projects/help-3.png",
+                    "title": "Live-чат",
+                    "desc": "Окно диалога с поддержкой (сторона оператора)"
+                },
+                {
+                    "path": "/assets/img/projects/help-4.png",
+                    "title": "Карточка вопрос-ответ",
+                    "desc": "Создание карточки вопрос-ответ"
+                },
+                {
+                    "path": "/assets/img/projects/help-5.png",
+                    "title": "Карточка вопрос-ответ",
+                    "desc": "Вид карточки вопрос-ответ"
+                },
+                {
+                    "path": "/assets/img/projects/help-6.png",
+                    "title": "Поиск",
+                    "desc": "Полнотекстовый поиск ответа на вопрос"
+                }
+            ],
+            "sections": [
+                {
+                    "title": "О проекте",
+                    "content": "Онлайн справка (FAQ) с live-чатом для поддержки пользователей. Подразумевает интеграцию в иные системы."
+                }
+            ]
+        },
+        {
+            "id": "php-forum",
+            "title": "Самописный форум с авторизацией и админ-панелью",
+            "description": "Форум на PHP с MVC, системой ролей, комментариев, модерацией и загрузкой файлов.",
+            "year": "2023",
+            "status": "completed",
+            "url": "https://github.com/skywireneo/php-uni-forum",
+            "gitlab": "",
+            "screenshots": [
+                {
+                    "path": "/assets/img/projects/forum-1.png",
+                    "title": "Главная страница форума",
+                    "desc": "Список тем и разделов"
+                },
+                {
+                    "path": "/assets/img/projects/forum-2.png",
+                    "title": "Тема обсуждения",
+                    "desc": "Ответ сообщества на вопрос пользователя"
+                },
+                {
+                    "path": "/assets/img/projects/forum-3.png",
+                    "title": "Тема обсуждения",
+                    "desc": "Обсуждение сообществом конкретной темы"
+                },
+                {
+                    "path": "/assets/img/projects/forum-4.png",
+                    "title": "Создание вопроса",
+                    "desc": "Создание вопроса на форуме"
+                },
+                {
+                    "path": "/assets/img/projects/forum-5.png",
+                    "title": "Профиль",
+                    "desc": "Профиль пользователя"
+                },
+                {
+                    "path": "/assets/img/projects/forum-6.png",
+                    "title": "Проверка",
+                    "desc": "Проверка файла на mime тип"
+                },
+                {
+                    "path": "/assets/img/projects/forum-7.png",
+                    "title": "Поиск",
+                    "desc": "Поиск темы"
+                },
+                {
+                    "path": "/assets/img/projects/forum-8.png",
+                    "title": "Пользователи",
+                    "desc": "Управление пользователями"
+                }
+            ],
+            "sections": [
+                {
+                    "title": "О проекте",
+                    "content": "Форум на PHP с MVC, системой ролей, комментариев, модерацией и загрузкой файлов. Используется на университетских порталах."
+                }
+            ]
+        }
+    ],
+    "hiddenProject": {
+        "id": "other-projects",
+        "title": "Иные проекты"
+    }
+}

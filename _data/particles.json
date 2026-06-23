@@ -1,0 +1,262 @@
+{
+    "enabled": true,
+    "defaultPreset": "auto",
+    "baseSettings": {
+        "particleCount": 25,
+        "connectionDistance": 100,
+        "mouseDistance": 150,
+        "speed": 0.3,
+        "size": {
+            "min": 1.5,
+            "max": 3
+        },
+        "opacity": {
+            "min": 0.2,
+            "max": 0.5
+        },
+        "lineWidth": 0.5,
+        "preserveAspectRatio": true
+    },
+    "presets": {
+        "morning": {
+            "name": "Рассвет",
+            "icon": "🌅",
+            "description": "Теплые оранжевые тона утра",
+            "color": {
+                "r": 251,
+                "g": 146,
+                "b": 60
+            },
+            "particleCount": 30,
+            "speed": 0.25
+        },
+        "day": {
+            "name": "День",
+            "icon": "☀️",
+            "description": "Бирюзовый дневной свет",
+            "color": {
+                "r": 13,
+                "g": 148,
+                "b": 136
+            },
+            "particleCount": 25,
+            "speed": 0.3
+        },
+        "evening": {
+            "name": "Закат",
+            "icon": "🌆",
+            "description": "Индиго вечерние оттенки",
+            "color": {
+                "r": 99,
+                "g": 102,
+                "b": 241
+            },
+            "particleCount": 35,
+            "speed": 0.2
+        },
+        "night": {
+            "name": "Ночь",
+            "icon": "🌙",
+            "description": "Фиолетовая ночная тема",
+            "color": {
+                "r": 139,
+                "g": 92,
+                "b": 246
+            },
+            "particleCount": 20,
+            "speed": 0.15
+        },
+        "newyear": {
+            "name": "Новый год",
+            "icon": "🎄",
+            "description": "Красно-золотые праздничные огни",
+            "color": {
+                "r": 220,
+                "g": 38,
+                "b": 38
+            },
+            "particleCount": 50,
+            "speed": 0.2,
+            "size": {
+                "min": 2,
+                "max": 4
+            },
+            "lineWidth": 1
+        },
+        "halloween": {
+            "name": "Хэллоуин",
+            "icon": "🎃",
+            "description": "Оранжево-черная мистика",
+            "color": {
+                "r": 245,
+                "g": 158,
+                "b": 11
+            },
+            "particleCount": 40,
+            "speed": 0.4,
+            "size": {
+                "min": 2,
+                "max": 5
+            },
+            "lineWidth": 0.8
+        },
+        "valentine": {
+            "name": "День влюблённых",
+            "icon": "💕",
+            "description": "Розовые сердечки",
+            "color": {
+                "r": 236,
+                "g": 72,
+                "b": 153
+            },
+            "particleCount": 45,
+            "speed": 0.25,
+            "size": {
+                "min": 2,
+                "max": 3.5
+            }
+        },
+        "women-day": {
+            "name": "8 марта",
+            "icon": "🌸",
+            "description": "Нежные весенние цвета",
+            "color": {
+                "r": 244,
+                "g": 114,
+                "b": 182
+            },
+            "particleCount": 40,
+            "speed": 0.3
+        },
+        "victory-day": {
+            "name": "9 мая - День Победы",
+            "icon": "🕊️",
+            "description": "Красно-желтые символы",
+            "color": {
+                "r": 239,
+                "g": 68,
+                "b": 68
+            },
+            "particleCount": 35,
+            "speed": 0.35
+        },
+        "russia-day": {
+            "name": "День России",
+            "icon": "🇷🇺",
+            "description": "Бело-сине-красные цвета",
+            "color": {
+                "r": 59,
+                "g": 130,
+                "b": 246
+            },
+            "particleCount": 40,
+            "speed": 0.3
+        },
+        "programmer": {
+            "name": "День программиста",
+            "icon": "💻",
+            "description": "Зеленый код на черном фоне",
+            "color": {
+                "r": 34,
+                "g": 197,
+                "b": 94
+            },
+            "particleCount": 42,
+            "speed": 0.3,
+            "size": {
+                "min": 1.5,
+                "max": 2.5
+            }
+        },
+        "site-birthday": {
+            "name": "День рождения сайта",
+            "icon": "🎂",
+            "description": "Разноцветный праздник",
+            "color": {
+                "r": 168,
+                "g": 85,
+                "b": 247
+            },
+            "particleCount": 55,
+            "speed": 0.45,
+            "size": {
+                "min": 2,
+                "max": 5
+            }
+        },
+        "defenders-day": {
+            "name": "23 февраля",
+            "icon": "🎖️",
+            "description": "Защитник Отечества",
+            "color": {
+                "r": 59,
+                "g": 130,
+                "b": 246
+            },
+            "particleCount": 40,
+            "speed": 0.3
+        },
+        "labor-day": {
+            "name": "1 мая",
+            "icon": "🌸",
+            "description": "Праздник весны и труда",
+            "color": {
+                "r": 34,
+                "g": 197,
+                "b": 94
+            },
+            "particleCount": 35,
+            "speed": 0.35
+        },
+        "knowledge-day": {
+            "name": "1 сентября",
+            "icon": "📚",
+            "description": "День знаний",
+            "color": {
+                "r": 168,
+                "g": 85,
+                "b": 247
+            },
+            "particleCount": 38,
+            "speed": 0.28
+        },
+        "april-fools": {
+            "name": "1 апреля",
+            "icon": "🤡",
+            "description": "День смеха",
+            "color": {
+                "r": 250,
+                "g": 204,
+                "b": 21
+            },
+            "particleCount": 45,
+            "speed": 0.5,
+            "size": {
+                "min": 2,
+                "max": 4
+            }
+        }
+    },
+    "timeOfDay": {
+        "morning": {
+            "start": "06:00",
+            "end": "12:00",
+            "preset": "morning"
+        },
+        "day": {
+            "start": "12:00",
+            "end": "18:00",
+            "preset": "day"
+        },
+        "evening": {
+            "start": "18:00",
+            "end": "22:00",
+            "preset": "evening"
+        },
+        "night": {
+            "start": "22:00",
+            "end": "06:00",
+            "preset": "night"
+        }
+    }
+}

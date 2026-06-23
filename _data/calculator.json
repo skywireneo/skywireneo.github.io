@@ -1,0 +1,1767 @@
+{
+  "version": 3,
+  "settings": {
+    "workHoursPerDay": 8,
+    "workingDaysPerMonth": 21,
+    "minOrderCost": 30000,
+    "tax": {
+      "enabled": true,
+      "type": "npd",
+      "label": "НПД (самозанятый)",
+      "description": "Налог на профессиональный доход. 4% от физлиц, 6% от юрлиц и ИП. Оплачивается клиентом сверх стоимости работ.",
+      "rateIndividual": 4,
+      "rateLegal": 6,
+      "tooltip": "Налог добавляется к стоимости и оплачивается клиентом"
+    },
+    "baseHours": 20,
+    "baseHoursDescription": "Планирование проекта, настройка сервера, тестирование, деплой на хостинг, коммуникация с заказчиком",
+    "baseHoursBreakdown": "2ч планирование, 4ч настройка сервера, 6ч тестирование, 4ч деплой, 4ч коммуникация",
+    "warrantyDays": 14,
+    "validityDays": 14,
+    "discountCap": 30,
+    "ai": {
+      "timeMultiplier": 0.8,
+      "costMultiplier": 1.12,
+      "bugIncreasePercent": 15,
+      "description": "ИИ ускоряет разработку на 20%, но добавляет 12% к стоимости (лицензии, проверка кода). Весь код проходит ревью разработчика.",
+      "warning": "При использовании ИИ вероятность мелких багов выше на 15%, но они бесплатно исправляются в гарантийный период."
+    },
+    "supportDiscounts": {
+      "3months": 5,
+      "6months": 10,
+      "12months": 15
+    }
+  },
+  "glossary": [
+    {
+      "term": "API",
+      "plain": "Способ общения программ между собой. Как розетка для электроприборов."
+    },
+    {
+      "term": "SSL",
+      "plain": "Замочек в браузере. Шифрует данные между сайтом и пользователем."
+    },
+    {
+      "term": "CMS",
+      "plain": "Админ-панель для редактирования сайта без программиста. Как Word для сайта."
+    },
+    {
+      "term": "Бэкап",
+      "plain": "Резервная копия. Если что-то сломается — восстановим из копии."
+    },
+    {
+      "term": "Кэширование",
+      "plain": "Запоминание результатов. Сайт грузится быстрее, потому что не считает одно и то же заново."
+    },
+    {
+      "term": "Деплой",
+      "plain": "Публикация сайта на сервере. Как выложить файл в интернет."
+    },
+    {
+      "term": "CI/CD",
+      "plain": "Автоматическая публикация обновлений. Нажал кнопку — сайт обновился сам."
+    },
+    {
+      "term": "Docker",
+      "plain": "Контейнер для программы. Одинаково работает на любом компьютере."
+    },
+    {
+      "term": "База данных",
+      "plain": "Электронный архив. Хранит пользователей, заказы, товары — всё, что нужно помнить."
+    },
+    {
+      "term": "Кубернетес",
+      "plain": "Управление множеством серверов. Если один сломался — другие подхватывают."
+    }
+  ],
+  "discounts": [
+    {
+      "id": "volume-300k",
+      "label": "Скидка за объём",
+      "threshold": 300000,
+      "percent": 5,
+      "appliesTo": "total",
+      "icon": "fas fa-tags",
+      "description": "При стоимости от 300 000 ₽"
+    },
+    {
+      "id": "volume-500k",
+      "label": "Крупный проект",
+      "threshold": 500000,
+      "percent": 10,
+      "appliesTo": "total",
+      "icon": "fas fa-star",
+      "description": "При стоимости от 500 000 ₽"
+    },
+    {
+      "id": "full-recommended",
+      "label": "Полный стек",
+      "condition": "allRecommendedSelected",
+      "percent": 10,
+      "appliesTo": "dev",
+      "icon": "fas fa-layer-group",
+      "description": "Все рекомендуемые технологии выбраны"
+    },
+    {
+      "id": "portfolio-bonus",
+      "label": "Размещение в портфолио",
+      "condition": "portfolioAgreed",
+      "percent": 5,
+      "appliesTo": "total",
+      "icon": "fas fa-images",
+      "description": "Разрешение показать проект в портфолио"
+    }
+  ],
+  "supportDiscountsByComplexity": {
+    "simple": 0,
+    "medium": 10,
+    "hard": 20
+  },
+  "urgencyLevels": [
+    {
+      "id": "relaxed",
+      "label": "Спокойно",
+      "coefficient": 1,
+      "timePercent": 100,
+      "icon": "🌿",
+      "color": "#22c55e",
+      "description": "Стандартные сроки, без спешки"
+    },
+    {
+      "id": "moderate",
+      "label": "Умеренно",
+      "coefficient": 1.15,
+      "timePercent": 80,
+      "icon": "⚡",
+      "color": "#f59e0b",
+      "description": "На 20% быстрее, +15% к стоимости"
+    },
+    {
+      "id": "urgent",
+      "label": "Срочно",
+      "coefficient": 1.3,
+      "timePercent": 60,
+      "icon": "🔥",
+      "color": "#f97316",
+      "description": "На 40% быстрее, +30% к стоимости"
+    },
+    {
+      "id": "fire",
+      "label": "Горит",
+      "coefficient": 1.5,
+      "timePercent": 40,
+      "icon": "🚨",
+      "color": "#ef4444",
+      "description": "На 60% быстрее, +50% к стоимости"
+    }
+  ],
+  "paymentModes": [
+    {
+      "id": "hourly",
+      "label": "По часам",
+      "coefficient": 1,
+      "icon": "⏱️",
+      "description": "Прозрачный расчёт по факту затраченного времени"
+    },
+    {
+      "id": "fixed",
+      "label": "Фиксированная",
+      "coefficient": 1.15,
+      "icon": "🔒",
+      "description": "Гарантированная цена. +15% за риск перерасхода"
+    }
+  ],
+  "extendedWarrantyOptions": [
+    {
+      "months": 3,
+      "label": "3 месяца",
+      "costPercent": 5
+    },
+    {
+      "months": 6,
+      "label": "6 месяцев",
+      "costPercent": 10
+    },
+    {
+      "months": 12,
+      "label": "12 месяцев",
+      "costPercent": 15
+    }
+  ],
+  "additionalServices": [
+    {
+      "id": "documentation",
+      "name": "Документация проекта",
+      "icon": "fas fa-book",
+      "plainName": "Документация",
+      "description": "Описание архитектуры, инструкция по запуску, описание API. Поможет другому разработчику разобраться.",
+      "pricingType": "complexity-based",
+      "pricingDescription": "Цена зависит от сложности проекта",
+      "baseHours": 15,
+      "hoursByComplexity": {
+        "simple": 10,
+        "medium": 15,
+        "hard": 25
+      }
+    },
+    {
+      "id": "training",
+      "name": "Обучение сотрудников",
+      "icon": "fas fa-chalkboard-teacher",
+      "plainName": "Обучение команды",
+      "description": "Обучение работе с админ-панелью, деплою, мониторингу. 2-3 онлайн-сессии по 1-2 часа.",
+      "pricingType": "fixed",
+      "pricingDescription": "Фиксированная цена: 10 часов",
+      "baseHours": 10
+    },
+    {
+      "id": "migration",
+      "name": "Миграция данных",
+      "icon": "fas fa-dolly",
+      "plainName": "Перенос данных",
+      "description": "Перенос пользователей, заказов, товаров, контента со старого проекта.",
+      "pricingType": "complexity-based",
+      "pricingDescription": "Цена зависит от объёма данных и сложности",
+      "baseHours": 20,
+      "hoursByComplexity": {
+        "simple": 12,
+        "medium": 20,
+        "hard": 35
+      }
+    },
+    {
+      "id": "seo-audit",
+      "name": "SEO-аудит и оптимизация",
+      "icon": "fas fa-cog",
+      "plainName": "SEO-оптимизация",
+      "description": "Анализ и оптимизация для Google и Яндекс. Правильные заголовки, скорость загрузки, карта сайта.",
+      "pricingType": "fixed",
+      "pricingDescription": "Фиксированная цена: 12 часов",
+      "baseHours": 12
+    },
+    {
+      "id": "design",
+      "name": "Дизайн (если нет макета)",
+      "icon": "fas fa-palette",
+      "plainName": "Создание дизайна",
+      "description": "Разработка дизайна с нуля: цвета, шрифты, расположение элементов. 2-3 итерации правок.",
+      "pricingType": "complexity-based",
+      "pricingDescription": "Цена зависит от сложности: больше экранов — больше работы",
+      "baseHours": 30,
+      "hoursByComplexity": {
+        "simple": 20,
+        "medium": 30,
+        "hard": 50
+      }
+    },
+    {
+      "id": "cross-device",
+      "name": "Тестирование на устройствах",
+      "icon": "fas fa-mobile-alt",
+      "plainName": "Тестирование устройств",
+      "description": "Тестирование на iPhone, Android, iPad, разных браузерах. Гарантия корректной работы.",
+      "pricingType": "fixed",
+      "pricingDescription": "Фиксированная цена: 8 часов на 5+ устройствах",
+      "baseHours": 8
+    },
+    {
+      "id": "performance",
+      "name": "Оптимизация производительности",
+      "icon": "fas fa-tachometer-alt",
+      "plainName": "Ускорение сайта",
+      "description": "Оптимизация скорости загрузки, кэширование, минификация. Цель — загрузка менее 2 секунд.",
+      "pricingType": "complexity-based",
+      "pricingDescription": "Цена зависит от сложности проекта",
+      "baseHours": 12,
+      "hoursByComplexity": {
+        "simple": 8,
+        "medium": 12,
+        "hard": 20
+      }
+    },
+    {
+      "id": "analytics-setup",
+      "name": "Настройка аналитики",
+      "icon": "fas fa-chart-pie",
+      "plainName": "Аналитика",
+      "description": "Установка Яндекс.Метрики, Google Analytics, настройка целей и дашбордов.",
+      "pricingType": "fixed",
+      "pricingDescription": "Фиксированная цена: 6 часов",
+      "baseHours": 6
+    },
+    {
+      "id": "security-audit",
+      "name": "Аудит безопасности",
+      "icon": "fas fa-user-secret",
+      "plainName": "Проверка безопасности",
+      "description": "Проверка на уязвимости, настройка HTTPS, защита от SQL-инъекций и XSS.",
+      "pricingType": "complexity-based",
+      "pricingDescription": "Цена зависит от количества технологий и точек входа",
+      "baseHours": 15,
+      "hoursByComplexity": {
+        "simple": 10,
+        "medium": 15,
+        "hard": 25
+      }
+    }
+  ],
+  "risks": [
+    {
+      "id": "no-backup",
+      "tech": "data-backup",
+      "risk": "Без резервных копий при сбое можно потерять все данные навсегда.",
+      "icon": "fas fa-hdd"
+    },
+    {
+      "id": "no-ssl",
+      "tech": "ssl",
+      "risk": "Без SSL-сертификата браузер покажет «Небезопасно». Клиенты могут не доверять сайту.",
+      "icon": "fas fa-unlock-alt"
+    },
+    {
+      "id": "no-auth",
+      "tech": "auth",
+      "risk": "Без авторизации любой может попасть в админ-панель. Это угроза безопасности.",
+      "icon": "fas fa-door-open"
+    },
+    {
+      "id": "no-responsive",
+      "tech": "responsive",
+      "risk": "Без адаптивного дизайна сайт будет плохо выглядеть на телефонах. 60% пользователей заходят с мобильных.",
+      "icon": "fas fa-mobile-alt"
+    },
+    {
+      "id": "no-testing",
+      "tech": "cross-device",
+      "risk": "Без тестирования на устройствах сайт может не работать на некоторых телефонах.",
+      "icon": "fas fa-bug"
+    }
+  ],
+  "smartSuggestions": {
+    "ecommerce": [
+      {
+        "tech": "payments",
+        "text": "Для интернет-магазина обычно добавляют онлайн-оплату. Без неё клиенты не смогут купить товар."
+      },
+      {
+        "tech": "notifications",
+        "text": "Уведомления о заказах — клиенты будут знать статус заказа."
+      },
+      {
+        "tech": "analytics",
+        "text": "Аналитика покажет, какие товары популярны и откуда приходят покупатели."
+      }
+    ],
+    "crm": [
+      {
+        "tech": "websockets",
+        "text": "Мгновенные уведомления о новых лидах и задачах."
+      },
+      {
+        "tech": "notifications",
+        "text": "Email-уведомления о просроченных задачах."
+      },
+      {
+        "tech": "analytics",
+        "text": "Дашборды покажут воронку продаж и эффективность менеджеров."
+      }
+    ],
+    "corporate-site": [
+      {
+        "tech": "seo",
+        "text": "SEO поможет клиентам найти вас в Google и Яндекс."
+      },
+      {
+        "tech": "analytics",
+        "text": "Аналитика покажет, какие страницы сайта самые популярные."
+      }
+    ],
+    "saas-platform": [
+      {
+        "tech": "monitoring",
+        "text": "Мониторинг уведомит о сбоях до того, как клиенты заметят."
+      },
+      {
+        "tech": "kubernetes",
+        "text": "Kubernetes автоматически масштабирует сервис под нагрузку."
+      }
+    ],
+    "landing": [
+      {
+        "tech": "analytics",
+        "text": "Яндекс.Метрика покажет, сколько людей оставляют заявки."
+      },
+      {
+        "tech": "seo",
+        "text": "SEO-оптимизация поможет лендингу появляться в поиске."
+      }
+    ]
+  },
+  "roles": [
+    {
+      "id": "backend",
+      "name": "Backend-разработчик",
+      "icon": "fas fa-server",
+      "description": "Серверная логика, базы данных, API. Быстрее делает серверную часть.",
+      "hourlyRate": 1500,
+      "supportRate": 1200,
+      "timeMultiplier": 1
+    },
+    {
+      "id": "fullstack",
+      "name": "Fullstack-разработчик",
+      "icon": "fas fa-code",
+      "description": "Полный цикл: от внешнего вида до серверной части. Универсальный выбор.",
+      "hourlyRate": 1800,
+      "supportRate": 1500,
+      "timeMultiplier": 1.15
+    },
+    {
+      "id": "teamlead",
+      "name": "Тимлид / Архитектор",
+      "icon": "fas fa-users-cog",
+      "description": "Архитектура, управление командой. Опыт сокращает сроки.",
+      "hourlyRate": 2200,
+      "supportRate": 1800,
+      "timeMultiplier": 0.9
+    }
+  ],
+  "technologies": [
+    {
+      "id": "html-css",
+      "name": "HTML/CSS",
+      "plainName": "Внешний вид сайта",
+      "group": "Интерфейс",
+      "baseHours": 15,
+      "description": "Основа любого сайта — структура и внешний вид. Адаптивность под телефоны и планшеты.",
+      "whyNeeded": "Без этого сайта просто не будет — это его фундамент.",
+      "icon": "fab fa-html5"
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "plainName": "Интерактивность",
+      "group": "Интерфейс",
+      "baseHours": 25,
+      "description": "Кнопки, формы, анимации, всплывающие окна — всё, что реагирует на действия.",
+      "whyNeeded": "Делает сайт живым: кнопки нажимаются, формы отправляются.",
+      "icon": "fab fa-js-square"
+    },
+    {
+      "id": "react",
+      "name": "React",
+      "plainName": "Быстрый интерфейс",
+      "group": "Интерфейс",
+      "baseHours": 35,
+      "description": "Современный движок интерфейса. Страницы загружаются без перезагрузки.",
+      "whyNeeded": "Для сложных интерфейсов: личный кабинет, дашборд, каталог.",
+      "icon": "fab fa-react"
+    },
+    {
+      "id": "vue",
+      "name": "Vue.js",
+      "plainName": "Простой интерфейс",
+      "group": "Интерфейс",
+      "baseHours": 30,
+      "description": "Альтернатива React. Проще, отлично для админ-панелей.",
+      "whyNeeded": "Быстрая разработка админ-панели без лишних сложностей.",
+      "icon": "fab fa-vuejs"
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "plainName": "Надёжный код",
+      "group": "Интерфейс",
+      "baseHours": 20,
+      "description": "Улучшенный JavaScript с проверкой типов. Меньше ошибок.",
+      "whyNeeded": "Снижает количество багов на 30-40%.",
+      "icon": "fas fa-check-double"
+    },
+    {
+      "id": "responsive",
+      "name": "Адаптивный дизайн",
+      "plainName": "Для телефонов",
+      "group": "Интерфейс",
+      "baseHours": 12,
+      "description": "Сайт корректно выглядит на телефонах, планшетах и компьютерах.",
+      "whyNeeded": "60% пользователей заходят с мобильных. Без этого они уйдут.",
+      "icon": "fas fa-mobile-alt"
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js",
+      "plainName": "Сервер на JavaScript",
+      "group": "Серверная часть",
+      "baseHours": 30,
+      "description": "Сервер на JavaScript. Быстрый, современный стек.",
+      "whyNeeded": "Обработка запросов от сайта, работа с базой данных.",
+      "icon": "fab fa-node-js"
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "plainName": "Универсальный сервер",
+      "group": "Серверная часть",
+      "baseHours": 25,
+      "description": "Подходит для серверов, аналитики, автоматизации.",
+      "whyNeeded": "Универсальный выбор для серверной логики и обработки данных.",
+      "icon": "fab fa-python"
+    },
+    {
+      "id": "php",
+      "name": "PHP",
+      "plainName": "Классический веб",
+      "group": "Серверная часть",
+      "baseHours": 20,
+      "description": "Большинство сайтов в интернете работают на нём.",
+      "whyNeeded": "Проверенный временем. Идеален для сайтов с контентом.",
+      "icon": "fab fa-php"
+    },
+    {
+      "id": "java",
+      "name": "Java (Spring)",
+      "plainName": "Корпоративный сервер",
+      "group": "Серверная часть",
+      "baseHours": 40,
+      "description": "Высокая надёжность для больших нагрузок.",
+      "whyNeeded": "Для проектов с тысячами пользователей одновременно.",
+      "icon": "fab fa-java"
+    },
+    {
+      "id": "go",
+      "name": "Go",
+      "plainName": "Быстрый сервер",
+      "group": "Серверная часть",
+      "baseHours": 35,
+      "description": "Язык от Google. Высокая производительность.",
+      "whyNeeded": "Когда нужна максимальная скорость обработки запросов.",
+      "icon": "fab fa-golang"
+    },
+    {
+      "id": "cms",
+      "name": "CMS",
+      "plainName": "Админ-панель",
+      "group": "Серверная часть",
+      "baseHours": 18,
+      "description": "Редактирование текстов, фото и товаров без программиста.",
+      "whyNeeded": "Чтобы вы могли менять контент на сайте самостоятельно.",
+      "icon": "fas fa-edit"
+    },
+    {
+      "id": "postgresql",
+      "name": "PostgreSQL",
+      "plainName": "Надёжная база данных",
+      "group": "Базы данных",
+      "baseHours": 15,
+      "description": "Хранит пользователей, заказы, товары. Надёжная и мощная.",
+      "whyNeeded": "Без базы данных сайт не сможет ничего помнить.",
+      "icon": "fas fa-database"
+    },
+    {
+      "id": "mysql",
+      "name": "MySQL",
+      "plainName": "Простая база данных",
+      "group": "Базы данных",
+      "baseHours": 12,
+      "description": "Популярная база данных. Простая и надёжная.",
+      "whyNeeded": "Для небольших проектов — проще и дешевле.",
+      "icon": "fas fa-database"
+    },
+    {
+      "id": "mongodb",
+      "name": "MongoDB",
+      "plainName": "Гибкая база данных",
+      "group": "Базы данных",
+      "baseHours": 15,
+      "description": "Хранит данные в формате JSON. Гибкая структура.",
+      "whyNeeded": "Когда структура данных часто меняется.",
+      "icon": "fas fa-leaf"
+    },
+    {
+      "id": "redis",
+      "name": "Redis",
+      "plainName": "Ускорение (кэш)",
+      "group": "Базы данных",
+      "baseHours": 10,
+      "description": "Хранит временные данные в памяти. Сайт грузится быстрее.",
+      "whyNeeded": "Ускоряет загрузку страниц в 3-5 раз.",
+      "icon": "fas fa-memory"
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "plainName": "Контейнеры",
+      "group": "Инфраструктура",
+      "baseHours": 20,
+      "description": "Одинаковое окружение на всех серверах. Легко переносить.",
+      "whyNeeded": "Чтобы сайт работал одинаково у вас, на тестовом и на боевом сервере.",
+      "icon": "fab fa-docker"
+    },
+    {
+      "id": "cicd",
+      "name": "CI/CD",
+      "plainName": "Автопубликация",
+      "group": "Инфраструктура",
+      "baseHours": 15,
+      "description": "Автоматическая публикация обновлений без ручного копирования.",
+      "whyNeeded": "Обновления выходят в 5 раз быстрее и без ошибок.",
+      "icon": "fas fa-infinity"
+    },
+    {
+      "id": "nginx",
+      "name": "Nginx",
+      "plainName": "Веб-сервер",
+      "group": "Инфраструктура",
+      "baseHours": 10,
+      "description": "Распределение нагрузки, SSL-сертификаты, ускорение.",
+      "whyNeeded": "Обрабатывает тысячи посетителей одновременно.",
+      "icon": "fas fa-network-wired"
+    },
+    {
+      "id": "kubernetes",
+      "name": "Kubernetes",
+      "plainName": "Управление серверами",
+      "group": "Инфраструктура",
+      "baseHours": 30,
+      "description": "Автоматическое масштабирование. Если один сервер сломался — другие подхватывают.",
+      "whyNeeded": "Для проектов с непредсказуемой нагрузкой.",
+      "icon": "fas fa-dharmachakra"
+    },
+    {
+      "id": "monitoring",
+      "name": "Мониторинг",
+      "plainName": "Слежение за сервером",
+      "group": "Инфраструктура",
+      "baseHours": 12,
+      "description": "Уведомления о сбоях, графики нагрузки.",
+      "whyNeeded": "Узнаете о проблеме до того, как клиенты заметят.",
+      "icon": "fas fa-chart-line"
+    },
+    {
+      "id": "rest-api",
+      "name": "REST API",
+      "plainName": "Стандарт обмена данными",
+      "group": "Взаимодействие",
+      "baseHours": 20,
+      "description": "Позволяет подключать мобильные приложения и внешние сервисы.",
+      "whyNeeded": "Без этого к сайту не подключить мобильное приложение.",
+      "icon": "fas fa-plug"
+    },
+    {
+      "id": "graphql",
+      "name": "GraphQL",
+      "plainName": "Гибкий обмен данными",
+      "group": "Взаимодействие",
+      "baseHours": 25,
+      "description": "Клиент получает ровно то, что нужно. Не больше, не меньше.",
+      "whyNeeded": "Когда нужно гибко получать данные с сервера.",
+      "icon": "fas fa-project-diagram"
+    },
+    {
+      "id": "websockets",
+      "name": "WebSockets",
+      "plainName": "Мгновенные уведомления",
+      "group": "Взаимодействие",
+      "baseHours": 15,
+      "description": "Мгновенные уведомления, чаты без обновления страницы.",
+      "whyNeeded": "Для чатов, онлайн-статуса, уведомлений в реальном времени.",
+      "icon": "fas fa-sync"
+    },
+    {
+      "id": "grpc",
+      "name": "gRPC",
+      "plainName": "Быстрая связь сервисов",
+      "group": "Взаимодействие",
+      "baseHours": 20,
+      "description": "Высокопроизводительная связь между серверами. Быстрее REST, подходит для микросервисов.",
+      "whyNeeded": "Когда сервисы общаются друг с другом — gRPC делает это в разы быстрее.",
+      "icon": "fas fa-exchange-alt"
+    },
+    {
+      "id": "auth",
+      "name": "Авторизация и роли",
+      "plainName": "Вход и регистрация",
+      "group": "Пользователи",
+      "baseHours": 20,
+      "description": "Регистрация, вход, восстановление пароля. Роли: админ, модератор.",
+      "whyNeeded": "Без этого любой сможет попасть в админ-панель.",
+      "icon": "fas fa-sign-in-alt"
+    },
+    {
+      "id": "oauth",
+      "name": "Вход через соцсети",
+      "plainName": "Вход через Google/VK",
+      "group": "Пользователи",
+      "baseHours": 12,
+      "description": "Регистрация через Google, VK, Telegram. Быстро и удобно.",
+      "whyNeeded": "Люди ленивы — вход в 1 клик увеличивает регистрации на 30%.",
+      "icon": "fab fa-google"
+    },
+    {
+      "id": "user-profile",
+      "name": "Профили",
+      "plainName": "Личный кабинет",
+      "group": "Пользователи",
+      "baseHours": 15,
+      "description": "Личный кабинет, настройки, история заказов, избранное.",
+      "whyNeeded": "Чтобы пользователи управляли своим аккаунтом.",
+      "icon": "fas fa-user-circle"
+    },
+    {
+      "id": "notifications",
+      "name": "Уведомления",
+      "plainName": "Email и push-уведомления",
+      "group": "Пользователи",
+      "baseHours": 12,
+      "description": "Email-рассылки, push-уведомления. Информирование о событиях.",
+      "whyNeeded": "Клиенты будут знать о статусах заказов и акциях.",
+      "icon": "fas fa-bell"
+    },
+    {
+      "id": "ssl",
+      "name": "SSL-сертификат",
+      "plainName": "Защита соединения",
+      "group": "Безопасность",
+      "baseHours": 5,
+      "description": "Зелёный замочек в браузере. Шифрование данных.",
+      "whyNeeded": "Без этого браузер покажет «Небезопасно». Клиенты не доверяют.",
+      "icon": "fas fa-lock"
+    },
+    {
+      "id": "data-backup",
+      "name": "Бэкапы",
+      "plainName": "Резервные копии",
+      "group": "Безопасность",
+      "baseHours": 10,
+      "description": "Автоматические бэкапы. Восстановление при сбоях.",
+      "whyNeeded": "Без бэкапов при сбое можно потерять все данные навсегда.",
+      "icon": "fas fa-hdd"
+    },
+    {
+      "id": "csrf-protection",
+      "name": "Защита от атак",
+      "plainName": "Защита от взлома",
+      "group": "Безопасность",
+      "baseHours": 10,
+      "description": "Защита от взлома форм, кражи данных.",
+      "whyNeeded": "Без защиты хакеры могут украсть данные пользователей.",
+      "icon": "fas fa-shield-alt"
+    },
+    {
+      "id": "rate-limiting",
+      "name": "Ограничение запросов",
+      "plainName": "Защита от ботов",
+      "group": "Безопасность",
+      "baseHours": 8,
+      "description": "Защита от ботов и спама. Ограничение частоты запросов.",
+      "whyNeeded": "Боты могут положить сайт тысячами запросов в секунду.",
+      "icon": "fas fa-tachometer-alt"
+    },
+    {
+      "id": "payments",
+      "name": "Онлайн-оплата",
+      "plainName": "Приём платежей",
+      "group": "Интеграции",
+      "baseHours": 20,
+      "description": "Банковские карты, СБП, электронные кошельки.",
+      "whyNeeded": "Без оплаты магазин не сможет принимать заказы.",
+      "icon": "fas fa-credit-card"
+    },
+    {
+      "id": "telegram-bot",
+      "name": "Telegram-бот",
+      "plainName": "Бот в Telegram",
+      "group": "Интеграции",
+      "baseHours": 15,
+      "description": "Уведомления, заказы, обратная связь прямо в Telegram.",
+      "whyNeeded": "Клиенты любят общаться в привычном мессенджере.",
+      "icon": "fab fa-telegram"
+    },
+    {
+      "id": "email-service",
+      "name": "Email-рассылки",
+      "plainName": "Автоматические письма",
+      "group": "Интеграции",
+      "baseHours": 8,
+      "description": "Подтверждение заказа, восстановление пароля, рассылки.",
+      "whyNeeded": "Без писем клиенты не получат подтверждение заказа.",
+      "icon": "fas fa-envelope"
+    },
+    {
+      "id": "1c-integration",
+      "name": "Интеграция с 1С",
+      "plainName": "Связь с 1С",
+      "group": "Интеграции",
+      "baseHours": 30,
+      "description": "Синхронизация товаров, заказов, остатков.",
+      "whyNeeded": "Если у вас уже есть 1С — данные будут синхронизироваться.",
+      "icon": "fas fa-file-invoice"
+    },
+    {
+      "id": "analytics",
+      "name": "Аналитика",
+      "plainName": "Яндекс.Метрика",
+      "group": "Аналитика",
+      "baseHours": 12,
+      "description": "Посещения, конверсии, поведение пользователей.",
+      "whyNeeded": "Без аналитики вы не узнаете, откуда приходят клиенты.",
+      "icon": "fas fa-chart-bar"
+    },
+    {
+      "id": "seo",
+      "name": "SEO-оптимизация",
+      "plainName": "Для поисковиков",
+      "group": "Аналитика",
+      "baseHours": 15,
+      "description": "Заголовки, описания, карта сайта. Индексация Google и Яндекс.",
+      "whyNeeded": "Без SEO сайт не найдут в поиске.",
+      "icon": "fas fa-search"
+    },
+    {
+      "id": "search",
+      "name": "Поиск по сайту",
+      "plainName": "Строка поиска",
+      "group": "Аналитика",
+      "baseHours": 12,
+      "description": "Поиск товаров, статей, контактов с фильтрами.",
+      "whyNeeded": "Пользователи не хотят листать каталог — они хотят найти сразу.",
+      "icon": "fas fa-search"
+    }
+  ],
+  "projects": [
+    {
+      "id": "landing",
+      "name": "Лендинг",
+      "icon": "fas fa-file-alt",
+      "description": "Одностраничный сайт для продвижения продукта или услуги.",
+      "baseHours": {
+        "simple": 10,
+        "medium": 14,
+        "hard": 18
+      },
+      "availableFor": [
+        "fullstack"
+      ],
+      "complexityThresholds": {
+        "medium": 8,
+        "hard": 15
+      },
+      "requiredTech": [
+        "html-css",
+        "javascript"
+      ],
+      "recommendedTech": [
+        "responsive",
+        "analytics",
+        "seo"
+      ],
+      "availableTech": [
+        "html-css",
+        "javascript",
+        "react",
+        "typescript",
+        "responsive",
+        "nodejs",
+        "rest-api",
+        "analytics",
+        "seo",
+        "email-service",
+        "ssl",
+        "search"
+      ],
+      "support": {
+        "minPeriod": 1,
+        "maxPeriod": 3,
+        "minHoursPerMonth": 5,
+        "maxHoursPerMonth": 15,
+        "required": false
+      },
+      "presets": {
+        "basic": [
+          "html-css",
+          "javascript",
+          "responsive",
+          "rest-api"
+        ],
+        "standard": [
+          "html-css",
+          "javascript",
+          "responsive",
+          "typescript",
+          "rest-api",
+          "analytics",
+          "seo"
+        ],
+        "premium": [
+          "html-css",
+          "javascript",
+          "react",
+          "typescript",
+          "responsive",
+          "nodejs",
+          "rest-api",
+          "analytics",
+          "seo",
+          "email-service",
+          "ssl"
+        ]
+      }
+    },
+    {
+      "id": "corporate-site",
+      "name": "Корпоративный сайт",
+      "icon": "fas fa-building",
+      "description": "Многостраничный сайт компании с возможностью редактирования контента.",
+      "baseHours": {
+        "simple": 16,
+        "medium": 22,
+        "hard": 30
+      },
+      "availableFor": [
+        "fullstack",
+        "backend"
+      ],
+      "complexityThresholds": {
+        "medium": 12,
+        "hard": 20
+      },
+      "requiredTech": [
+        "html-css",
+        "javascript",
+        "rest-api"
+      ],
+      "recommendedTech": [
+        "cms",
+        "postgresql",
+        "auth",
+        "seo"
+      ],
+      "availableTech": [
+        "html-css",
+        "javascript",
+        "react",
+        "vue",
+        "typescript",
+        "responsive",
+        "nodejs",
+        "python",
+        "php",
+        "cms",
+        "postgresql",
+        "mysql",
+        "docker",
+        "nginx",
+        "rest-api",
+        "graphql",
+        "auth",
+        "user-profile",
+        "email-service",
+        "analytics",
+        "seo",
+        "ssl",
+        "data-backup",
+        "csrf-protection",
+        "search"
+      ],
+      "support": {
+        "minPeriod": 1,
+        "maxPeriod": 6,
+        "minHoursPerMonth": 5,
+        "maxHoursPerMonth": 20,
+        "required": false
+      },
+      "presets": {
+        "basic": [
+          "html-css",
+          "javascript",
+          "responsive",
+          "php",
+          "mysql",
+          "rest-api",
+          "ssl"
+        ],
+        "standard": [
+          "html-css",
+          "javascript",
+          "responsive",
+          "vue",
+          "php",
+          "cms",
+          "postgresql",
+          "nginx",
+          "rest-api",
+          "auth",
+          "analytics",
+          "seo"
+        ],
+        "premium": [
+          "html-css",
+          "javascript",
+          "react",
+          "typescript",
+          "responsive",
+          "nodejs",
+          "cms",
+          "postgresql",
+          "docker",
+          "nginx",
+          "rest-api",
+          "graphql",
+          "auth",
+          "user-profile",
+          "email-service",
+          "analytics",
+          "seo",
+          "ssl",
+          "data-backup",
+          "csrf-protection"
+        ]
+      }
+    },
+    {
+      "id": "ecommerce",
+      "name": "Интернет-магазин",
+      "icon": "fas fa-shopping-cart",
+      "description": "Полнофункциональный магазин с каталогом, корзиной, онлайн-оплатой и доставкой.",
+      "baseHours": {
+        "simple": 20,
+        "medium": 28,
+        "hard": 38
+      },
+      "availableFor": [
+        "fullstack",
+        "backend",
+        "teamlead"
+      ],
+      "complexityThresholds": {
+        "medium": 14,
+        "hard": 24
+      },
+      "requiredTech": [
+        "html-css",
+        "javascript",
+        "rest-api",
+        "postgresql",
+        "payments"
+      ],
+      "recommendedTech": [
+        "redis",
+        "docker",
+        "auth",
+        "user-profile",
+        "notifications"
+      ],
+      "availableTech": [
+        "html-css",
+        "javascript",
+        "react",
+        "vue",
+        "typescript",
+        "responsive",
+        "nodejs",
+        "python",
+        "php",
+        "go",
+        "cms",
+        "postgresql",
+        "mysql",
+        "mongodb",
+        "redis",
+        "docker",
+        "cicd",
+        "nginx",
+        "rest-api",
+        "graphql",
+        "websockets",
+        "payments",
+        "auth",
+        "oauth",
+        "user-profile",
+        "notifications",
+        "telegram-bot",
+        "email-service",
+        "analytics",
+        "seo",
+        "ssl",
+        "data-backup",
+        "csrf-protection",
+        "rate-limiting",
+        "1c-integration",
+        "search"
+      ],
+      "support": {
+        "minPeriod": 3,
+        "maxPeriod": 12,
+        "minHoursPerMonth": 10,
+        "maxHoursPerMonth": 40,
+        "required": true
+      },
+      "presets": {
+        "basic": [
+          "html-css",
+          "javascript",
+          "responsive",
+          "php",
+          "mysql",
+          "rest-api",
+          "payments",
+          "auth",
+          "ssl"
+        ],
+        "standard": [
+          "html-css",
+          "javascript",
+          "responsive",
+          "vue",
+          "nodejs",
+          "cms",
+          "postgresql",
+          "redis",
+          "nginx",
+          "rest-api",
+          "payments",
+          "auth",
+          "user-profile",
+          "email-service",
+          "analytics",
+          "seo"
+        ],
+        "premium": [
+          "html-css",
+          "javascript",
+          "react",
+          "typescript",
+          "responsive",
+          "nodejs",
+          "cms",
+          "postgresql",
+          "redis",
+          "docker",
+          "cicd",
+          "nginx",
+          "rest-api",
+          "graphql",
+          "websockets",
+          "payments",
+          "auth",
+          "oauth",
+          "user-profile",
+          "notifications",
+          "telegram-bot",
+          "email-service",
+          "analytics",
+          "seo",
+          "ssl",
+          "data-backup",
+          "csrf-protection",
+          "rate-limiting",
+          "1c-integration"
+        ]
+      }
+    },
+    {
+      "id": "crm",
+      "name": "CRM-система",
+      "icon": "fas fa-users",
+      "description": "Система управления клиентами и продажами. Воронки, задачи, аналитика.",
+      "baseHours": {
+        "simple": 18,
+        "medium": 26,
+        "hard": 36
+      },
+      "availableFor": [
+        "fullstack",
+        "backend",
+        "teamlead"
+      ],
+      "complexityThresholds": {
+        "medium": 16,
+        "hard": 26
+      },
+      "requiredTech": [
+        "html-css",
+        "javascript",
+        "rest-api",
+        "postgresql"
+      ],
+      "recommendedTech": [
+        "redis",
+        "docker",
+        "websockets",
+        "auth",
+        "user-profile"
+      ],
+      "availableTech": [
+        "html-css",
+        "javascript",
+        "react",
+        "vue",
+        "typescript",
+        "responsive",
+        "nodejs",
+        "python",
+        "java",
+        "go",
+        "postgresql",
+        "mysql",
+        "mongodb",
+        "redis",
+        "docker",
+        "cicd",
+        "nginx",
+        "kubernetes",
+        "rest-api",
+        "graphql",
+        "grpc",
+        "websockets",
+        "auth",
+        "oauth",
+        "user-profile",
+        "notifications",
+        "email-service",
+        "analytics",
+        "ssl",
+        "data-backup",
+        "csrf-protection",
+        "rate-limiting",
+        "monitoring",
+        "1c-integration",
+        "search"
+      ],
+      "support": {
+        "minPeriod": 3,
+        "maxPeriod": 12,
+        "minHoursPerMonth": 15,
+        "maxHoursPerMonth": 40,
+        "required": true
+      },
+      "presets": {
+        "basic": [
+          "html-css",
+          "javascript",
+          "responsive",
+          "vue",
+          "php",
+          "mysql",
+          "rest-api",
+          "auth",
+          "ssl"
+        ],
+        "standard": [
+          "html-css",
+          "javascript",
+          "react",
+          "responsive",
+          "nodejs",
+          "postgresql",
+          "redis",
+          "docker",
+          "rest-api",
+          "auth",
+          "user-profile",
+          "websockets",
+          "analytics",
+          "notifications"
+        ],
+        "premium": [
+          "html-css",
+          "javascript",
+          "react",
+          "typescript",
+          "responsive",
+          "java",
+          "go",
+          "postgresql",
+          "redis",
+          "docker",
+          "kubernetes",
+          "rest-api",
+          "graphql",
+          "grpc",
+          "websockets",
+          "auth",
+          "oauth",
+          "user-profile",
+          "notifications",
+          "email-service",
+          "analytics",
+          "ssl",
+          "data-backup",
+          "csrf-protection",
+          "rate-limiting",
+          "monitoring",
+          "1c-integration"
+        ]
+      }
+    },
+    {
+      "id": "rest-api-service",
+      "name": "REST API сервис",
+      "icon": "fas fa-plug",
+      "description": "Серверный API для мобильных приложений и внешних сервисов.",
+      "baseHours": {
+        "simple": 14,
+        "medium": 20,
+        "hard": 28
+      },
+      "availableFor": [
+        "backend",
+        "teamlead"
+      ],
+      "complexityThresholds": {
+        "medium": 10,
+        "hard": 18
+      },
+      "requiredTech": [
+        "rest-api"
+      ],
+      "recommendedTech": [
+        "docker",
+        "cicd",
+        "nginx",
+        "auth"
+      ],
+      "availableTech": [
+        "nodejs",
+        "python",
+        "php",
+        "java",
+        "go",
+        "postgresql",
+        "mysql",
+        "mongodb",
+        "redis",
+        "docker",
+        "cicd",
+        "nginx",
+        "kubernetes",
+        "rest-api",
+        "graphql",
+        "grpc",
+        "websockets",
+        "auth",
+        "oauth",
+        "analytics",
+        "ssl",
+        "data-backup",
+        "csrf-protection",
+        "rate-limiting",
+        "monitoring"
+      ],
+      "support": {
+        "minPeriod": 3,
+        "maxPeriod": 12,
+        "minHoursPerMonth": 10,
+        "maxHoursPerMonth": 30,
+        "required": true
+      },
+      "presets": {
+        "basic": [
+          "nodejs",
+          "mysql",
+          "nginx",
+          "rest-api",
+          "ssl"
+        ],
+        "standard": [
+          "nodejs",
+          "postgresql",
+          "redis",
+          "docker",
+          "cicd",
+          "nginx",
+          "rest-api",
+          "auth",
+          "analytics",
+          "monitoring"
+        ],
+        "premium": [
+          "go",
+          "java",
+          "postgresql",
+          "redis",
+          "docker",
+          "cicd",
+          "nginx",
+          "kubernetes",
+          "rest-api",
+          "graphql",
+          "grpc",
+          "websockets",
+          "auth",
+          "oauth",
+          "analytics",
+          "ssl",
+          "data-backup",
+          "csrf-protection",
+          "rate-limiting",
+          "monitoring"
+        ]
+      }
+    },
+    {
+      "id": "telegram-bot",
+      "name": "Telegram-бот",
+      "icon": "fab fa-telegram",
+      "description": "Бот для автоматизации, продаж или поддержки прямо в Telegram.",
+      "baseHours": {
+        "simple": 8,
+        "medium": 12,
+        "hard": 16
+      },
+      "availableFor": [
+        "backend",
+        "fullstack"
+      ],
+      "complexityThresholds": {
+        "medium": 8,
+        "hard": 15
+      },
+      "requiredTech": [
+        "telegram-bot"
+      ],
+      "recommendedTech": [
+        "postgresql",
+        "redis",
+        "auth"
+      ],
+      "availableTech": [
+        "nodejs",
+        "python",
+        "php",
+        "postgresql",
+        "mysql",
+        "redis",
+        "docker",
+        "rest-api",
+        "telegram-bot",
+        "payments",
+        "email-service",
+        "auth",
+        "user-profile",
+        "notifications",
+        "ssl",
+        "data-backup"
+      ],
+      "support": {
+        "minPeriod": 1,
+        "maxPeriod": 6,
+        "minHoursPerMonth": 5,
+        "maxHoursPerMonth": 20,
+        "required": false
+      },
+      "presets": {
+        "basic": [
+          "python",
+          "mysql",
+          "telegram-bot",
+          "ssl"
+        ],
+        "standard": [
+          "python",
+          "postgresql",
+          "redis",
+          "docker",
+          "telegram-bot",
+          "auth",
+          "email-service",
+          "data-backup"
+        ],
+        "premium": [
+          "nodejs",
+          "postgresql",
+          "redis",
+          "docker",
+          "rest-api",
+          "telegram-bot",
+          "payments",
+          "email-service",
+          "auth",
+          "user-profile",
+          "notifications",
+          "ssl",
+          "data-backup"
+        ]
+      }
+    },
+    {
+      "id": "saas-platform",
+      "name": "SaaS-платформа",
+      "icon": "fas fa-cloud",
+      "description": "Облачный сервис с подпиской. Множество пользователей, масштабирование.",
+      "baseHours": {
+        "simple": 24,
+        "medium": 34,
+        "hard": 46
+      },
+      "availableFor": [
+        "teamlead",
+        "backend",
+        "fullstack"
+      ],
+      "complexityThresholds": {
+        "medium": 18,
+        "hard": 28
+      },
+      "requiredTech": [
+        "html-css",
+        "javascript",
+        "rest-api",
+        "postgresql",
+        "docker"
+      ],
+      "recommendedTech": [
+        "redis",
+        "cicd",
+        "kubernetes",
+        "auth",
+        "user-profile",
+        "payments"
+      ],
+      "availableTech": [
+        "html-css",
+        "javascript",
+        "react",
+        "vue",
+        "typescript",
+        "responsive",
+        "nodejs",
+        "python",
+        "java",
+        "go",
+        "cms",
+        "postgresql",
+        "mysql",
+        "mongodb",
+        "redis",
+        "docker",
+        "cicd",
+        "nginx",
+        "kubernetes",
+        "rest-api",
+        "graphql",
+        "grpc",
+        "websockets",
+        "payments",
+        "auth",
+        "oauth",
+        "user-profile",
+        "notifications",
+        "telegram-bot",
+        "email-service",
+        "analytics",
+        "seo",
+        "ssl",
+        "data-backup",
+        "csrf-protection",
+        "rate-limiting",
+        "monitoring",
+        "1c-integration",
+        "search"
+      ],
+      "support": {
+        "minPeriod": 6,
+        "maxPeriod": 12,
+        "minHoursPerMonth": 20,
+        "maxHoursPerMonth": 60,
+        "required": true
+      },
+      "presets": {
+        "basic": [
+          "html-css",
+          "javascript",
+          "responsive",
+          "nodejs",
+          "mysql",
+          "docker",
+          "nginx",
+          "rest-api",
+          "auth",
+          "ssl"
+        ],
+        "standard": [
+          "html-css",
+          "javascript",
+          "react",
+          "responsive",
+          "nodejs",
+          "postgresql",
+          "redis",
+          "docker",
+          "cicd",
+          "nginx",
+          "rest-api",
+          "payments",
+          "auth",
+          "user-profile",
+          "analytics",
+          "monitoring"
+        ],
+        "premium": [
+          "html-css",
+          "javascript",
+          "react",
+          "typescript",
+          "responsive",
+          "go",
+          "postgresql",
+          "redis",
+          "docker",
+          "cicd",
+          "kubernetes",
+          "rest-api",
+          "graphql",
+          "grpc",
+          "websockets",
+          "payments",
+          "auth",
+          "oauth",
+          "user-profile",
+          "notifications",
+          "telegram-bot",
+          "email-service",
+          "analytics",
+          "ssl",
+          "data-backup",
+          "csrf-protection",
+          "rate-limiting",
+          "monitoring"
+        ]
+      }
+    },
+    {
+      "id": "admin-panel",
+      "name": "Админ-панель",
+      "icon": "fas fa-tachometer-alt",
+      "description": "Панель управления для администратора. Пользователи, контент, отчёты.",
+      "baseHours": {
+        "simple": 12,
+        "medium": 18,
+        "hard": 24
+      },
+      "availableFor": [
+        "fullstack",
+        "backend"
+      ],
+      "complexityThresholds": {
+        "medium": 10,
+        "hard": 18
+      },
+      "requiredTech": [
+        "html-css",
+        "javascript",
+        "rest-api"
+      ],
+      "recommendedTech": [
+        "postgresql",
+        "auth",
+        "user-profile",
+        "analytics"
+      ],
+      "availableTech": [
+        "html-css",
+        "javascript",
+        "react",
+        "vue",
+        "typescript",
+        "responsive",
+        "nodejs",
+        "python",
+        "php",
+        "cms",
+        "postgresql",
+        "mysql",
+        "docker",
+        "nginx",
+        "rest-api",
+        "graphql",
+        "auth",
+        "oauth",
+        "user-profile",
+        "notifications",
+        "email-service",
+        "analytics",
+        "ssl",
+        "data-backup",
+        "csrf-protection",
+        "search"
+      ],
+      "support": {
+        "minPeriod": 1,
+        "maxPeriod": 6,
+        "minHoursPerMonth": 5,
+        "maxHoursPerMonth": 20,
+        "required": false
+      },
+      "presets": {
+        "basic": [
+          "html-css",
+          "javascript",
+          "responsive",
+          "php",
+          "mysql",
+          "rest-api",
+          "auth",
+          "ssl"
+        ],
+        "standard": [
+          "html-css",
+          "javascript",
+          "responsive",
+          "vue",
+          "nodejs",
+          "postgresql",
+          "rest-api",
+          "auth",
+          "user-profile",
+          "analytics"
+        ],
+        "premium": [
+          "html-css",
+          "javascript",
+          "react",
+          "typescript",
+          "responsive",
+          "nodejs",
+          "postgresql",
+          "docker",
+          "nginx",
+          "rest-api",
+          "graphql",
+          "auth",
+          "oauth",
+          "user-profile",
+          "notifications",
+          "email-service",
+          "analytics",
+          "ssl",
+          "data-backup",
+          "csrf-protection"
+        ]
+      }
+    }
+  ],
+  "complexityCoefficients": {
+    "simple": {
+      "label": "Простой",
+      "coefficient": 1,
+      "color": "#22c55e",
+      "icon": "fas fa-leaf",
+      "description": "Минимальный оверхед на коммуникацию"
+    },
+    "medium": {
+      "label": "Средний",
+      "coefficient": 1.3,
+      "color": "#f59e0b",
+      "icon": "fas fa-bolt",
+      "description": "+30% на тестирование и контроль качества"
+    },
+    "hard": {
+      "label": "Сложный",
+      "coefficient": 1.6,
+      "color": "#ef4444",
+      "icon": "fas fa-fire",
+      "description": "+60% на архитектуру, тестирование и документацию"
+    }
+  }
+}

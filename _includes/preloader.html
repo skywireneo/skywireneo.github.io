@@ -1,0 +1,31 @@
+{% assign preloader_config = site.data.preloader %}
+{% assign page_config = site.data.pages[page.page_id] %}
+
+{% assign brand_text = preloader_config.text.brandText %}
+{% assign loading_text = preloader_config.text.loadingText %}
+{% assign preloader_name = page_config.preloaderName %}
+
+<!-- Preloader Component -->
+<div id="preloader" class="preloader"
+    data-show-progress-bar="{{ preloader_config.appearance.showProgressBar | default: true }}"
+    data-show-page-name="{{ preloader_config.appearance.showPageName | default: false }}"
+    data-show-loading-text="{{ preloader_config.appearance.showLoadingText | default: true }}"
+    data-gradient-start="{{ preloader_config.appearance.gradientColors.start | default: '#3b82f6' }}"
+    data-gradient-end="{{ preloader_config.appearance.gradientColors.end | default: '#0d9488' }}">
+    <div class="preloader-content">
+        <div class="preloader-brand">
+            <div class="preloader-text" data-brand="{{ brand_text }}">
+                {% assign chars = brand_text | split: '' %}
+                {% for char in chars %}
+                <span class="letter">{{ char }}</span>
+                {% endfor %}
+            </div>
+            <div class="preloader-loading-text" id="preloaderLoadingText">{{ loading_text }}<span
+                    class="dots">...</span></div>
+        </div>
+        <div class="preloader-page-name" id="preloaderPageName">{{ preloader_name }}</div>
+        <div class="preloader-line">
+            <div class="preloader-progress"></div>
+        </div>
+    </div>
+</div>

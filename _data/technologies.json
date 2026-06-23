@@ -1,0 +1,1535 @@
+{
+    "settings": {
+        "skillLevels": {
+            "expert": {
+                "min": 90,
+                "max": 100,
+                "label": "Эксперт"
+            },
+            "advanced": {
+                "min": 65,
+                "max": 89,
+                "label": "Продвинутый"
+            },
+            "intermediate": {
+                "min": 40,
+                "max": 64,
+                "label": "Средний"
+            },
+            "beginner": {
+                "min": 0,
+                "max": 39,
+                "label": "Начальный"
+            }
+        }
+    },
+    "technologies": [
+        {
+            "id": "nodejs",
+            "name": "Node.js",
+            "categories": [
+                "Backend"
+            ],
+            "color": "#339933",
+            "tooltip": "Backend разработка",
+            "icon": "fa-brands fa-node-js",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": true,
+                "isProgrammingLanguage": true,
+                "isMainStack": true,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "emergency-logi-app",
+                "faq-uni"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 85,
+                "years": "2023",
+                "description": "Один из основных языков разработки бекенда. Делаю как монолиты, так и модули для микросервисов."
+            }
+        },
+        {
+            "id": "python",
+            "name": "Python",
+            "categories": [
+                "Backend",
+                "DevOps & Cloud",
+                "Инструменты & Мониторинг"
+            ],
+            "color": "#3776ab",
+            "tooltip": "Скрипты и автоматизация",
+            "icon": "fa-brands fa-python",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": true,
+                "isProgrammingLanguage": true,
+                "isMainStack": true,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "other-projects"
+            ],
+            "usedInExperience": [
+                "comfortsoft",
+                "BLpvz"
+            ],
+            "details": {
+                "level": 85,
+                "years": "2021",
+                "description": "Разработка небольших backend-сервисов, скриптов автоматизации, поддержки, обработка данных. В основном используется как инструмент поддержки систем."
+            },
+            "categoryDescriptions": {
+                "Backend": "Разработка REST API и микросервисов с использованием. Используется, например, для контроля микросервисов и контроля/исполнения крон задач.",
+                "DevOps & Cloud": "Написание скриптов автоматизации, CI/CD пайплайны, парсинг данных, мониторинг и аналитика.",
+                "Инструменты & Мониторинг": "Написание утилит и скриптов для автоматизации рутинных задач. Сбор и анализ метрик, парсинг логов, интеграция с системами мониторинга."
+            }
+        },
+        {
+            "id": "postgresql",
+            "name": "PostgreSQL",
+            "categories": [
+                "Базы данных"
+            ],
+            "color": "#336791",
+            "tooltip": "Реляционная база данных",
+            "icon": "fa-solid fa-database",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": true,
+                "isProgrammingLanguage": false,
+                "isMainStack": true,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "emergency-logi-app",
+                "faq-uni",
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [
+                "comfortsoft",
+                "BLpvz"
+            ],
+            "details": {
+                "level": 80,
+                "years": "2023",
+                "description": "Проектирование схем БД, сложные SQL-запросы, оптимизация производительности."
+            }
+        },
+        {
+            "id": "mysql",
+            "name": "MySQL",
+            "categories": [
+                "Базы данных"
+            ],
+            "color": "#4479a1",
+            "tooltip": "Реляционная база данных",
+            "icon": "fa-solid fa-database",
+            "flags": {
+                "hasExperience": true,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": false
+            },
+            "usedInProjects": [
+                "php-forum",
+                "other-projects"
+            ],
+            "usedInExperience": [],
+            "details": {
+                "level": 70,
+                "years": "2017-2023",
+                "description": "Разработка и оптимизация запросов, проектирование структуры БД."
+            }
+        },
+        {
+            "id": "mongodb",
+            "name": "MongoDB",
+            "categories": [
+                "Базы данных"
+            ],
+            "color": "#47a248",
+            "tooltip": "NoSQL база данных",
+            "icon": "fa-solid fa-leaf",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [],
+            "usedInExperience": [],
+            "details": {
+                "level": 40,
+                "years": "2024",
+                "description": "Работа с документо-ориентированной БД. Использование для хранения логов и неструктурированных данных."
+            }
+        },
+        {
+            "id": "redis",
+            "name": "Redis",
+            "categories": [
+                "Базы данных"
+            ],
+            "color": "#dc382d",
+            "tooltip": "In-memory хранилище",
+            "icon": "fa-solid fa-bolt",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [
+                "comfortsoft",
+                "BLpvz"
+            ],
+            "details": {
+                "level": 65,
+                "years": "2024",
+                "description": "Кеширование данных."
+            }
+        },
+        {
+            "id": "sqlite",
+            "name": "SQLite",
+            "categories": [
+                "Базы данных"
+            ],
+            "color": "#003b57",
+            "tooltip": "Легковесная база данных",
+            "icon": "fa-solid fa-file-alt",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "other-projects"
+            ],
+            "usedInExperience": [
+                "comfortsoft"
+            ],
+            "details": {
+                "level": 85,
+                "years": "2021",
+                "description": "Легковесная встраиваемая БД. Идеальна для дополнительный обслуживающих и менее значимых данных в сервисах с python."
+            }
+        },
+        {
+            "id": "sql",
+            "name": "SQL",
+            "categories": [
+                "Базы данных"
+            ],
+            "color": "#e38c00",
+            "tooltip": "Структурированный язык запросов",
+            "icon": "fa-solid fa-table",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "emergency-logi-app",
+                "faq-uni",
+                "php-forum",
+                "other-projects",
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [
+                "comfortsoft",
+                "BLpvz"
+            ],
+            "details": {
+                "level": 80,
+                "years": "2017",
+                "description": "Структурированный язык запросов. Сложные JOIN, подзапросы, оптимизация."
+            }
+        },
+        {
+            "id": "monolith",
+            "name": "Монолит",
+            "categories": [
+                "Архитектура & Сообщения"
+            ],
+            "color": "#6e40c9",
+            "tooltip": "Монолитная архитектура",
+            "icon": "fa-solid fa-cube",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": false,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": false
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "emergency-logi-app",
+                "faq-uni",
+                "php-forum",
+                "other-projects"
+            ],
+            "usedInExperience": [
+                "comfortsoft",
+                "BLpvz"
+            ],
+            "details": {
+                "level": 100,
+                "years": "2017",
+                "description": "Классическая архитектура приложений. Модуляризация, разделение ответственности, масштабирование."
+            }
+        },
+        {
+            "id": "microservices",
+            "name": "Микросервисы",
+            "categories": [
+                "Архитектура & Сообщения"
+            ],
+            "color": "#00a8e8",
+            "tooltip": "Микросервисная архитектура",
+            "icon": "fa-solid fa-cubes",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": false,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": false
+            },
+            "usedInProjects": [
+                "blacklist-pvz"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 70,
+                "years": "2023",
+                "description": "Распределённая архитектура."
+            }
+        },
+        {
+            "id": "rabbitmq",
+            "name": "RabbitMQ",
+            "categories": [
+                "Архитектура & Сообщения"
+            ],
+            "color": "#f06000",
+            "tooltip": "Брокер сообщений",
+            "icon": "fa-solid fa-envelope-open-text",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 60,
+                "years": "2024",
+                "description": "Асинхронная обработка сообщений, очереди задач, pub/sub паттерны. Настройка кластеров, обработка отказов."
+            }
+        },
+        {
+            "id": "kafka",
+            "name": "Kafka",
+            "categories": [
+                "Архитектура & Сообщения"
+            ],
+            "color": "#231f20",
+            "tooltip": "Стриминговая платформа",
+            "icon": "fa-solid fa-stream",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [],
+            "usedInExperience": [],
+            "details": {
+                "level": 55,
+                "years": "2025",
+                "description": "Стриминговая платформа для обработки больших потоков данных. Производители, потребители, топики, партиции."
+            }
+        },
+        {
+            "id": "grpc",
+            "name": "gRPC",
+            "categories": [
+                "Архитектура & Сообщения"
+            ],
+            "color": "#4a8fe6",
+            "tooltip": "Связь",
+            "icon": "fa-solid fa-plug",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": false,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 80,
+                "years": "2025",
+                "description": "Разработка высокопроизводительных RPC сервисов. Интеграция с микросервисами."
+            }
+        },
+        {
+            "id": "rest-api",
+            "name": "REST API",
+            "categories": [
+                "Архитектура & Сообщения"
+            ],
+            "color": "#009688",
+            "tooltip": "Архитектурный стиль",
+            "icon": "fa-solid fa-exchange-alt",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": false,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "emergency-logi-app",
+                "faq-uni",
+                "php-forum",
+                "other-projects",
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [
+                "comfortsoft",
+                "BLpvz"
+            ],
+            "details": {
+                "level": 90,
+                "years": "2017",
+                "description": "Проектирование и разработка RESTful интерфейсов. HTTP методы, статусы, версионирование, документация Swagger."
+            }
+        },
+        {
+            "id": "websockets",
+            "name": "WebSockets",
+            "categories": [
+                "Архитектура & Сообщения"
+            ],
+            "color": "#010101",
+            "tooltip": "Двусторонняя связь",
+            "icon": "fa-solid fa-sync",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": false,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "faq-uni"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 70,
+                "years": "2023",
+                "description": "Real-time коммуникации, чаты, live-обновления."
+            }
+        },
+        {
+            "id": "minio",
+            "name": "MinIO",
+            "categories": [
+                "Архитектура & Сообщения"
+            ],
+            "color": "#c51a4a",
+            "tooltip": "S3-совместимое хранилище",
+            "icon": "fa-solid fa-cloud",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": false,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 80,
+                "years": "2024",
+                "description": "S3-совместимое объектное хранилище. Интеграция с приложениями, хранение файлов и медиа."
+            }
+        },
+        {
+            "id": "docker",
+            "name": "Docker",
+            "categories": [
+                "DevOps & Cloud"
+            ],
+            "color": "#2496ed",
+            "tooltip": "Контейнеризация",
+            "icon": "fa-brands fa-docker",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": true,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "php-forum",
+                "other-projects",
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 65,
+                "years": "2020",
+                "description": "Контейнеризация приложений, написание Dockerfile. Оптимизация образов, multi-stage builds."
+            }
+        },
+        {
+            "id": "docker-compose",
+            "name": "Docker Compose",
+            "categories": [
+                "DevOps & Cloud"
+            ],
+            "color": "#2496ed",
+            "tooltip": "Оркестрация контейнеров",
+            "icon": "fa-brands fa-docker",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "php-forum",
+                "other-projects",
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 70,
+                "years": "2020",
+                "description": "Оркестрация многоконтейнерных приложений. Разные сборки: локальная разработка, stage, production деплой."
+            }
+        },
+        {
+            "id": "kubernetes",
+            "name": "Kubernetes",
+            "categories": [
+                "DevOps & Cloud"
+            ],
+            "color": "#326ce5",
+            "tooltip": "Оркестрация",
+            "icon": "fa-solid fa-dharmachakra",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": true,
+                "learningDescription": "Изучаю технологию и углубляю знания в оркестрации контейнеров: настройка кластеров, Helm, мониторинг с Prometheus и Grafana.",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [],
+            "usedInExperience": [],
+            "details": {
+                "level": 20,
+                "years": "2025",
+                "description": "Оркестрация контейнеров."
+            }
+        },
+        {
+            "id": "cicd",
+            "name": "CI/CD",
+            "categories": [
+                "DevOps & Cloud"
+            ],
+            "color": "#ff3e00",
+            "tooltip": "Непрерывная интеграция",
+            "icon": "fa-solid fa-infinity",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": false
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "emergency-logi-app"
+            ],
+            "usedInExperience": [
+                "comfortsoft",
+                "BLpvz"
+            ],
+            "details": {
+                "level": 30,
+                "years": "2024",
+                "description": "Настройка автоматической сборки, тестирования и деплоя. Автоматизация рутинных процессов."
+            }
+        },
+        {
+            "id": "linux",
+            "name": "Linux",
+            "categories": [
+                "DevOps & Cloud"
+            ],
+            "color": "#fcc624",
+            "tooltip": "Операционная система",
+            "icon": "fa-brands fa-linux",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "other-projects"
+            ],
+            "usedInExperience": [
+                "comfortsoft",
+                "BLpvz"
+            ],
+            "details": {
+                "level": 50,
+                "years": "2020",
+                "description": "Администрирование серверов, настройка окружения, shell-скрипты. Оптимизация производительности, безопасность."
+            }
+        },
+        {
+            "id": "nginx",
+            "name": "Nginx",
+            "categories": [
+                "DevOps & Cloud"
+            ],
+            "color": "#009639",
+            "tooltip": "Веб-сервер",
+            "icon": "fa-solid fa-server",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "php-forum"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 70,
+                "years": "2023",
+                "description": "Настройка веб-сервера, reverse proxy, load balancing. Оптимизация под высокие нагрузки. Иногда использую Lua для дополнительных возможностей."
+            }
+        },
+        {
+            "id": "git",
+            "name": "Git",
+            "categories": [
+                "Инструменты & Мониторинг"
+            ],
+            "color": "#f05032",
+            "tooltip": "Система контроля версий",
+            "icon": "fa-brands fa-git-alt",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "emergency-logi-app",
+                "faq-uni",
+                "php-forum",
+                "other-projects",
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [
+                "comfortsoft",
+                "BLpvz"
+            ],
+            "details": {
+                "level": 80,
+                "years": "2020",
+                "description": "Система контроля версий. Ветвление, мерджинг, работа с удалёнными репозиториями.."
+            }
+        },
+        {
+            "id": "github",
+            "name": "GitHub",
+            "categories": [
+                "Инструменты & Мониторинг"
+            ],
+            "color": "#181717",
+            "tooltip": "Платформа для кода",
+            "icon": "fa-brands fa-github",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": false,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": false
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "emergency-logi-app",
+                "faq-uni",
+                "php-forum",
+                "other-projects",
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 85,
+                "years": "2020",
+                "description": "Платформа для хостинга кода."
+            }
+        },
+        {
+            "id": "gitlab",
+            "name": "GitLab",
+            "categories": [
+                "Инструменты & Мониторинг"
+            ],
+            "color": "#fc6d26",
+            "tooltip": "Платформа для кода",
+            "icon": "fa-brands fa-gitlab",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": false,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": false
+            },
+            "usedInProjects": [],
+            "usedInExperience": [
+                "comfortsoft"
+            ],
+            "details": {
+                "level": 70,
+                "years": "2023",
+                "description": "Платформа для хостинга кода."
+            }
+        },
+        {
+            "id": "vscode",
+            "name": "VS Code",
+            "categories": [
+                "Инструменты & Мониторинг"
+            ],
+            "color": "#007acc",
+            "tooltip": "Редактор кода",
+            "icon": "fa-solid fa-code",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": false,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": false
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "emergency-logi-app",
+                "faq-uni",
+                "php-forum",
+                "other-projects",
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [
+                "comfortsoft",
+                "BLpvz"
+            ],
+            "details": {
+                "level": 90,
+                "years": "2020",
+                "description": "Редактор кода. Расширения, дебаггинг, интеграция с Git, терминал. Настройка под рабочий процесс."
+            }
+        },
+        {
+            "id": "postman",
+            "name": "Postman",
+            "categories": [
+                "Инструменты & Мониторинг"
+            ],
+            "color": "#ff6c37",
+            "tooltip": "API тестирование",
+            "icon": "fa-solid fa-paper-plane",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": false,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "emergency-logi-app",
+                "faq-uni",
+                "php-forum",
+                "other-projects",
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [
+                "comfortsoft",
+                "BLpvz"
+            ],
+            "details": {
+                "level": 80,
+                "years": "2020",
+                "description": "Тестирование API. Коллекции, окружения, документация."
+            }
+        },
+        {
+            "id": "swagger",
+            "name": "Swagger",
+            "categories": [
+                "Инструменты & Мониторинг"
+            ],
+            "color": "#85ea2d",
+            "tooltip": "API документация",
+            "icon": "fa-solid fa-book-open",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": false,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [],
+            "usedInExperience": [
+                "comfortsoft"
+            ],
+            "details": {
+                "level": 30,
+                "years": "2023",
+                "description": "Документирование API. OpenAPI спецификация, интерактивная документация, генерация клиентов."
+            }
+        },
+        {
+            "id": "react",
+            "name": "React",
+            "categories": [
+                "Frontend"
+            ],
+            "color": "#61dafb",
+            "tooltip": "Frontend библиотека",
+            "icon": "fa-brands fa-react",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": true,
+                "isProgrammingLanguage": false,
+                "isMainStack": true,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "emergency-logi-app",
+                "faq-uni"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 50,
+                "years": "2023",
+                "description": "Разработка frontend-части приложений. Компонентный подход, хуки, управление состоянием. Интеграция с REST API и WebSocket."
+            }
+        },
+        {
+            "id": "html5",
+            "name": "HTML5",
+            "categories": [
+                "Frontend"
+            ],
+            "color": "#e34f26",
+            "tooltip": "Разметка",
+            "icon": "fa-brands fa-html5",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "emergency-logi-app",
+                "faq-uni",
+                "php-forum",
+                "other-projects",
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 75,
+                "years": "2017",
+                "description": "Семантическая разметка, доступность, SEO-оптимизация. Интеграция с современными API. В последнее время использую библиотеки или ИИ для работы с ним."
+            }
+        },
+        {
+            "id": "css3",
+            "name": "CSS3",
+            "categories": [
+                "Frontend"
+            ],
+            "color": "#264de4",
+            "tooltip": "Стили",
+            "icon": "fa-brands fa-css3-alt",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "emergency-logi-app",
+                "faq-uni",
+                "php-forum",
+                "other-projects",
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 30,
+                "years": "2017",
+                "description": "Простейшие правки. В последнее время использую библиотеки или ИИ для работы с ним."
+            }
+        },
+        {
+            "id": "bootstrap",
+            "name": "Bootstrap",
+            "categories": [
+                "Frontend"
+            ],
+            "color": "#7952b3",
+            "tooltip": "CSS фреймворк",
+            "icon": "fa-brands fa-bootstrap",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "emergency-logi-app",
+                "faq-uni",
+                "php-forum",
+                "other-projects",
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 90,
+                "years": "2019",
+                "description": "CSS фреймворк для быстрой разработки интерфейсов. Компоненты, утилиты, кастомизация."
+            }
+        },
+        {
+            "id": "cpp",
+            "name": "C++",
+            "categories": [
+                "Backend",
+                "Был опыт"
+            ],
+            "color": "#00599c",
+            "tooltip": "Системное программирование",
+            "icon": "fa-solid fa-copyright",
+            "flags": {
+                "hasExperience": true,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": true,
+                "isMainStack": false,
+                "showInStats": false
+            },
+            "usedInProjects": [
+                "other-projects"
+            ],
+            "usedInExperience": [],
+            "details": {
+                "level": 50,
+                "years": "2020-2021",
+                "description": "Алгоритмы и структуры данных. Базовый опыт разработки."
+            }
+        },
+        {
+            "id": "php",
+            "name": "PHP",
+            "categories": [
+                "Backend"
+            ],
+            "color": "#777bb4",
+            "tooltip": "Backend разработка",
+            "icon": "fa-brands fa-php",
+            "flags": {
+                "hasExperience": true,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": true,
+                "isProgrammingLanguage": true,
+                "isMainStack": false,
+                "showInStats": false
+            },
+            "usedInProjects": [
+                "php-forum",
+                "other-projects"
+            ],
+            "usedInExperience": [],
+            "details": {
+                "level": 80,
+                "years": "2017-2023",
+                "description": "Backend разработка, MVC паттерн, работа с MySQL. Опыт создания полноценных веб-приложений."
+            }
+        },
+        {
+            "id": "java-spring",
+            "name": "Java (Spring Boot)",
+            "categories": [
+                "Backend",
+                "Был опыт"
+            ],
+            "color": "#007396",
+            "tooltip": "Enterprise разработка",
+            "icon": "fa-brands fa-java",
+            "flags": {
+                "hasExperience": true,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": true,
+                "isMainStack": false,
+                "showInStats": false
+            },
+            "usedInProjects": [],
+            "usedInExperience": [
+                "comfortsoft"
+            ],
+            "details": {
+                "level": 40,
+                "years": "2024-2025",
+                "description": "Enterprise разработка, Spring Boot, JPA."
+            }
+        },
+        {
+            "id": "go",
+            "name": "GO",
+            "categories": [
+                "Backend",
+                "В изучении"
+            ],
+            "color": "#00add8",
+            "tooltip": "Системное программирование",
+            "icon": "fa-brands fa-golang",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": true,
+                "learningDescription": "Изучаю для системного программирования и высоконагруженных сервисов. Практикуюсь на pet-проектах с concurrency и микросервисами.",
+                "showLevel": true,
+                "isImportantForProjects": true,
+                "isProgrammingLanguage": true,
+                "isMainStack": true,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 35,
+                "years": "2025",
+                "description": "В процессе изучения. Concurrency, goroutines, channels. Практика на pet-проектах и реализация некоторых микросервисов в продакшене."
+            }
+        },
+        {
+            "id": "system-design",
+            "name": "Системный дизайн",
+            "categories": [
+                "В изучении"
+            ],
+            "color": "#8b5cf6",
+            "tooltip": "Проектирование систем",
+            "icon": "fa-solid fa-sitemap",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": true,
+                "isLearning": true,
+                "learningDescription": "Проектирование распределённых систем, масштабируемость, отказоустойчивость, паттерны проектирования высоких нагрузок.",
+                "showLevel": false,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": false
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "emergency-logi-app",
+                "faq-uni",
+                "php-forum",
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [
+                "comfortsoft",
+                "BLpvz"
+            ],
+            "details": {
+                "level": 70,
+                "years": "2022",
+                "description": "В процессе изучения. Проектирование распределённых систем, масштабируемость, отказоустойчивость, паттерны проектирования высоких нагрузок."
+            }
+        },
+        {
+            "id": "graphhopper",
+            "name": "GraphHopper",
+            "categories": [
+                "Backend"
+            ],
+            "color": "#00a650",
+            "tooltip": "Маршрутизация",
+            "icon": "fa-solid fa-route",
+            "flags": {
+                "hasExperience": true,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": false,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": false
+            },
+            "usedInProjects": [
+                "emergency-logi-app"
+            ],
+            "usedInExperience": [],
+            "details": {
+                "level": 60,
+                "years": "2024-2024",
+                "description": "Библиотека для построения маршрутов для карт. Интеграция с OpenStreetMap, расчёт оптимальных путей."
+            }
+        },
+        {
+            "id": "openstreetmap",
+            "name": "OpenStreetMap",
+            "categories": [
+                "Frontend"
+            ],
+            "color": "#8bcf3f",
+            "tooltip": "Карты",
+            "icon": "fa-solid fa-map",
+            "flags": {
+                "hasExperience": true,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": false,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": false
+            },
+            "usedInProjects": [
+                "emergency-logi-app"
+            ],
+            "usedInExperience": [],
+            "details": {
+                "level": 60,
+                "years": "2024-2024",
+                "description": "Открытая картографическая платформа. Интеграция карт в веб-приложения, работа с геоданными."
+            }
+        },
+        {
+            "id": "mvc",
+            "name": "MVC",
+            "categories": [
+                "Архитектура & Сообщения"
+            ],
+            "color": "#ff6a00",
+            "tooltip": "Паттерн проектирования",
+            "icon": "fa-solid fa-puzzle-piece",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": false,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": false
+            },
+            "usedInProjects": [
+                "blacklist-pvz",
+                "php-forum",
+                "emergency-logi-app",
+                "faq-uni"
+            ],
+            "usedInExperience": [
+                "comfortsoft",
+                "BLpvz"
+            ],
+            "details": {
+                "level": 75,
+                "years": "2021",
+                "description": "Model-View-Controller паттерн. Разделение логики, представления и данных."
+            }
+        },
+        {
+            "id": "prometheus",
+            "name": "Prometheus",
+            "categories": [
+                "Инструменты & Мониторинг"
+            ],
+            "color": "#e6522c",
+            "tooltip": "Мониторинг метрик",
+            "icon": "fa-solid fa-chart-line",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 30,
+                "years": "2025",
+                "description": "Система мониторинга и алертинга. Сбор метрик, интеграция с Grafana."
+            }
+        },
+        {
+            "id": "grafana",
+            "name": "Grafana",
+            "categories": [
+                "Инструменты & Мониторинг"
+            ],
+            "color": "#f46800",
+            "tooltip": "Визуализация дашбордов",
+            "icon": "fa-solid fa-chart-area",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "blacklist-pvz"
+            ],
+            "usedInExperience": [
+                "BLpvz"
+            ],
+            "details": {
+                "level": 30,
+                "years": "2025",
+                "description": "Платформа визуализации. Дашборды, графики. Интеграция с Prometheus и другими источниками данных."
+            }
+        },
+        {
+            "id": "mqtt",
+            "name": "MQTT",
+            "categories": [
+                "Архитектура & Сообщения"
+            ],
+            "color": "#2D9CDB",
+            "tooltip": "Протокол обмена сообщениями",
+            "icon": "fa-solid fa-network-wired",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": false,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [],
+            "details": {
+                "level": 30,
+                "years": "2025",
+                "description": "Легковесный протокол обмена сообщениями для IoT и микросервисов. Pub/sub модель, QoS уровни, сохранение сессий, retain-сообщения."
+            }
+        },
+        {
+            "id": "EMQX",
+            "name": "EMQX",
+            "categories": [
+                "Архитектура & Сообщения"
+            ],
+            "color": "#f46800",
+            "tooltip": "MQTT брокер",
+            "icon": "fa-solid fa-server",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [],
+            "details": {
+                "level": 30,
+                "years": "2025",
+                "description": "Масштабируемый MQTT брокер для IoT устройств. Обработка миллионов подключений, кластеризация, интеграция с базами данных и message brokers."
+            }
+        },
+        {
+            "id": "ClickHouse",
+            "name": "ClickHouse",
+            "categories": [
+                "Базы данных"
+            ],
+            "color": "#FFCC01",
+            "tooltip": "Аналитическая база данных",
+            "icon": "fa-solid fa-database",
+            "flags": {
+                "hasExperience": false,
+                "isHidden": false,
+                "isLearning": false,
+                "learningDescription": "",
+                "showLevel": true,
+                "isImportantForProjects": false,
+                "isProgrammingLanguage": false,
+                "isMainStack": false,
+                "showInStats": true
+            },
+            "usedInProjects": [
+                "UAV_dispatcher_navigation"
+            ],
+            "usedInExperience": [],
+            "details": {
+                "level": 30,
+                "years": "2025",
+                "description": "Column-oriented база данных для аналитики и мониторинга. Высокая скорость обработки запросов к большим объёмам данных, сжатие, векторные вычисления."
+            }
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+<div class="section-divider"></div>
+<!-- Контакты -->
+<section class="contact-section glass-card animate-on-scroll" id="contact">
+
+
+    <div class="contact-content">
+        <i class="{{ site.data.contacts.cta.icon }} contact-icon"></i>
+        <h3>{{ site.data.contacts.cta.title }}</h3>
+        <p>{{ site.data.contacts.cta.subtitle }}</p>
+
+        <div class="contact-email-wrapper">
+            <a href="mailto:{{ site.data.contacts.resume.email }}" class="contact-email">
+                <i class="fas fa-envelope"></i> {{ site.data.contacts.resume.email }}
+            </a>
+
+            <button class="copy-btn-large" onclick="copyEmail()" title="Копировать почту">
+                <i class="fas fa-copy"></i>
+            </button>
+        </div>
+    </div>
+</section>

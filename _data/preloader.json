@@ -1,0 +1,30 @@
+{
+    "timing": {
+        "minDisplayTime": 1200,
+        "exitDelay": 600,
+        "exitDuration": 800,
+        "letterAnimationDelay": 50,
+        "progressBarDuration": 1200,
+        "reserveTimeout": 5000
+    },
+    "text": {
+        "brandText": "SkyWireNEO",
+        "loadingText": "Загрузка",
+        "dotsAnimation": true,
+        "dotsSpeed": 1500
+    },
+    "appearance": {
+        "showProgressBar": true,
+        "showPageName": false,
+        "showLoadingText": true,
+        "gradientColors": {
+            "start": "#3b82f6",
+            "end": "#0d9488"
+        }
+    },
+    "animation": {
+        "fadeOutDuration": 600,
+        "exitScale": 1.05,
+        "letterAppearDuration": 400
+    }
+}
