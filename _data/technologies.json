@@ -45,6 +45,7 @@
                 "showInStats": true
             },
             "usedInProjects": [
+                "blacklist-pvz2",
                 "blacklist-pvz",
                 "emergency-logi-app",
                 "faq-uni"
@@ -82,6 +83,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "other-projects"
             ],
             "usedInExperience": [
@@ -113,7 +115,7 @@
                 "isHidden": false,
                 "isLearning": false,
                 "learningDescription": "",
-                "showLevel": true,
+                "showLevel": false,
                 "isImportantForProjects": true,
                 "isProgrammingLanguage": false,
                 "isMainStack": true,
@@ -121,6 +123,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "emergency-logi-app",
                 "faq-uni",
                 "UAV_dispatcher_navigation"
@@ -149,7 +152,7 @@
                 "isHidden": false,
                 "isLearning": false,
                 "learningDescription": "",
-                "showLevel": true,
+                "showLevel": false,
                 "isImportantForProjects": false,
                 "isProgrammingLanguage": false,
                 "isMainStack": false,
@@ -180,7 +183,7 @@
                 "isHidden": false,
                 "isLearning": false,
                 "learningDescription": "",
-                "showLevel": true,
+                "showLevel": false,
                 "isImportantForProjects": false,
                 "isProgrammingLanguage": false,
                 "isMainStack": false,
@@ -208,7 +211,7 @@
                 "isHidden": false,
                 "isLearning": false,
                 "learningDescription": "",
-                "showLevel": true,
+                "showLevel": false,
                 "isImportantForProjects": false,
                 "isProgrammingLanguage": false,
                 "isMainStack": false,
@@ -216,6 +219,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "UAV_dispatcher_navigation"
             ],
             "usedInExperience": [
@@ -223,7 +227,7 @@
                 "BLpvz"
             ],
             "details": {
-                "level": 65,
+                "level": 75,
                 "years": "2024",
                 "description": "Кеширование данных."
             }
@@ -242,20 +246,22 @@
                 "isHidden": false,
                 "isLearning": false,
                 "learningDescription": "",
-                "showLevel": true,
+                "showLevel": false,
                 "isImportantForProjects": false,
                 "isProgrammingLanguage": false,
                 "isMainStack": false,
                 "showInStats": true
             },
             "usedInProjects": [
+                "blacklist-pvz2",
                 "other-projects"
             ],
             "usedInExperience": [
-                "comfortsoft"
+                "comfortsoft",
+                "BLpvz"
             ],
             "details": {
-                "level": 85,
+                "level": 90,
                 "years": "2021",
                 "description": "Легковесная встраиваемая БД. Идеальна для дополнительный обслуживающих и менее значимых данных в сервисах с python."
             }
@@ -282,6 +288,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "emergency-logi-app",
                 "faq-uni",
                 "php-forum",
@@ -320,6 +327,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "emergency-logi-app",
                 "faq-uni",
                 "php-forum",
@@ -356,13 +364,14 @@
                 "showInStats": false
             },
             "usedInProjects": [
+                "blacklist-pvz2",
                 "blacklist-pvz"
             ],
             "usedInExperience": [
                 "BLpvz"
             ],
             "details": {
-                "level": 70,
+                "level": 80,
                 "years": "2023",
                 "description": "Распределённая архитектура."
             }
@@ -381,7 +390,7 @@
                 "isHidden": false,
                 "isLearning": false,
                 "learningDescription": "",
-                "showLevel": true,
+                "showLevel": false,
                 "isImportantForProjects": false,
                 "isProgrammingLanguage": false,
                 "isMainStack": false,
@@ -413,7 +422,7 @@
                 "isHidden": false,
                 "isLearning": false,
                 "learningDescription": "",
-                "showLevel": true,
+                "showLevel": false,
                 "isImportantForProjects": false,
                 "isProgrammingLanguage": false,
                 "isMainStack": false,
@@ -448,6 +457,7 @@
                 "showInStats": true
             },
             "usedInProjects": [
+                "blacklist-pvz2",
                 "blacklist-pvz"
             ],
             "usedInExperience": [
@@ -481,6 +491,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "emergency-logi-app",
                 "faq-uni",
                 "php-forum",
@@ -519,13 +530,14 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "faq-uni"
             ],
             "usedInExperience": [
                 "BLpvz"
             ],
             "details": {
-                "level": 70,
+                "level": 80,
                 "years": "2023",
                 "description": "Real-time коммуникации, чаты, live-обновления."
             }
@@ -551,6 +563,7 @@
                 "showInStats": true
             },
             "usedInProjects": [
+                "blacklist-pvz2",
                 "blacklist-pvz"
             ],
             "usedInExperience": [
@@ -584,6 +597,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "php-forum",
                 "other-projects",
                 "UAV_dispatcher_navigation"
@@ -592,7 +606,7 @@
                 "BLpvz"
             ],
             "details": {
-                "level": 65,
+                "level": 75,
                 "years": "2020",
                 "description": "Контейнеризация приложений, написание Dockerfile. Оптимизация образов, multi-stage builds."
             }
@@ -619,6 +633,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "php-forum",
                 "other-projects",
                 "UAV_dispatcher_navigation"
@@ -674,7 +689,7 @@
                 "isHidden": false,
                 "isLearning": false,
                 "learningDescription": "",
-                "showLevel": true,
+                "showLevel": false,
                 "isImportantForProjects": false,
                 "isProgrammingLanguage": false,
                 "isMainStack": false,
@@ -682,6 +697,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "emergency-logi-app"
             ],
             "usedInExperience": [
@@ -716,6 +732,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "other-projects"
             ],
             "usedInExperience": [
@@ -750,6 +767,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "php-forum"
             ],
             "usedInExperience": [
@@ -783,6 +801,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "emergency-logi-app",
                 "faq-uni",
                 "php-forum",
@@ -821,6 +840,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "emergency-logi-app",
                 "faq-uni",
                 "php-forum",
@@ -846,7 +866,7 @@
             "tooltip": "Платформа для кода",
             "icon": "fa-brands fa-gitlab",
             "flags": {
-                "hasExperience": false,
+                "hasExperience": true,
                 "isHidden": false,
                 "isLearning": false,
                 "learningDescription": "",
@@ -888,6 +908,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "emergency-logi-app",
                 "faq-uni",
                 "php-forum",
@@ -926,6 +947,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "emergency-logi-app",
                 "faq-uni",
                 "php-forum",
@@ -952,7 +974,7 @@
             "tooltip": "API документация",
             "icon": "fa-solid fa-book-open",
             "flags": {
-                "hasExperience": false,
+                "hasExperience": true,
                 "isHidden": false,
                 "isLearning": false,
                 "learningDescription": "",
@@ -994,6 +1016,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "emergency-logi-app",
                 "faq-uni"
             ],
@@ -1028,6 +1051,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "emergency-logi-app",
                 "faq-uni",
                 "php-forum",
@@ -1065,6 +1089,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "emergency-logi-app",
                 "faq-uni",
                 "php-forum",
@@ -1094,7 +1119,7 @@
                 "isHidden": false,
                 "isLearning": false,
                 "learningDescription": "",
-                "showLevel": true,
+                "showLevel": false,
                 "isImportantForProjects": false,
                 "isProgrammingLanguage": false,
                 "isMainStack": false,
@@ -1233,13 +1258,14 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "UAV_dispatcher_navigation"
             ],
             "usedInExperience": [
                 "BLpvz"
             ],
             "details": {
-                "level": 35,
+                "level": 65,
                 "years": "2025",
                 "description": "В процессе изучения. Concurrency, goroutines, channels. Практика на pet-проектах и реализация некоторых микросервисов в продакшене."
             }
@@ -1266,6 +1292,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "emergency-logi-app",
                 "faq-uni",
                 "php-forum",
@@ -1363,6 +1390,7 @@
             },
             "usedInProjects": [
                 "blacklist-pvz",
+                "blacklist-pvz2",
                 "php-forum",
                 "emergency-logi-app",
                 "faq-uni"
@@ -1391,7 +1419,7 @@
                 "isHidden": false,
                 "isLearning": false,
                 "learningDescription": "",
-                "showLevel": true,
+                "showLevel": false,
                 "isImportantForProjects": false,
                 "isProgrammingLanguage": false,
                 "isMainStack": false,
@@ -1423,13 +1451,14 @@
                 "isHidden": false,
                 "isLearning": false,
                 "learningDescription": "",
-                "showLevel": true,
+                "showLevel": false,
                 "isImportantForProjects": false,
                 "isProgrammingLanguage": false,
                 "isMainStack": false,
                 "showInStats": true
             },
             "usedInProjects": [
+                "blacklist-pvz2",
                 "blacklist-pvz"
             ],
             "usedInExperience": [
@@ -1451,7 +1480,7 @@
             "tooltip": "Протокол обмена сообщениями",
             "icon": "fa-solid fa-network-wired",
             "flags": {
-                "hasExperience": false,
+                "hasExperience": true,
                 "isHidden": false,
                 "isLearning": false,
                 "learningDescription": "",
@@ -1481,11 +1510,11 @@
             "tooltip": "MQTT брокер",
             "icon": "fa-solid fa-server",
             "flags": {
-                "hasExperience": false,
+                "hasExperience": true,
                 "isHidden": false,
                 "isLearning": false,
                 "learningDescription": "",
-                "showLevel": true,
+                "showLevel": false,
                 "isImportantForProjects": false,
                 "isProgrammingLanguage": false,
                 "isMainStack": false,
@@ -1515,7 +1544,7 @@
                 "isHidden": false,
                 "isLearning": false,
                 "learningDescription": "",
-                "showLevel": true,
+                "showLevel": false,
                 "isImportantForProjects": false,
                 "isProgrammingLanguage": false,
                 "isMainStack": false,

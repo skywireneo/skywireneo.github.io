@@ -1,7 +1,7 @@
 {
     "settings": {
         "workStart": 9,
-        "workEnd": 19,
+        "workEnd": 20,
         "timeZone": "Europe/Moscow",
         "updateInterval": 60000
     },
