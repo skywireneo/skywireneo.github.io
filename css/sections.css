@@ -1,0 +1,1478 @@
+/* Header gradient background */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(59, 130, 246, 0.1) 50%, rgba(13, 148, 136, 0.05) 100%);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+/* Header controls container for theme and status buttons */
+.header-controls {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: static;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* Status toggle button */
+.status-toggle {
+    position: static;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-toggle:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+.personal-info {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.status {
+    display: inline-block;
+    background: rgba(37, 99, 235, 0.15);
+    color: var(--primary);
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+/* Status variants with dynamic colors */
+.status-open,
+.status-searching {
+    background: rgba(34, 197, 94, 0.15);
+    color: var(--status-open);
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+.status-considering {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--status-considering);
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.status-busy {
+    background: rgba(249, 115, 22, 0.15);
+    color: var(--status-busy);
+    border-color: rgba(249, 115, 22, 0.3);
+}
+
+.status-not-looking {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--status-not-looking);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.status-vacation {
+    background: rgba(107, 114, 128, 0.15);
+    color: var(--status-vacation);
+    border-color: rgba(107, 114, 128, 0.3);
+}
+
+
+.contacts {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.contact-link:hover {
+    color: var(--primary);
+}
+
+/* Section heading icons */
+h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+    position: relative;
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+h2 i {
+    color: var(--accent);
+    font-size: 1.3rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+/* About section */
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.about-list li {
+    display: flex;
+    gap: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.about-list li i {
+    color: var(--primary);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+/* Tech grid */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tech-category {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: var(--transition);
+    border: 1px solid var(--border);
+}
+
+.tech-category:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.tech-category h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--text);
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tag:hover {
+    background: var(--primary);
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Experience section */
+.experience-item {
+    margin-bottom: 1.5rem;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--card-bg);
+}
+
+.experience-item:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Experience content - improved spacing and readability */
+.experience-content {
+    background: var(--bg);
+    padding: 1.5rem;
+    border-radius: 0 0 var(--radius) var(--radius);
+    margin-top: 0;
+    max-height: 5000px;
+    transition: max-height 0.2s ease-out, padding 0.2s ease-out;
+    overflow: hidden;
+    display: block;
+}
+
+.experience-content.collapsed {
+    padding: 0;
+    max-height: 0;
+}
+
+.experience-content .case-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Tech section headers - cards with icons */
+.case-list .subheader {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 1.5rem 0 0.75rem 0;
+    padding: 0.6rem 1rem;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border-left: 3px solid var(--accent);
+}
+
+.case-list .subheader:first-child {
+    margin-top: 0;
+}
+
+.case-list .subheader i {
+    font-size: 1rem;
+    color: var(--accent);
+}
+
+/* Achievement items - improved readability */
+.case-list li:not(.subheader):not(.divider) {
+    position: relative;
+    padding: 0.6rem 0 0.6rem 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text);
+    transition: var(--transition);
+    border-radius: 4px;
+}
+
+.case-list li:not(.subheader):not(.divider)::before {
+    content: "•";
+    position: absolute;
+    left: 0.5rem;
+    top: 0.6rem;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.case-list li:not(.subheader):not(.divider):hover {
+    background: rgba(13, 148, 136, 0.05);
+    padding-left: 1.6rem;
+}
+
+/* Divider between sections - visible line */
+.case-list .divider {
+    display: block;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 1rem 0;
+    border: none;
+    list-style: none;
+}
+
+/* Metric highlighting - badge style */
+.case-list .metric {
+    color: var(--accent);
+    font-weight: 700;
+    background: rgba(13, 148, 136, 0.1);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .experience-content {
+        padding: 1rem;
+    }
+
+    .case-list .subheader {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .case-list li:not(.subheader):not(.divider) {
+        padding: 0.5rem 0 0.5rem 1.25rem;
+        font-size: 0.9rem;
+        line-height: 1.55;
+    }
+
+    .case-list li:not(.subheader):not(.divider)::before {
+        left: 0.35rem;
+        top: 0.5rem;
+    }
+}
+
+
+
+
+.tech-category.experience {
+    background: transparent;
+    border: 1px dashed var(--border);
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin-top: 2rem;
+}
+
+.tech-category.experience h3 {
+    color: var(--text-muted);
+}
+
+/* Education section - clean minimal design */
+#education .experience-item {
+    background: transparent;
+    border: none;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+}
+
+#education .experience-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+#education .period {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+#education h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+
+#education p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0.35rem;
+    line-height: 1.6;
+}
+
+#education a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+#education a:hover {
+    text-decoration: underline;
+}
+
+/* Contact section - gradient background */
+.contact-section {
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.15) 0%, rgba(59, 130, 246, 0.15) 50%, rgba(13, 148, 136, 0.1) 100%);
+    border-radius: var(--radius);
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    border: 1px solid rgba(13, 148, 136, 0.2);
+}
+
+.contact-content {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.contact-section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+
+.contact-section p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.contact-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--card-bg);
+    color: var(--text);
+    padding: 0.9rem 1.8rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact-email:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.3);
+}
+
+
+/* Header email with copy button */
+.email-with-copy {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(13, 148, 136, 0.1);
+    border: 1px solid rgba(13, 148, 136, 0.3);
+    padding: 0.35rem 0.35rem 0.35rem 1rem;
+    border-radius: 999px;
+    transition: var(--transition);
+}
+
+.email-with-copy:hover {
+    background: rgba(13, 148, 136, 0.15);
+    border-color: rgba(13, 148, 136, 0.5);
+}
+
+.email-highlight {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.email-highlight:hover {
+    color: var(--accent);
+}
+
+.copy-email-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.copy-email-btn:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* Resume button in header */
+.resume-btn {
+    background: var(--accent);
+    color: #fff !important;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    margin-left: 1rem;
+    border: 1px solid var(--accent);
+    transition: var(--transition);
+}
+
+.resume-btn:hover {
+    background: transparent;
+    color: var(--accent) !important;
+}
+
+/* Contact section email wrapper */
+.contact-email-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.copy-btn-large {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.copy-btn-large:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.3);
+}
+
+
+/* Sticky nav email */
+.nav-email {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    transition: var(--transition);
+    margin-left: 1rem;
+}
+
+.nav-email:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.nav-email i {
+    font-size: 0.8rem;
+}
+
+
+/* Footer */
+.footer {
+    margin-top: 3rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.footer-copyright {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 1rem;
+}
+
+.footer-tag {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.footer-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    color: var(--text-light);
+    text-decoration: none;
+    transition: var(--transition);
+    border: 1px solid var(--border);
+}
+
+.footer-links a:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.footer-update {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Fix: Experience section mobile animation */
+@media (max-width: 768px) {
+    #experience {
+        min-height: 100vh;
+        opacity: 0;
+    }
+
+    #experience.visible {
+        opacity: 1;
+        transition: opacity 0.6s ease-out;
+    }
+}
+
+/* ============================================
+   TECH TAGS - Skill level visual differentiation
+   ============================================ */
+
+/* Base tech-tag border style per level */
+section#tech .tech-grid .tech-category .tech-tags .tech-tag.level-expert {
+    border-color: rgba(20, 184, 166, 0.5);
+    background: rgba(20, 184, 166, 0.07);
+}
+
+section#tech .tech-grid .tech-category .tech-tags .tech-tag.level-advanced {
+    border-color: rgba(96, 165, 250, 0.5);
+    background: rgba(96, 165, 250, 0.07);
+}
+
+section#tech .tech-grid .tech-category .tech-tags .tech-tag.level-intermediate {
+    border-color: rgba(167, 139, 250, 0.5);
+    background: rgba(167, 139, 250, 0.07);
+}
+
+section#tech .tech-grid .tech-category .tech-tags .tech-tag.level-beginner {
+    border-color: rgba(156, 163, 175, 0.45);
+    background: rgba(156, 163, 175, 0.06);
+}
+
+/* Past experience - muted look */
+section#tech .tech-grid .tech-category.experience .tech-tags .tech-tag.level-past {
+    border-color: rgba(239, 68, 68, 0.35);
+    background: rgba(239, 68, 68, 0.06);
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+/* In learning */
+section#tech .tech-grid .tech-category.experience .tech-tags .tech-tag.level-learning {
+    border-color: rgba(59, 130, 246, 0.45);
+    background: rgba(59, 130, 246, 0.07);
+}
+
+/* No level shown — architecture, tools, etc. */
+section#tech .tech-grid .tech-category .tech-tags .tech-tag.level-info {
+    border-color: rgba(139, 148, 158, 0.35);
+    background: rgba(139, 148, 158, 0.06);
+    color: var(--text-muted);
+}
+
+#tech .tech-tag.level-info::before {
+    opacity: 1 !important;
+}
+
+/* Hover behavior - all levels */
+.tech-tag:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tech-tag.level-past:hover {
+    opacity: 1;
+}
+
+/* ============================================
+   TECH LEGEND - Skill level color guide
+   ============================================ */
+
+.tech-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+}
+
+.tech-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.tech-legend-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.tech-legend-dot.level-exp {
+    background: #14b8a6;
+    box-shadow: 0 0 4px rgba(20, 184, 166, 0.4);
+}
+
+.tech-legend-dot.level-adv {
+    background: #60a5fa;
+    box-shadow: 0 0 4px rgba(96, 165, 250, 0.4);
+}
+
+.tech-legend-dot.level-int {
+    background: #a78bfa;
+    box-shadow: 0 0 4px rgba(167, 139, 250, 0.4);
+}
+
+.tech-legend-dot.level-beg {
+    background: #9ca3af;
+    box-shadow: 0 0 4px rgba(156, 163, 175, 0.3);
+}
+
+.tech-legend-dot.level-past {
+    background: #ef4444;
+    box-shadow: 0 0 4px rgba(239, 68, 68, 0.3);
+}
+
+.tech-legend-dot.level-learn {
+    background: #3b82f6;
+    box-shadow: 0 0 4px rgba(59, 130, 246, 0.4);
+}
+
+.tech-legend-dot.level-info {
+    background: #9ca3af;
+    box-shadow: 0 0 4px rgba(156, 163, 175, 0.3);
+    border: 1px dashed rgba(156, 163, 175, 0.6);
+}
+
+/* Tech legend responsive */
+@media (max-width: 768px) {
+    .tech-legend {
+        gap: 0.6rem 1rem;
+    }
+
+    .tech-legend-item {
+        font-size: 0.75rem;
+    }
+}
+
+/* ============================================
+   STATS COUNTERS - Счётчики статистики
+   ============================================ */
+
+/* Tabs container */
+.achievements-tabs {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+}
+
+.achievements-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.achievements-tab i {
+    font-size: 1rem;
+    color: var(--accent);
+}
+
+.achievements-tab:hover {
+    background: rgba(13, 148, 136, 0.1);
+    border-color: var(--accent);
+    color: var(--text);
+}
+
+.achievements-tab.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.achievements-tab.active i {
+    color: #fff;
+}
+
+.achievements-tab-count {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.achievements-tab:not(.active) .achievements-tab-count {
+    background: var(--border);
+    color: var(--text-muted);
+}
+
+/* Content container */
+.achievements-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Анимация переключения контента */
+.achievements-content-exit {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+.achievements-content-enter {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: achievementsContentEnter 0.3s ease forwards;
+}
+
+@keyframes achievementsContentEnter {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Анимация для отдельных элементов */
+.achievement-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: achievementItemEnter 0.4s ease forwards;
+}
+
+@keyframes achievementItemEnter {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation для элементов */
+.achievement-item:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.achievement-item:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.achievement-item:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.achievement-item:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.achievement-item:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.achievement-item:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+.achievement-item:nth-child(7) {
+    animation-delay: 0.35s;
+}
+
+.achievement-item:nth-child(8) {
+    animation-delay: 0.4s;
+}
+
+.achievement-item:nth-child(9) {
+    animation-delay: 0.45s;
+}
+
+.achievement-item:nth-child(10) {
+    animation-delay: 0.5s;
+}
+
+/* Achievement item */
+.achievement-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.achievement-item:hover {
+    border-color: rgba(13, 148, 136, 0.4);
+    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.15);
+    transform: translateY(-2px);
+}
+
+.achievement-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.achievement-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    flex: 1;
+}
+
+.achievement-role {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Meta info (publication, event) */
+.achievement-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.achievement-publication,
+.achievement-event {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    background: var(--card-bg);
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+.achievement-publication i,
+.achievement-event i {
+    color: var(--accent);
+    font-size: 0.8rem;
+}
+
+/* Location */
+.achievement-location {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.achievement-location i {
+    color: var(--primary);
+}
+
+/* Date */
+.achievement-date {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.achievement-date i {
+    color: var(--accent);
+}
+
+/* Description */
+.achievement-description {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0.75rem 0;
+}
+
+/* Images button */
+.achievement-images {
+    margin: 1rem 0;
+}
+
+.achievement-gallery-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-light);
+    padding: 0.6rem 1rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.achievement-gallery-btn i {
+    color: var(--accent);
+}
+
+.achievement-gallery-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+/* Co-authors */
+.achievement-coauthors {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin: 0.75rem 0;
+    padding: 0.5rem 0.75rem;
+    background: var(--card-bg);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+.achievement-coauthors i {
+    color: var(--primary);
+    font-size: 0.8rem;
+}
+
+/* Tags */
+.achievement-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.75rem 0;
+}
+
+.achievement-tag {
+    background: rgba(13, 148, 136, 0.1);
+    color: var(--accent);
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(13, 148, 136, 0.2);
+    transition: var(--transition);
+}
+
+.achievement-tag:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+/* Featured badge */
+.achievement-featured {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fbbf24;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    animation: pulse-star 2s infinite;
+}
+
+@keyframes pulse-star {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 0.8;
+    }
+}
+
+/* Organizer */
+.achievement-organizer {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    padding: 0.4rem 0.75rem;
+    background: var(--card-bg);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+.achievement-organizer i {
+    color: var(--primary);
+    font-size: 0.8rem;
+}
+
+/* Issuer */
+.achievement-issuer {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    padding: 0.4rem 0.75rem;
+    background: var(--card-bg);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+.achievement-issuer i {
+    color: var(--accent);
+    font-size: 0.8rem;
+}
+
+/* Credential ID */
+.achievement-credential {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    padding: 0.35rem 0.65rem;
+    background: rgba(100, 116, 139, 0.1);
+    border-radius: 6px;
+    border: 1px solid rgba(100, 116, 139, 0.2);
+    font-family: monospace;
+}
+
+.achievement-credential i {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+/* Link */
+.achievement-link {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.achievement-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.achievement-link a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+/* Achievement Gallery Modal */
+#achievementGallery {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(0px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+#achievementGallery.active {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    opacity: 1;
+    visibility: visible;
+}
+
+#achievementGallery .modal-content {
+    max-width: 900px;
+    width: 90%;
+}
+
+.achievement-gallery-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.achievement-gallery-main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    background: var(--bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+#achievementMainImage {
+    max-width: 100%;
+    max-height: 50vh;
+    object-fit: contain;
+    border-radius: var(--radius);
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.gallery-nav:hover {
+    background: var(--accent);
+}
+
+.gallery-nav.prev {
+    left: 1rem;
+}
+
+.gallery-nav.next {
+    right: 1rem;
+}
+
+.achievement-gallery-thumbs {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) var(--bg);
+}
+
+.achievement-gallery-thumbs::-webkit-scrollbar {
+    height: 6px;
+}
+
+.achievement-gallery-thumbs::-webkit-scrollbar-track {
+    background: var(--bg);
+    border-radius: 3px;
+}
+
+.achievement-gallery-thumbs::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
+
+.achievement-thumb {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    flex-shrink: 0;
+}
+
+.achievement-thumb:hover {
+    opacity: 0.9;
+}
+
+.achievement-thumb.active {
+    opacity: 1;
+    border-color: var(--accent);
+}
+
+.achievement-image-info {
+    text-align: center;
+    padding: 0.75rem;
+    background: var(--bg);
+    border-radius: var(--radius);
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.achievement-image-info strong {
+    color: var(--text);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .achievements-tabs {
+        gap: 0.5rem;
+    }
+
+    .achievements-tab {
+        padding: 0.5rem 0.85rem;
+        font-size: 0.85rem;
+    }
+
+    .achievements-tab span:not(.achievements-tab-count) {
+        display: none;
+    }
+
+    .achievement-item {
+        padding: 1rem;
+    }
+
+    .achievement-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .achievement-role {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    .achievement-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .achievement-coauthors,
+    .achievement-organizer,
+    .achievement-issuer {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.65rem;
+    }
+
+    .achievement-tags {
+        gap: 0.4rem;
+    }
+
+    .achievement-tag {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    /* Отключаем stagger на мобильных для производительности */
+    .achievement-item {
+        animation-duration: 0.25s;
+    }
+
+    #achievementGallery .modal-content {
+        max-width: 95%;
+        padding: 1.25rem;
+    }
+
+    .gallery-nav {
+        padding: 0.5rem 0.75rem;
+        font-size: 1.2rem;
+    }
+
+    .achievement-thumb {
+        width: 70px;
+        height: 50px;
+    }
+}

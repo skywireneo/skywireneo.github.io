@@ -1,0 +1,98 @@
+/* April Fools Theme - 1 апреля */
+/* Анимации для шуточной тематики */
+
+@keyframes clownBounce {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-20px) scale(1.1) rotate(-10deg);
+    }
+
+    50% {
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+
+    75% {
+        transform: translateY(-10px) scale(1.05) rotate(10deg);
+    }
+}
+
+@keyframes bubbleFloat {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes rotateElement {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Стили для баннера */
+.april-fools-banner {
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.2), rgba(236, 72, 153, 0.2)) !important;
+    border: 1px solid rgba(234, 179, 8, 0.4) !important;
+    color: #facc15 !important;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(234, 179, 8, 0.3);
+    animation: bannerWiggle 4s ease-in-out infinite;
+}
+
+@keyframes bannerWiggle {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(1deg);
+    }
+
+    75% {
+        transform: rotate(-1deg);
+    }
+}

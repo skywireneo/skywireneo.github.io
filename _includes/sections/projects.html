@@ -1,0 +1,128 @@
+<div class="section-divider"></div>
+<!-- Личные проекты -->
+<section class="card glass-card animate-on-scroll" id="projects">
+
+    <h2><i class="fas fa-rocket"></i>Личные проекты</h2>
+
+    <div class="project-filters" id="projectFilters">
+        <button class="filter-btn active" data-filter="all">Все</button>
+        {% assign important_techs = site.data.technologies.technologies | where: "flags.isImportantForProjects", true %}
+        {% for tech in important_techs %}
+        <button class="filter-btn" data-filter="{{ tech.id }}">{{ tech.name }}</button>
+        {% endfor %}
+        <div class="filter-mode">
+            <span>Режим:</span>
+            <button class="filter-mode-toggle" id="filterModeToggle">Хотя бы одна</button>
+        </div>
+    </div>
+
+    {% assign projects = site.data.projects.projects %}
+    {% assign hidden_project_id = site.data.projects.hiddenProject.id %}
+
+    {% for project in projects %}
+    {% comment %} Найти технологии для этого проекта {% endcomment %}
+    {% assign project_techs = "" | split: "" %}
+    {% for tech in site.data.technologies.technologies %}
+    {% if tech.usedInProjects contains project.id %}
+    {% assign project_techs = project_techs | push: tech %}
+    {% endif %}
+    {% endfor %}
+
+    <div class="project-card" data-tech="{{ project_techs | map: 'id' | join: ' ' }}" data-title="{{ project.title }}"
+        data-description="{{ project.description }}" data-url="{{ project.url }}">
+        <div class="project-header">
+            <span class="project-year">{{ project.year }}</span>
+            <div class="project-title-section">
+                <h3>{{ project.title }}</h3>
+                {% if project.status == "in-progress" %}
+                <span class="project-status in-progress">В разработке</span>
+                {% elsif project.status == "stopped" %}
+                <span class="project-status stopped">Остановлен</span>
+                {% else %}
+                <span class="project-status completed">Завершён</span>
+                {% endif %}
+            </div>
+            <div class="project-header-links">
+                {%- assign hasGithub = false -%}
+                {%- if project.url != nil and project.url != "" -%}
+                {%- assign hasGithub = true -%}
+                {%- endif -%}
+
+                {%- assign hasGitlab = false -%}
+                {%- if project.gitlab != nil and project.gitlab != "" -%}
+                {%- assign hasGitlab = true -%}
+                {%- endif -%}
+
+                <!-- <a href="/projects/{{ project.id }}/" class="project-link github" aria-label="Подробнее">
+                    <i class="fas fa-eye"></i> Подробнее
+                </a> -->
+
+                {% if hasGithub %}
+                <a href="{{ project.url }}" target="_blank" class="project-link github">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                {% endif %}
+
+                {% if hasGitlab %}
+                <a href="{{ project.gitlab }}" target="_blank" class="project-link github">
+                    <i class="fab fa-gitlab"></i> GitLab
+                </a>
+                {% endif %}
+
+                {% if hasGithub == false and hasGitlab == false %}
+                <span class="project-link project-disabled" aria-disabled="true">
+                    <i class="fas fa-lock"></i> Просмотр исходного кода недоступен
+                </span>
+                {% endif %}
+
+                {% if project.releases_url %}
+                <a href="{{ project.releases_url }}" target="_blank" class="project-link releases">
+                    <i class="fas fa-rocket"></i> Релизы
+                </a>
+                {% endif %}
+                <!-- <button class="project-share-btn" title="Поделиться проектом">
+                    <i class="fas fa-share-alt"></i>
+                </button> -->
+            </div>
+        </div>
+
+        <div class="project-content">
+            <div class="project-description">
+                {% for section in project.sections %}
+                <div class="project-section">
+                    <div class="project-section-title"><i class="fas {% case section.title %}{% when " О проекте"
+                            %}fa-info-circle{% when "Архитектура" %}fa-sitemap{% when "Инфраструктура" %}fa-server{%
+                            when "Особенности" %}fa-star{% else %}fa-info{% endcase %}"></i> {{ section.title }}</div>
+                    <p>{{ section.content }}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="project-tech">
+                {% for tech in project_techs %}
+                <span class="tech-tag" data-tech="{{ tech.id }}" style="--tech-color: {{ tech.color }}">{{ tech.name
+                    }}</span>
+                {% endfor %}
+            </div>
+
+            {% if project.screenshots %}
+            <div class="project-images-section">
+                <div class="project-images">
+                    {% for screenshot in project.screenshots %}
+                    <img loading="lazy" src="{{ screenshot.path }}" alt="{{ screenshot.title }}"
+                        data-title="{{ screenshot.title }}" data-desc="{{ screenshot.desc }}">
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- Сообщение когда ничего не найдено -->
+    <div class="no-projects-message"
+        style="display: none; text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
+        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+        <p style="font-size: 1.1rem; margin: 0;">По выбранным фильтрам ничего не найдено</p>
+    </div>
+</section>

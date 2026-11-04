@@ -1,0 +1,20 @@
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-main">
+            <span class="footer-copyright">© {{ 'now' | date: '%Y' }} {{ site.data.contacts.profile.name }} {{
+                site.data.contacts.profile.nickname }}</span>
+
+            <span class="footer-tag">{{ site.data.contacts.profile.tag }}</span>
+        </div>
+        <div class="footer-links">
+            {% assign primary_contacts = site.data.contacts.contacts | where: "isPrimary", true | sort: "order" %}
+            {% for contact in primary_contacts %}
+            <a href="{{ contact.url }}" target="_blank" title="{{ contact.title }}"><i
+                    class="{{ contact.icon }}"></i></a>
+            {% endfor %}
+        </div>
+
+        <p class="footer-update">Последнее обновление: {{ site.data.footer.updateDate }}</p>
+
+    </div>
+</footer>

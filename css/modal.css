@@ -1,0 +1,825 @@
+/* ============================================
+   MODAL ANIMATIONS - Smooth open/close
+   ============================================ */
+
+/* Resume modal */
+#resumeModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(0px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+#resumeModal.active {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 2rem;
+    max-width: 550px;
+    max-height: 90vh;
+    width: 90%;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    position: relative;
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) var(--bg);
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: var(--bg);
+    border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
+
+#resumeModal.active .modal-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Closing animation class */
+#resumeModal.closing .modal-content {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.98);
+}
+
+#resumeModal.closing {
+    opacity: 0;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.modal-header h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    line-height: 1;
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    color: var(--text);
+}
+
+.modal-body {
+    color: var(--text);
+    line-height: 1.7;
+}
+
+.modal-body p {
+    margin-bottom: 1rem;
+}
+
+.email-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.email-text {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 1rem;
+}
+
+.copy-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-light);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.copy-btn:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.copy-btn.copied {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.modal-btn {
+    flex: 1;
+    min-width: 140px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    text-decoration: none;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.modal-btn-primary {
+    background: var(--accent);
+    color: #fff;
+}
+
+.modal-btn-primary:hover {
+    background: #0f766e;
+}
+
+.modal-btn-secondary {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.modal-btn-secondary:hover {
+    background: var(--border);
+}
+
+/* ============================================
+   TECH MODAL - Same animations
+   ============================================ */
+
+#techModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(0px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Tech title layout - years below title */
+#techModalTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+}
+
+.tech-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+
+.tech-title-wrapper span {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.tech-years-info {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.25rem;
+}
+
+.tech-years-info i {
+    color: var(--accent);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.tech-years-info strong {
+    color: var(--text);
+}
+
+#techModal.active {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    opacity: 1;
+    visibility: visible;
+}
+
+#techModal .modal-content {
+    max-width: 550px;
+}
+
+#techModal.active .modal-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Closing animation for tech modal */
+#techModal.closing .modal-content {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.98);
+}
+
+#techModal.closing {
+    opacity: 0;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+}
+
+.tech-modal-progress {
+    margin-bottom: 1.5rem;
+}
+
+.tech-modal-projects {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.tech-modal-projects h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tech-modal-projects h4 i {
+    color: var(--accent);
+}
+
+.tech-modal-projects ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tech-modal-projects li {
+    padding: 0.4rem 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.tech-modal-projects li::before {
+    content: '•';
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* ============================================
+   TIME STATUS MODAL
+   ============================================ */
+
+#timeStatusModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(0px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+#timeStatusModal.active {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    opacity: 1;
+    visibility: visible;
+}
+
+#timeStatusModal .modal-content {
+    max-width: 500px;
+    width: 90%;
+}
+
+#timeStatusModal.active .modal-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+#timeStatusModal.closing .modal-content {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.98);
+}
+
+#timeStatusModal.closing {
+    opacity: 0;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+}
+
+/* Time status modal content styles */
+.time-status-section {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.current-time-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+}
+
+.current-time-display i {
+    color: var(--accent);
+    font-size: 1.5rem;
+}
+
+.time-zone-badge {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: var(--bg);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+}
+
+.availability-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    transition: background 0.3s ease;
+}
+
+.status-dot.online {
+    background: #4ade80;
+    animation: pulse-dot 2s infinite;
+}
+
+.status-dot.offline {
+    background: var(--text-muted);
+}
+
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(0.9);
+    }
+}
+
+/* Schedule section */
+.schedule-info {
+    margin-bottom: 1.5rem;
+}
+
+.schedule-info h4,
+.response-info h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.schedule-info h4 i,
+.response-info h4 i {
+    color: var(--accent);
+}
+
+.schedule-bar-container {
+    margin-bottom: 0.75rem;
+}
+
+.modal-schedule-bar {
+    position: relative;
+    height: 8px;
+    background: var(--bg);
+    border-radius: 4px;
+    overflow: visible;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+}
+
+.modal-schedule-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--primary));
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.modal-schedule-markers {
+    position: relative;
+    height: 20px;
+    margin-top: 8px;
+}
+
+.modal-marker {
+    position: absolute;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.schedule-note {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-align: center;
+    margin: 0;
+}
+
+/* Response info section */
+.response-info {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--bg);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.response-info p {
+    margin: 0 0 0.75rem 0;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.response-info p strong {
+    color: var(--accent);
+}
+
+.response-hint {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 1rem 0 0.5rem 0 !important;
+}
+
+.response-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.response-checklist li {
+    padding: 0.35rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.response-checklist li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Urgent note */
+.urgent-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: rgba(13, 148, 136, 0.1);
+    border-radius: var(--radius);
+    border-left: 3px solid var(--accent);
+}
+
+.urgent-note i {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-top: 0.1rem;
+}
+
+.urgent-note p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+
+/* ============================================
+   SHARE MODAL - Share project/site modal
+   ============================================ */
+
+#shareModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(0px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+#shareModal.active {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    opacity: 1;
+    visibility: visible;
+}
+
+#shareModal .modal-content {
+    max-width: 450px;
+    width: 90%;
+}
+
+#shareModal.active .modal-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Closing animation for share modal */
+#shareModal.closing .modal-content {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.98);
+}
+
+#shareModal.closing {
+    opacity: 0;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+}
+
+#shareModalText {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Share buttons grid */
+.share-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.share-btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.share-btn-social:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.share-btn-social i {
+    font-size: 1.1rem;
+}
+
+/* Platform specific colors on hover */
+.share-btn-social.telegram:hover {
+    background: #0088cc;
+    border-color: #0088cc;
+    color: #fff;
+}
+
+.share-btn-social.vk:hover {
+    background: #4a76a8;
+    border-color: #4a76a8;
+    color: #fff;
+}
+
+
+.share-btn-social.linkedin:hover {
+    background: #0077b5;
+    border-color: #0077b5;
+    color: #fff;
+}
+
+.share-btn-social.email:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+/* Copy link section */
+.share-copy-section {
+    margin-top: 1rem;
+}
+
+.share-link-box {
+    display: flex;
+    gap: 0.5rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.5rem;
+}
+
+.share-link-box input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+    outline: none;
+}
+
+.share-copy-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-light);
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.share-copy-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.share-copy-hint {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-top: 0.5rem;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.share-copy-hint.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   PROJECT SHARE BUTTON - Small share button in project cards
+   ============================================ */
+
+.project-share-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    transition: var(--transition);
+    margin-left: 0.5rem;
+    padding: 0;
+}
+
+.project-share-btn:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .share-buttons {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+
+    .share-btn-social {
+        padding: 0.6rem;
+    }
+
+    .share-btn-social span {
+        display: none;
+    }
+
+    .share-btn-social i {
+        font-size: 1.2rem;
+    }
+
+    #shareModal .modal-content {
+        max-width: 90%;
+    }
+}

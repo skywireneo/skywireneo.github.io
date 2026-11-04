@@ -1,0 +1,83 @@
+/* Knowledge Day Theme - 1 сентября */
+/* Анимации для школьной тематики */
+
+@keyframes appleBounce {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+@keyframes bookFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(var(--rotation, 0deg));
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(calc(var(--rotation, 0deg) + 3deg));
+    }
+}
+
+@keyframes pencilWiggle {
+
+    0%,
+    100% {
+        transform: rotate(var(--rotation, 0deg));
+    }
+
+    25% {
+        transform: rotate(calc(var(--rotation, 0deg) - 10deg));
+    }
+
+    75% {
+        transform: rotate(calc(var(--rotation, 0deg) + 10deg));
+    }
+}
+
+@keyframes leafFall {
+    0% {
+        transform: translateY(0) rotate(0deg) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    25% {
+        transform: translateY(25vh) rotate(90deg) translateX(20px);
+    }
+
+    50% {
+        transform: translateY(50vh) rotate(180deg) translateX(-20px);
+    }
+
+    75% {
+        transform: translateY(75vh) rotate(270deg) translateX(15px);
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg) translateX(0);
+        opacity: 0;
+    }
+}
+
+/* Стили для баннера */
+.knowledge-day-banner {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(139, 92, 246, 0.2)) !important;
+    border: 1px solid rgba(245, 158, 11, 0.4) !important;
+    color: #fbbf24 !important;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+}

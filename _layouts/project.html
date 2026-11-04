@@ -1,0 +1,128 @@
+﻿---
+layout: default
+---
+
+{% assign project_techs = site.data.technologies.technologies | where_exp: "tech", "tech.usedInProjects contains page.id" %}
+{% assign related_projects = site.data.projects.projects | where_exp: "p", "p.id != page.id" | limit: 3 %}
+
+<div class="project-page-wrapper">
+	<nav class="project-breadcrumbs">
+		<a href="/" class="breadcrumb-link"><i class="fas fa-home"></i> Главная</a>
+		<span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+		<a href="/#projects" class="breadcrumb-link">Проекты</a>
+		<span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+		<span class="breadcrumb-current">{{ page.title }}</span>
+	</nav>
+
+	<header class="project-page-header">
+		<div class="project-page-header-inner">
+			<div class="project-page-title-section">
+				<span class="project-page-year">{{ page.year }}</span>
+				<h1 class="project-page-title">{{ page.title }}</h1>
+				{% if page.description %}<p class="project-page-description">{{ page.description }}</p>{% endif %}
+				<div class="project-page-meta">
+					{% if page.status == "in-progress" %}<span class="project-page-status in-progress"><span class="status-dot"></span>В разработке</span>
+					{% elsif page.status == "stopped" %}<span class="project-page-status stopped"><span class="status-dot"></span>Остановлен</span>
+					{% else %}<span class="project-page-status completed"><span class="status-dot"></span>Завершён</span>{% endif %}
+					{% if page.role %}<span class="project-page-role"><i class="fas fa-user"></i> {{ page.role }}</span>{% endif %}
+					{% if page.team_size %}<span class="project-page-team"><i class="fas fa-users"></i> {{ page.team_size }}</span>{% endif %}
+					{% if page.duration %}<span class="project-page-duration"><i class="fas fa-clock"></i> {{ page.duration }}</span>{% endif %}
+				</div>
+			</div>
+			<div class="project-page-header-actions">
+				{% if page.url %}<a href="{{ page.url }}" target="_blank" class="project-page-btn github"><i class="fab fa-github"></i> GitHub</a>{% endif %}
+				{% if page.gitlab %}<a href="{{ page.gitlab }}" target="_blank" class="project-page-btn gitlab"><i class="fab fa-gitlab"></i> GitLab</a>{% endif %}
+				{% if page.demo_url %}<a href="{{ page.demo_url }}" target="_blank" class="project-page-btn demo"><i class="fas fa-external-link-alt"></i> Демо</a>{% endif %}
+				{% if page.docs_url %}<a href="{{ page.docs_url }}" target="_blank" class="project-page-btn docs"><i class="fas fa-book"></i> Документация</a>{% endif %}
+				<button class="project-page-btn share"><i class="fas fa-share-alt"></i> Поделиться</button>
+			</div>
+		</div>
+	</header>
+
+	{% if page.sections.size > 1 %}
+	<aside class="project-page-toc">
+		<h3><i class="fas fa-list"></i> Содержание</h3>
+		<ul class="project-toc-list" id="projectTocList"></ul>
+	</aside>
+	{% endif %}
+
+	{% if page.metrics and page.metrics.size > 0 %}
+	<section class="project-page-metrics">
+		{% for metric in page.metrics %}
+		<div class="project-metric-card">
+			<span class="project-metric-value">{{ metric.value }}</span>
+			<span class="project-metric-label">{{ metric.label }}</span>
+		</div>
+		{% endfor %}
+	</section>
+	{% endif %}
+
+	<div class="project-page-content">
+		<section class="project-page-sections" id="projectSections">
+			{% for section in page.sections %}
+			<div class="project-page-section" id="section-{{ forloop.index }}">
+				<div class="project-page-section-title"><i class="fas fa-info-circle"></i> {{ section.title }}</div>
+				<div class="project-page-section-content">{{ section.content | markdownify }}</div>
+			</div>
+			{% endfor %}
+		</section>
+
+		{% if page.highlights and page.highlights.size > 0 %}
+		<section class="project-page-highlights">
+			<h3><i class="fas fa-lightbulb"></i> Ключевые особенности</h3>
+			<ul class="project-highlights-list">
+				{% for highlight in page.highlights %}<li><i class="fas fa-check-circle"></i> {{ highlight }}</li>{% endfor %}
+			</ul>
+		</section>
+		{% endif %}
+
+		{% if page.tags and page.tags.size > 0 %}
+		<section class="project-page-tags">{% for tag in page.tags %}<span class="project-tag">{{ tag }}</span>{% endfor %}</section>
+		{% endif %}
+
+		{% if project_techs.size > 0 %}
+		<section class="project-page-tech">
+			<h3><i class="fas fa-layer-group"></i> Технологии</h3>
+			<div class="project-page-tech-tags">
+				{% for tech in project_techs %}
+				<span class="tech-tag tech-tag-large" style="background: {{ tech.color }}22; border-color: {{ tech.color }}; color: {{ tech.color }};">
+					<i class="{{ tech.icon }}"></i> {{ tech.name }}
+				</span>
+				{% endfor %}
+			</div>
+		</section>
+		{% endif %}
+
+		{% if page.screenshots %}
+		<section class="project-page-gallery">
+			<h3><i class="fas fa-images"></i> Скриншоты</h3>
+			<div class="project-page-gallery-grid">
+				{% for screenshot in page.screenshots %}
+				<div class="project-gallery-item" data-src="{{ screenshot.path }}" data-title="{{ screenshot.title }}" data-desc="{{ screenshot.desc }}">
+					<img src="{{ screenshot.path }}" alt="{{ screenshot.title }}">
+				</div>
+				{% endfor %}
+			</div>
+		</section>
+		{% endif %}
+
+		{% if related_projects.size > 0 %}
+		<section class="project-page-related">
+			<h3><i class="fas fa-thumbs-up"></i> Похожие проекты</h3>
+			<div class="related-projects-grid">
+				{% for related in related_projects %}
+				<a href="/projects/{{ related.id }}" class="related-project-card">
+					<div class="related-project-info">
+						<h4>{{ related.title }}</h4>
+						<p>{{ related.description | truncate: 100 }}</p>
+						<span class="related-project-year">{{ related.year }}</span>
+					</div>
+				</a>
+				{% endfor %}
+			</div>
+		</section>
+		{% endif %}
+	</div>
+</div>
+
+<script src="/js/project-page.js"></script>

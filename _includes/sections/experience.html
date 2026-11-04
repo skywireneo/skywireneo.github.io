@@ -1,0 +1,256 @@
+<div class="section-divider"></div>
+<!-- Опыт работы -->
+
+<section class="card glass-card animate-on-scroll" id="experience">
+
+    <div class="section-header-with-controls">
+        <h2><i class="fas fa-briefcase"></i>Опыт работы – <span id="totalExperience">2 года</span></h2>
+        <div class="accordion-controls">
+            <button class="accordion-btn" id="expandAllExp">Развернуть всё</button>
+            <button class="accordion-btn" id="collapseAllExp">Свернуть всё</button>
+        </div>
+    </div>
+
+    <div id="experienceList">
+        {% assign experience = site.data.experience.experience | reverse %}
+
+        {% for exp in experience %}
+        <div class="experience-item" data-exp-id="{{ exp.id }}">
+            <div class="experience-header" data-expanded="false">
+                <div class="experience-summary">
+                    {% assign start_month_name = "" %}
+                    {% assign start_date = exp.period.start %}
+                    {% assign start_year = start_date | slice: 0, 4 | plus: 0 %}
+                    {% assign start_month = start_date | slice: 5, 2 | plus: 0 %}
+
+                    {% case start_month %}
+                    {% when 1 %}{% assign start_month_name = "Январь" %}
+                    {% when 2 %}{% assign start_month_name = "Февраль" %}
+                    {% when 3 %}{% assign start_month_name = "Март" %}
+                    {% when 4 %}{% assign start_month_name = "Апрель" %}
+                    {% when 5 %}{% assign start_month_name = "Май" %}
+                    {% when 6 %}{% assign start_month_name = "Июнь" %}
+                    {% when 7 %}{% assign start_month_name = "Июль" %}
+                    {% when 8 %}{% assign start_month_name = "Август" %}
+                    {% when 9 %}{% assign start_month_name = "Сентябрь" %}
+                    {% when 10 %}{% assign start_month_name = "Октябрь" %}
+                    {% when 11 %}{% assign start_month_name = "Ноябрь" %}
+                    {% when 12 %}{% assign start_month_name = "Декабрь" %}
+                    {% endcase %}
+
+                    {% assign end_month_name = "" %}
+                    {% assign end_date = exp.period.end %}
+                    {% assign end_year = end_date | slice: 0, 4 | plus: 0 %}
+                    {% assign end_month = end_date | slice: 5, 2 | plus: 0 %}
+
+                    {% if exp.period.isCurrent == true %}
+                    {% assign end_month_name = "н.в." %}
+                    {% assign end_year = "now" | date: "%Y" %}
+                    {% else %}
+                    {% case end_month %}
+                    {% when 1 %}{% assign end_month_name = "Январь" %}
+                    {% when 2 %}{% assign end_month_name = "Февраль" %}
+                    {% when 3 %}{% assign end_month_name = "Март" %}
+                    {% when 4 %}{% assign end_month_name = "Апрель" %}
+                    {% when 5 %}{% assign end_month_name = "Май" %}
+                    {% when 6 %}{% assign end_month_name = "Июнь" %}
+                    {% when 7 %}{% assign end_month_name = "Июль" %}
+                    {% when 8 %}{% assign end_month_name = "Август" %}
+                    {% when 9 %}{% assign end_month_name = "Сентябрь" %}
+                    {% when 10 %}{% assign end_month_name = "Октябрь" %}
+                    {% when 11 %}{% assign end_month_name = "Ноябрь" %}
+                    {% when 12 %}{% assign end_month_name = "Декабрь" %}
+                    {% endcase %}
+                    {% endif %}
+
+                    <div class="period">{{ start_month_name }} {{ start_year }} – {{ end_month_name }} {{ end_year }}
+                    </div>
+                    <h3>{{ exp.position }} • {{ exp.company }}</h3>
+                </div>
+                <span class="experience-toggle"><i class="fas fa-chevron-down"></i></span>
+            </div>
+            <div class="experience-content collapsed">
+                <div class="project-tech" style="margin-bottom: 1.5rem;">
+                    {% assign exp_techs = "" | split: "" %}
+                    {% for tech in site.data.technologies.technologies %}
+                    {% if tech.usedInExperience contains exp.id %}
+                    {% assign exp_techs = exp_techs | push: tech %}
+                    {% endif %}
+                    {% endfor %}
+                    {% for tech in exp_techs %}
+                    <span class="tech-tag" data-tech="{{ tech.id }}" style="--tech-color: {{ tech.color }}">{{ tech.name
+                        }}</span>
+                    {% endfor %}
+                </div>
+
+                <ul class="case-list">
+                    <b>Некоторые задачи, которые я делал:</b>
+                    {% for group in exp.achievements %}
+                    <li class="subheader"><i class="{{ group.icon }}"></i> <strong>{{ group.title }}</strong></li>
+
+                    {% for item in group.items %}
+                    <li>{{ item }}</li>
+                    {% endfor %}
+
+                    {% unless forloop.last %}
+                    <li class="divider"></li>
+                    {% endunless %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Calculate total experience
+        (async function () {
+            try {
+                const basePath = window.location.pathname.includes('/skywireneo.github.io')
+                    ? '/skywireneo.github.io'
+                    : '';
+                const response = await fetch(`${basePath}/_data/experience.json`);
+                const experienceData = await response.json();
+
+                const useManualTotal = experienceData.useManualTotal || false;
+                const manualTotal = experienceData.manualTotal || '';
+
+                if (useManualTotal && manualTotal) {
+                    document.getElementById('totalExperience').textContent = manualTotal;
+                } else {
+                    // Merge intervals algorithm (no overlap counting)
+                    const now = new Date();
+                    const currentYear = now.getFullYear();
+                    const currentMonth = now.getMonth() + 1;
+
+                    // Convert to intervals [start, end]
+                    let intervals = experienceData.experience.map(exp => {
+                        const start = exp.period.start.split('-').map(Number);
+                        const end = exp.period.isCurrent
+                            ? [currentYear, currentMonth]
+                            : exp.period.end.split('-').map(Number);
+                        return { start, end };
+                    });
+
+                    // Sort by start date
+                    intervals.sort((a, b) => (a.start[0] - b.start[0]) * 12 + (a.start[1] - b.start[1]));
+
+                    // Merge overlapping intervals (FIXED comparison)
+                    let merged = [];
+                    for (let interval of intervals) {
+                        if (merged.length === 0 || merged[merged.length - 1].end[0] * 12 + merged[merged.length - 1].end[1] < interval.start[0] * 12 + interval.start[1]) {
+                            merged.push(interval);
+                        } else {
+                            // Extend end date to max of both intervals
+                            const currentEndMonths = merged[merged.length - 1].end[0] * 12 + merged[merged.length - 1].end[1];
+                            const newEndMonths = interval.end[0] * 12 + interval.end[1];
+                            if (newEndMonths > currentEndMonths) {
+                                const newEndTotalMonths = newEndMonths;
+                                merged[merged.length - 1].end[0] = Math.floor(newEndTotalMonths / 12);
+                                merged[merged.length - 1].end[1] = (newEndTotalMonths % 12) || 12;
+                            }
+                        }
+                    }
+
+                    // Calculate total months from merged intervals
+                    let totalMonths = 0;
+                    merged.forEach(({ start, end }) => {
+                        totalMonths += (end[0] - start[0]) * 12 + (end[1] - start[1]);
+                    });
+
+                    const years = Math.floor(totalMonths / 12);
+                    const months = totalMonths % 12;
+
+                    let totalText = '';
+                    if (years > 0) {
+                        if (years === 1 || (years > 20 && years % 10 === 1)) {
+                            totalText = years + ' год';
+                        } else if ((years >= 2 && years <= 4) || (years > 20 && years % 10 >= 2 && years % 10 <= 4)) {
+                            totalText = years + ' года';
+                        } else {
+                            totalText = years + ' лет';
+                        }
+
+                        if (months > 0) {
+                            if (months === 1 || (months > 20 && months % 10 === 1)) {
+                                totalText += ' ' + months + ' месяц';
+                            } else if ((months >= 2 && months <= 4) || (months > 20 && months % 10 >= 2 && months % 10 <= 4)) {
+                                totalText += ' ' + months + ' месяца';
+                            } else {
+                                totalText += ' ' + months + ' месяцев';
+                            }
+                        }
+                    } else {
+                        if (months === 1 || (months > 20 && months % 10 === 1)) {
+                            totalText = months + ' месяц';
+                        } else if ((months >= 2 && months <= 4) || (months > 20 && months % 10 >= 2 && months % 10 <= 4)) {
+                            totalText = months + ' месяца';
+                        } else {
+                            totalText = months + ' месяцев';
+                        }
+                    }
+
+                    document.getElementById('totalExperience').textContent = totalText;
+
+                    // Reinitialize scroll animation observer after data loads
+                    if (window.observer && typeof window.observer.unobserve === 'function') {
+                        const expSection = document.getElementById('experience');
+                        if (expSection) {
+                            window.observer.unobserve(expSection);
+                            window.observer.observe(expSection);
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error('Failed to load experience data:', e);
+            }
+        })();
+
+        // Accordion functionality
+        const expandAllBtn = document.getElementById('expandAllExp');
+        const collapseAllBtn = document.getElementById('collapseAllExp');
+        const headers = document.querySelectorAll('.experience-header');
+
+        function toggleItem(header, expand) {
+            const content = header.nextElementSibling;
+            if (!content) return;
+
+            if (expand) {
+                header.setAttribute('data-expanded', 'true');
+                header.classList.add('expanded');
+                content.classList.remove('collapsed');
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.style.opacity = '1';
+                content.style.padding = '1.5rem';
+            } else {
+                header.setAttribute('data-expanded', 'false');
+                header.classList.remove('expanded');
+                content.classList.add('collapsed');
+                content.style.maxHeight = '0';
+                content.style.opacity = '0';
+                content.style.padding = '0';
+            }
+        }
+
+        if (expandAllBtn) {
+            expandAllBtn.addEventListener('click', function () {
+                headers.forEach(h => toggleItem(h, true));
+            });
+        }
+
+        if (collapseAllBtn) {
+            collapseAllBtn.addEventListener('click', function () {
+                headers.forEach(h => toggleItem(h, false));
+            });
+        }
+
+        headers.forEach(header => {
+            header.addEventListener('click', function () {
+                const isExpanded = this.getAttribute('data-expanded') === 'true';
+                toggleItem(this, !isExpanded);
+            });
+        });
+    });
+</script>

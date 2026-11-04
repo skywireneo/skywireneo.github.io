@@ -1,0 +1,222 @@
+/* New Year Theme Styles - Новогоднее оформление */
+
+/* ===== Переопределение переменных ===== */
+body.seasonal-newyear {
+    --accent: #fbbf24;
+    --accent-secondary: #3b82f6;
+    --accent-rgb: 251, 191, 36;
+    --text-highlight: #fbbf24;
+}
+
+/* ===== Стили для canvas ===== */
+.newyear-canvas {
+    z-index: 1;
+}
+
+/* ===== Гирлянда ===== */
+.newyear-garland {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath d='M0,20 Q25,0 50,20 T100,20' fill='none' stroke='%23fbbf24' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* ===== Баннер ===== */
+.newyear-banner {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(59, 130, 246, 0.2)) !important;
+    border: 1px solid rgba(251, 191, 36, 0.4) !important;
+    color: #fbbf24 !important;
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+}
+
+/* ===== Дополнительные эффекты ===== */
+
+/* Снежинки на карточках */
+body.seasonal-newyear .card::before {
+    content: '❄';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+    opacity: 0.3;
+    animation: snowflakeFloat 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes snowflakeFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(10deg);
+        opacity: 0.6;
+    }
+}
+
+/* Золотое свечение для заголовков */
+body.seasonal-newyear h1,
+body.seasonal-newyear h2 {
+    text-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+}
+
+/* Новогодние акценты на кнопках */
+body.seasonal-newyear .contact-link:hover,
+body.seasonal-newyear .project-link:hover {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+}
+
+/* Снежинка на аватаре */
+body.seasonal-newyear .avatar-container::after {
+    content: '🎅';
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    font-size: 1.5rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Новогодний стиль для tech-tags */
+body.seasonal-newyear .tech-tag {
+    border-color: rgba(251, 191, 36, 0.3);
+}
+
+body.seasonal-newyear .tech-tag:hover {
+    border-color: #fbbf24;
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+}
+
+/* Эффект мороза на стеклянных карточках */
+body.seasonal-newyear .glass-card {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(30, 41, 59, 0.5));
+    border: 1px solid rgba(251, 191, 36, 0.15);
+}
+
+/* Новогодняя анимация для иконок */
+body.seasonal-newyear .fa-snowflake,
+body.seasonal-newyear .fa-gift,
+body.seasonal-newyear .fa-tree {
+    color: #fbbf24;
+    animation: iconGlow 2s ease-in-out infinite;
+}
+
+@keyframes iconGlow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 5px rgba(251, 191, 36, 0.5);
+    }
+
+    50% {
+        text-shadow: 0 0 20px rgba(251, 191, 36, 0.8), 0 0 30px rgba(251, 191, 36, 0.4);
+    }
+}
+
+/* Снежный фон для hero section */
+body.seasonal-newyear header {
+    position: relative;
+}
+
+body.seasonal-newyear header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at top, rgba(251, 191, 36, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Новогодний стиль для статуса */
+body.seasonal-newyear .status {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(59, 130, 246, 0.2));
+    border-color: rgba(251, 191, 36, 0.3);
+}
+
+/* Анимация для прогресс-бара */
+body.seasonal-newyear #progressBar {
+    background: linear-gradient(90deg, #fbbf24, #3b82f6, #fbbf24);
+    background-size: 200% 100%;
+    animation: progressShine 2s linear infinite;
+}
+
+@keyframes progressShine {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Новогодние украшения для разделителей */
+body.seasonal-newyear .section-divider::before {
+    content: '❄ ✦ ❄';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(251, 191, 36, 0.5);
+    font-size: 0.8rem;
+    letter-spacing: 10px;
+}
+
+/* Снежинки в футере */
+body.seasonal-newyear footer::before {
+    content: '❄ ❄ ❄';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(251, 191, 36, 0.4);
+    font-size: 0.9rem;
+    letter-spacing: 15px;
+    animation: snowflakeTwinkle 2s ease-in-out infinite;
+}
+
+@keyframes snowflakeTwinkle {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 768px) {
+    body.seasonal-newyear .card::before {
+        font-size: 1rem;
+        top: 5px;
+        right: 5px;
+    }
+
+    body.seasonal-newyear .avatar-container::after {
+        font-size: 1.2rem;
+        bottom: -3px;
+        right: -3px;
+    }
+
+    .newyear-banner {
+        font-size: 0.85rem !important;
+        padding: 8px 16px !important;
+    }
+}

@@ -1,0 +1,237 @@
+/* Programmer's Day Theme Styles - День программиста */
+
+/* ===== Переопределение переменных ===== */
+body.seasonal-programmer {
+    --accent: #22c55e;
+    --accent-secondary: #16a34a;
+    --accent-rgb: 34, 197, 94;
+    --text-highlight: #4ade80;
+    --text-primary: #86efac;
+    --text-secondary: #4ade80;
+}
+
+/* ===== Canvas ===== */
+.programmer-canvas {
+    z-index: 1;
+    opacity: 0.6;
+}
+
+/* ===== Баннер ===== */
+.programmer-banner {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(0, 0, 0, 0.4)) !important;
+    border: 1px solid rgba(34, 197, 94, 0.4) !important;
+    color: #22c55e !important;
+    font-family: 'Courier New', monospace !important;
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+}
+
+/* ===== Терминальный стиль ===== */
+
+/* Тёмный фон с зелёным оттенком */
+body.seasonal-programmer {
+    background-color: #001100;
+}
+
+/* Scanlines эффект */
+#programmer-scanlines {
+    animation: scanlineMove 8s linear infinite;
+}
+
+@keyframes scanlineMove {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 100%;
+    }
+}
+
+/* Зелёное свечение для заголовков */
+body.seasonal-programmer h1,
+body.seasonal-programmer h2 {
+    color: #4ade80;
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+    font-family: 'Courier New', monospace;
+}
+
+/* Монospace для подзаголовков */
+body.seasonal-programmer .subtitle {
+    font-family: 'Courier New', monospace;
+    color: #86efac;
+}
+
+/* Зелёные акценты на кнопках */
+body.seasonal-programmer .contact-link:hover,
+body.seasonal-programmer .project-link:hover {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+    border-color: #22c55e;
+}
+
+/* Иконка на аватаре */
+body.seasonal-programmer .avatar-container::after {
+    content: '👨‍💻';
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    font-size: 1.5rem;
+    animation: coderBlink 2s ease-in-out infinite;
+}
+
+@keyframes coderBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Терминальный стиль для tech-tags */
+body.seasonal-programmer .tech-tag {
+    border-color: rgba(34, 197, 94, 0.3);
+    font-family: 'Courier New', monospace;
+    background: rgba(0, 20, 0, 0.5);
+}
+
+body.seasonal-programmer .tech-tag:hover {
+    border-color: #22c55e;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+    background: rgba(34, 197, 94, 0.1);
+}
+
+/* Тёмные стеклянные карточки */
+body.seasonal-programmer .glass-card {
+    background: linear-gradient(135deg, rgba(0, 20, 0, 0.8), rgba(0, 40, 0, 0.6));
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    font-family: 'Courier New', monospace;
+}
+
+/* Зелёная анимация для иконок */
+body.seasonal-programmer .fa-code,
+body.seasonal-programmer .fa-terminal,
+body.seasonal-programmer .fa-laptop-code {
+    color: #22c55e;
+    animation: terminalGlow 2s ease-in-out infinite;
+}
+
+@keyframes terminalGlow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
+    }
+
+    50% {
+        text-shadow: 0 0 20px rgba(34, 197, 94, 0.8), 0 0 30px rgba(34, 197, 94, 0.4);
+    }
+}
+
+/* Зелёный фон для hero section */
+body.seasonal-programmer header {
+    position: relative;
+}
+
+body.seasonal-programmer header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at top, rgba(34, 197, 94, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Терминальный стиль для статуса */
+body.seasonal-programmer .status {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(0, 0, 0, 0.3));
+    border-color: rgba(34, 197, 94, 0.3);
+    font-family: 'Courier New', monospace;
+}
+
+/* Анимация для прогресс-бара */
+body.seasonal-programmer #progressBar {
+    background: linear-gradient(90deg, #22c55e, #4ade80, #22c55e);
+    background-size: 200% 100%;
+    animation: progressShine 2s linear infinite;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+}
+
+/* Бинарные разделители */
+body.seasonal-programmer .section-divider::before {
+    content: '01 10 01';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(34, 197, 94, 0.4);
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+}
+
+/* Бинарный код в футере */
+body.seasonal-programmer footer::before {
+    content: '01001000 01101001';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(34, 197, 94, 0.4);
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    animation: binaryBlink 1s ease-in-out infinite;
+}
+
+@keyframes binaryBlink {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Терминальный стиль для карточек проектов */
+body.seasonal-programmer .project-card {
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+body.seasonal-programmer .project-card:hover {
+    border-color: rgba(34, 197, 94, 0.5);
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.2);
+}
+
+/* Зелёный курсор для интерактивных элементов */
+body.seasonal-programmer a,
+body.seasonal-programmer button {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect x='8' y='0' width='4' height='20' fill='%2322c55e'/%3E%3C/svg%3E"), auto;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 768px) {
+    body.seasonal-programmer .avatar-container::after {
+        font-size: 1.2rem;
+        bottom: -3px;
+        right: -3px;
+    }
+
+    .programmer-banner {
+        font-size: 0.85rem !important;
+        padding: 8px 16px !important;
+    }
+
+    body.seasonal-programmer h1,
+    body.seasonal-programmer h2 {
+        font-size: 1.5rem;
+    }
+}

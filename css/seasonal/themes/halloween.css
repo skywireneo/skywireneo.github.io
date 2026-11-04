@@ -1,0 +1,222 @@
+/* Halloween Theme Styles - Хэллоуин */
+
+/* ===== Переопределение переменных ===== */
+body.seasonal-halloween {
+    --accent: #f97316;
+    --accent-secondary: #7c2d12;
+    --accent-rgb: 249, 115, 22;
+    --text-highlight: #f97316;
+}
+
+/* ===== Canvas ===== */
+.halloween-canvas {
+    z-index: 1;
+}
+
+/* ===== Баннер ===== */
+.halloween-banner {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(0, 0, 0, 0.4)) !important;
+    border: 1px solid rgba(249, 115, 22, 0.4) !important;
+    color: #f97316 !important;
+    text-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+}
+
+/* ===== Тёмная тема ===== */
+
+/* Тёмный фон */
+body.seasonal-halloween {
+    background-color: #0a0500;
+}
+
+/* Оранжевое свечение для заголовков */
+body.seasonal-halloween h1,
+body.seasonal-halloween h2 {
+    color: #f97316;
+    text-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+}
+
+/* Оранжевые акценты на кнопках */
+body.seasonal-halloween .contact-link:hover,
+body.seasonal-halloween .project-link:hover {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+    border-color: #f97316;
+}
+
+/* Тыква на аватаре */
+body.seasonal-halloween .avatar-container::after {
+    content: '🎃';
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    font-size: 1.5rem;
+    animation: pumpkinGlow 2s ease-in-out infinite;
+}
+
+@keyframes pumpkinGlow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.5));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 20px rgba(249, 115, 22, 0.8));
+    }
+}
+
+/* Хэллоуинский стиль для tech-tags */
+body.seasonal-halloween .tech-tag {
+    border-color: rgba(249, 115, 22, 0.3);
+    background: rgba(20, 10, 5, 0.5);
+}
+
+body.seasonal-halloween .tech-tag:hover {
+    border-color: #f97316;
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.3);
+}
+
+/* Тёмные стеклянные карточки */
+body.seasonal-halloween .glass-card {
+    background: linear-gradient(135deg, rgba(15, 10, 5, 0.8), rgba(30, 20, 10, 0.6));
+    border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+/* Оранжевая анимация для иконок */
+body.seasonal-halloween .fa-ghost,
+body.seasonal-halloween .fa-skull,
+body.seasonal-halloween .fa-spider {
+    color: #f97316;
+    animation: halloweenGlow 2s ease-in-out infinite;
+}
+
+@keyframes halloweenGlow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 5px rgba(249, 115, 22, 0.5);
+    }
+
+    50% {
+        text-shadow: 0 0 20px rgba(249, 115, 22, 0.8), 0 0 30px rgba(124, 45, 18, 0.4);
+    }
+}
+
+/* Тёмный фон для hero section */
+body.seasonal-halloween header {
+    position: relative;
+}
+
+body.seasonal-halloween header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at top, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom, rgba(124, 45, 18, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Хэллоуинский стиль для статуса */
+body.seasonal-halloween .status {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(124, 45, 18, 0.2));
+    border-color: rgba(249, 115, 22, 0.3);
+}
+
+/* Анимация для прогресс-бара */
+body.seasonal-halloween #progressBar {
+    background: linear-gradient(90deg, #f97316, #7c2d12, #f97316);
+    background-size: 200% 100%;
+    animation: progressShine 2s linear infinite;
+    box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+}
+
+/* Хэллоуинские разделители */
+body.seasonal-halloween .section-divider::before {
+    content: '🎃 👻 🦇';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(249, 115, 22, 0.5);
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+}
+
+/* Паутина в футере */
+body.seasonal-halloween footer::before {
+    content: '🕷️ 🕸️ 🕷️';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.8rem;
+    letter-spacing: 10px;
+    animation: spiderCrawl 3s ease-in-out infinite;
+}
+
+@keyframes spiderCrawl {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-3px);
+    }
+}
+
+/* Хэллоуинский стиль для карточек проектов */
+body.seasonal-halloween .project-card {
+    border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+body.seasonal-halloween .project-card:hover {
+    border-color: rgba(249, 115, 22, 0.5);
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.2);
+}
+
+/* Мерцание для иконок */
+body.seasonal-halloween .fa-moon,
+body.seasonal-halloween .fa-bat {
+    animation: flicker 3s ease-in-out infinite;
+}
+
+@keyframes flicker {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    75% {
+        opacity: 0.9;
+    }
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 768px) {
+    body.seasonal-halloween .avatar-container::after {
+        font-size: 1.2rem;
+        bottom: -3px;
+        right: -3px;
+    }
+
+    .halloween-banner {
+        font-size: 0.85rem !important;
+        padding: 8px 16px !important;
+    }
+
+    #halloween-web {
+        width: 100px !important;
+        height: 100px !important;
+    }
+}

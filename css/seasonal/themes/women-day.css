@@ -1,0 +1,215 @@
+/* Women's Day Theme Styles - 8 марта */
+
+/* ===== Переопределение переменных ===== */
+body.seasonal-women-day {
+    --accent: #ec4899;
+    --accent-secondary: #f472b6;
+    --accent-rgb: 236, 72, 153;
+    --text-highlight: #f472b6;
+}
+
+/* ===== Canvas ===== */
+.women-day-canvas {
+    z-index: 1;
+}
+
+/* ===== Баннер ===== */
+.women-day-banner {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(244, 114, 182, 0.2)) !important;
+    border: 1px solid rgba(236, 72, 153, 0.4) !important;
+    color: #ec4899 !important;
+    text-shadow: 0 0 10px rgba(236, 72, 153, 0.3);
+}
+
+/* ===== Весенние эффекты ===== */
+
+/* Цветы на карточках */
+body.seasonal-women-day .card::before {
+    content: '🌸';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+    opacity: 0.5;
+    animation: flowerFloat 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes flowerFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(5deg);
+        opacity: 0.8;
+    }
+}
+
+/* Розовое свечение для заголовков */
+body.seasonal-women-day h1,
+body.seasonal-women-day h2 {
+    color: #ec4899;
+    text-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+}
+
+/* Розовые акценты на кнопках */
+body.seasonal-women-day .contact-link:hover,
+body.seasonal-women-day .project-link:hover {
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+    border-color: #ec4899;
+}
+
+/* Тюльпан на аватаре */
+body.seasonal-women-day .avatar-container::after {
+    content: '🌷';
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    font-size: 1.5rem;
+    animation: tulipSway 2s ease-in-out infinite;
+}
+
+@keyframes tulipSway {
+
+    0%,
+    100% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+/* Весенний стиль для tech-tags */
+body.seasonal-women-day .tech-tag {
+    border-color: rgba(236, 72, 153, 0.3);
+    background: rgba(252, 231, 243, 0.1);
+}
+
+body.seasonal-women-day .tech-tag:hover {
+    border-color: #ec4899;
+    box-shadow: 0 0 15px rgba(236, 72, 153, 0.2);
+}
+
+/* Нежные стеклянные карточки */
+body.seasonal-women-day .glass-card {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(30, 41, 59, 0.5));
+    border: 1px solid rgba(236, 72, 153, 0.15);
+}
+
+/* Розовая анимация для иконок */
+body.seasonal-women-day .fa-flower,
+body.seasonal-women-day .fa-spa {
+    color: #ec4899;
+    animation: springGlow 2s ease-in-out infinite;
+}
+
+@keyframes springGlow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 5px rgba(236, 72, 153, 0.3);
+    }
+
+    50% {
+        text-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
+    }
+}
+
+/* Весенний фон для hero section */
+body.seasonal-women-day header {
+    position: relative;
+}
+
+body.seasonal-women-day header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at top, rgba(236, 72, 153, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Розовый стиль для статуса */
+body.seasonal-women-day .status {
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(244, 114, 182, 0.15));
+    border-color: rgba(236, 72, 153, 0.3);
+}
+
+/* Анимация для прогресс-бара */
+body.seasonal-women-day #progressBar {
+    background: linear-gradient(90deg, #ec4899, #f472b6, #ec4899);
+    background-size: 200% 100%;
+    animation: progressShine 2s linear infinite;
+}
+
+/* Цветочные разделители */
+body.seasonal-women-day .section-divider::before {
+    content: '🌸 🌷 🌸';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(236, 72, 153, 0.4);
+    font-size: 0.8rem;
+    letter-spacing: 8px;
+}
+
+/* Цветы в футере */
+body.seasonal-women-day footer::before {
+    content: '🌷 🌸 🌷';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(236, 72, 153, 0.4);
+    font-size: 0.9rem;
+    letter-spacing: 10px;
+    animation: flowerTwinkle 2s ease-in-out infinite;
+}
+
+@keyframes flowerTwinkle {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 768px) {
+    body.seasonal-women-day .card::before {
+        font-size: 1rem;
+        top: 5px;
+        right: 5px;
+    }
+
+    body.seasonal-women-day .avatar-container::after {
+        font-size: 1.2rem;
+        bottom: -3px;
+        right: -3px;
+    }
+
+    .women-day-banner {
+        font-size: 0.85rem !important;
+        padding: 8px 16px !important;
+    }
+
+    #women-day-flower {
+        font-size: 2rem !important;
+        bottom: 10px !important;
+        left: 10px !important;
+    }
+}

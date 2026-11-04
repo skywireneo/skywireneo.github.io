@@ -1,0 +1,70 @@
+<div class="section-divider"></div>
+<!-- FAQ -->
+<section class="card glass-card animate-on-scroll faq-section" id="faq">
+    <h2><i class="fas fa-comments"></i>Часто задаваемые вопросы</h2>
+    <p class="faq-intro">Быстрые ответы на типичные вопросы о сотрудничестве</p>
+
+    <!-- FAQ Search -->
+    <div class="faq-search-container">
+        <div class="faq-search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="faqSearchInput" placeholder="Поиск по вопросам..." autocomplete="off">
+            <button class="faq-search-clear" id="faqSearchClear" style="display: none;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <span class="faq-search-results" id="faqSearchResults"></span>
+    </div>
+
+    <!-- Current Section Label -->
+    <div class="faq-current-section" id="faqCurrentSection">
+        <i class="fas {{ site.data.faq.sections[0].icon }}"></i> {{ site.data.faq.sections[0].title }}
+    </div>
+
+    {% for section in site.data.faq.sections %}
+    <!-- {{ section.title }} -->
+    <div class="faq-tab-content{% if forloop.first %} active{% endif %}" id="faq-{{ section.id }}">
+        <div class="faq-split-container">
+            <div class="faq-questions-column">
+                <div class="faq-questions faq-questions-scrollable">
+                    {% for q in section.questions %}
+                    <button class="faq-question{% if forloop.first %} active{% endif %}" data-answer="{{ q.id }}"
+                        style="--delay: {{ forloop.index0 | times: 100 }}ms" data-search="{{ q.searchKeywords }}">{{
+                        q.question }}</button>
+                    {% endfor %}
+                </div>
+                <div class="faq-section-switcher">
+                    <div class="faq-switcher-buttons">
+                        {% for other_section in site.data.faq.sections %}
+                        {% if other_section.id != section.id %}
+                        <button class="faq-switch-btn" data-tab="{{ other_section.id }}"><i
+                                class="fas {{ other_section.icon }}"></i>
+                            {{ other_section.title }}</button>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-answer-display">
+                {% for q in section.questions %}
+                <div class="faq-answer-content{% if forloop.first %} active{% endif %}" id="faq-answer-{{ q.id }}">
+                    <div class="faq-answer-label"><i class="fas fa-reply"></i> Ответ</div>
+                    <p class="faq-answer-text">{{ q.answer }}</p>
+                    {% if q.hint %}
+                    <p class="faq-answer-hint">{{ q.hint }}</p>
+                    {% endif %}
+                    {% if q.link %}
+                    <a href="{{ q.link }}" class="faq-answer-link" target="_blank" rel="noopener noreferrer">{{
+                        q.linkText }}
+                        <i class="fas fa-external-link-alt"></i></a>
+                    {% endif %}
+
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+</section>

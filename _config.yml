@@ -1,0 +1,37 @@
+# Jekyll конфигурация для GitHub Pages
+title: "Backend / Fullstack Разработчик / Программный инженер / Менеджер по ИТ"
+description: "Backend / Fullstack Разработчик / Программный инженер / Менеджер по ИТ из Москвы. Node.js, Python, PostgreSQL, Docker, Kubernetes."
+url: "https://skywireneo.github.io"
+baseurl: ""
+
+# Настройки сборки
+markdown: kramdown
+highlighter: rouge
+
+# Плагины
+plugins: []
+
+# Включить в сборку
+include:
+  - _data
+  - _config
+
+# Исключить из сборки
+exclude:
+  - README-JEKYLL.md
+  - node_modules
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - docker-compose.yml
+
+# Автор
+author:
+  name: Андрей SkyWireNEO
+  email: skywireneo@yandex.ru
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:slug/

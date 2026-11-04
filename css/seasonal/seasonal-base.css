@@ -1,0 +1,514 @@
+/* Seasonal Base Styles - базовые стили для сезонных тем */
+
+/* ===== Панель предпросмотра ===== */
+.seasonal-preview-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 350px;
+    max-height: 80vh;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
+    border: 2px solid rgba(245, 158, 11, 0.5);
+    border-radius: 16px;
+    padding: 0;
+    z-index: 9999999;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(245, 158, 11, 0.2);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: seasonalPanelSlideIn 0.3s ease;
+}
+
+@keyframes seasonalPanelSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+.seasonal-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.seasonal-preview-header h3 {
+    margin: 0;
+    color: #fbbf24;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.seasonal-preview-close {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.seasonal-preview-close:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+}
+
+.seasonal-preview-info {
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.seasonal-current-date,
+.seasonal-current-holiday {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+}
+
+.seasonal-current-date i {
+    color: #3b82f6;
+}
+
+.seasonal-current-holiday i {
+    color: #ec4899;
+}
+
+.seasonal-preview-grid {
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.seasonal-theme-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 8px;
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #e2e8f0;
+}
+
+.seasonal-theme-btn:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.5);
+    transform: translateY(-2px);
+}
+
+.seasonal-theme-btn.active {
+    background: rgba(245, 158, 11, 0.2);
+    border-color: #f59e0b;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+}
+
+.seasonal-theme-icon {
+    font-size: 1.5rem;
+}
+
+.seasonal-theme-name {
+    font-size: 0.75rem;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.seasonal-preview-footer {
+    padding: 16px 20px;
+    border-top: 1px solid rgba(148, 163, 184, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.seasonal-btn-reset,
+.seasonal-btn-disable {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.seasonal-btn-reset {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.seasonal-btn-reset:hover {
+    background: rgba(59, 130, 246, 0.3);
+}
+
+.seasonal-btn-disable {
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.seasonal-btn-disable:hover {
+    background: rgba(239, 68, 68, 0.3);
+}
+
+/* ===== Общие стили для сезонных тем ===== */
+
+/* Контейнер для анимации на фоне */
+.seasonal-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Декоративные элементы сверху */
+.seasonal-decoration-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    pointer-events: none;
+    z-index: 100;
+    background-repeat: repeat-x;
+    background-position: top center;
+}
+
+/* Гирлянды */
+.seasonal-garland {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    pointer-events: none;
+    z-index: 101;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 40'%3E%3Cpath d='M0,20 Q25,0 50,20 T100,20' fill='none' stroke='%23fbbf24' stroke-width='2'/%3E%3Ccircle cx='25' cy='10' r='4' fill='%23ef4444'/%3E%3Ccircle cx='50' cy='20' r='4' fill='%233b82f6'/%3E%3Ccircle cx='75' cy='10' r='4' fill='%2322c55e'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    animation: garlandSwing 3s ease-in-out infinite;
+}
+
+@keyframes garlandSwing {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(3px);
+    }
+}
+
+/* Мигающие огни на гирлянде */
+.seasonal-lights {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    pointer-events: none;
+    z-index: 102;
+}
+
+.seasonal-light {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: lightBlink 1s ease-in-out infinite;
+}
+
+@keyframes lightBlink {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+        box-shadow: 0 0 10px currentColor;
+    }
+}
+
+/* Баннер сверху */
+.seasonal-banner {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    animation: bannerPulse 2s ease-in-out infinite;
+    transition: top 0.3s ease, z-index 0.3s ease;
+}
+
+.seasonal-banner:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+.seasonal-banner.scrolled {
+    top: 80px;
+    z-index: 50;
+}
+
+@keyframes bannerPulse {
+
+    0%,
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.02);
+    }
+}
+
+/* Сезонный футер */
+.seasonal-footer {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+    z-index: 10;
+}
+
+.seasonal-footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.seasonal-footer-message {
+    font-size: 0.9rem;
+    color: var(--text-secondary, #94a3b8);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.seasonal-footer-toggle {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 0.8rem;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 3px;
+    padding: 4px 8px;
+    transition: color 0.2s;
+}
+
+.seasonal-footer-toggle:hover {
+    color: #94a3b8;
+}
+
+/* Модальное окно сезонной темы */
+.seasonal-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 9999999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.seasonal-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.seasonal-modal {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.98));
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.3s ease;
+    border: 2px solid var(--seasonal-accent, rgba(245, 158, 11, 0.5));
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px var(--seasonal-accent-glow, rgba(245, 158, 11, 0.2));
+}
+
+.seasonal-modal-overlay.active .seasonal-modal {
+    transform: scale(1) translateY(0);
+}
+
+.seasonal-modal-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    display: block;
+    animation: modalIconBounce 2s ease-in-out infinite;
+}
+
+@keyframes modalIconBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.seasonal-modal-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 auto 20px auto !important;
+    color: var(--seasonal-accent-color, #fbbf24) !important;
+    text-align: center !important;
+    width: 100% !important;
+    display: block !important;
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+}
+
+
+
+
+
+.seasonal-modal-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+
+.seasonal-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.seasonal-modal-close:hover {
+    color: #94a3b8;
+}
+
+.seasonal-modal-btn {
+    background: var(--seasonal-accent, rgba(245, 158, 11, 0.2));
+    border: 1px solid var(--seasonal-accent, rgba(245, 158, 11, 0.5));
+    color: var(--seasonal-accent-color, #fbbf24);
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.seasonal-modal-btn:hover {
+    background: var(--seasonal-accent-hover, rgba(245, 158, 11, 0.3));
+    transform: translateY(-2px);
+}
+
+/* Плавные переходы */
+.seasonal-active {
+    transition: --accent 0.5s ease, --bg-primary 0.5s ease, --bg-secondary 0.5s ease;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 768px) {
+    .seasonal-preview-panel {
+        width: calc(100% - 40px);
+        max-width: 350px;
+        right: 10px;
+        top: 10px;
+    }
+
+    .seasonal-preview-grid {
+        max-height: 300px;
+    }
+
+    .seasonal-garland,
+    .seasonal-lights {
+        height: 30px;
+    }
+
+    .seasonal-banner {
+        top: 50px;
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
+}
+
+/* ===== Скрытие при печати ===== */
+@media print {
+
+    .seasonal-canvas,
+    .seasonal-decoration-top,
+    .seasonal-garland,
+    .seasonal-lights,
+    .seasonal-banner,
+    .seasonal-preview-panel {
+        display: none !important;
+    }
+}

@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 2.5rem 1.25rem;
+    font-size: 16px;
+    transition: var(--transition);
+    scroll-behavior: smooth;
+}
+
+
+
+/* Hide native scrollbar completely */
+html {
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Custom scrollbar container */
+.custom-scrollbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 12px;
+    height: 100vh;
+    background: transparent;
+    z-index: 9999;
+    pointer-events: none;
+    transition: width 0.2s ease;
+}
+
+/* Near right edge (20% zone) - slightly wider */
+body.near-right-edge .custom-scrollbar {
+    width: 16px;
+}
+
+/* Hover or drag on scrollbar - maximum width */
+.custom-scrollbar:hover,
+.custom-scrollbar.dragging {
+    width: 20px;
+}
+
+/* Custom scrollbar thumb */
+.custom-scrollbar-thumb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    margin-right: 4px;
+    background: var(--text-muted);
+    border-radius: 2px;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: width 0.2s ease, margin-right 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+    min-height: 50px;
+    opacity: 0.3;
+}
+
+/* Near edge - thumb becomes more visible */
+body.near-right-edge .custom-scrollbar-thumb {
+    width: 6px;
+    margin-right: 5px;
+    opacity: 0.6;
+    border-radius: 3px;
+}
+
+/* Hover or drag - thumb at maximum size */
+.custom-scrollbar:hover .custom-scrollbar-thumb,
+.custom-scrollbar.dragging .custom-scrollbar-thumb {
+    width: 100%;
+    margin-right: 0;
+    background: var(--accent);
+    opacity: 0.9;
+    border-radius: 4px;
+}
+
+/* Hide scrollbar when modal is open */
+body.modal-open .custom-scrollbar,
+body.lightbox-open .custom-scrollbar {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+
+
+
+/* Ensure body scrolls but no native scrollbar */
+body {
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Modal open - no padding needed since scrollbar is custom */
+body.modal-open {
+    overflow: hidden;
+}
+
+
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+/* Section dividers */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 3rem 0;
+}

@@ -1,0 +1,30 @@
+{
+    "settings": {
+        "workStart": 9,
+        "workEnd": 21,
+        "timeZone": "Europe/Moscow",
+        "updateInterval": 60000
+    },
+    "labels": {
+        "button": {
+            "online": "Онлайн",
+            "offline": "Офлайн",
+            "title": "Статус и время возможного ответа"
+        },
+        "modal": {
+            "online": "Сейчас на связи",
+            "weekend": "Выходной - отвечу в понедельник",
+            "beforeWork": "Ещё не на связи - начинаю в {time}",
+            "afterWork": "Уже не на связи - до завтра {time}",
+            "testOnline": "Тест: 1",
+            "testOffline": "Тест: 2",
+            "scheduleTitle": "Режим работы",
+            "scheduleNote": "Понедельник – Пятница: {workStart}:00 - {workEnd}:00 (МСК)",
+            "responseTimeTitle": "Время ответа",
+            "responseTimeText": "Обычно отвечаю в течение <strong>2 рабочих дней</strong>.",
+            "responseHint": null,
+            "responseChecklist": null,
+            "urgentNote": null
+        }
+    }
+}

@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>{{ page.title }} — Портфолио</title>
+	{% include head.html %}
+	<link rel="stylesheet" href="/css/project-page.css?v=20260101" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<style>
+		body[data-page="project"] .sticky-nav { position: static !important; transform: none !important; }
+		body[data-page="project"] .site-share-btn, body[data-page="project"] #devPanelBtn, body[data-page="project"] #scrollToTop { display: none !important; }
+	</style>
+</head>
+<body data-theme="dark" data-page="project">
+	{% include nav.html %}
+	<div class="container" id="main-content">
+		{{ content }}
+		{% include footer.html %}
+	</div>
+	{% include modals/all.html %}
+	<script src="/js/lightbox.js?v=20260101"></script>
+	<script src="/js/project-page.js?v=20260101"></script>
+</body>
+</html>

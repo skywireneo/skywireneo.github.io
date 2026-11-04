@@ -1,0 +1,44 @@
+:root {
+    --text: #f3f4f6;
+    --text-muted: #9ca3af;
+    --text-light: #d1d5db;
+    --bg: #111827;
+    --card-bg: #1f2937;
+    --border: #374151;
+    --primary: #3b82f6;
+    --accent: #0d9488;
+    --radius: 12px;
+    --gap: 2rem;
+    --transition: all 0.3s ease;
+    --container-max: 1200px;
+
+    /* Tech colors */
+    --node-color: #339933;
+    --python-color: #3776ab;
+    --react-color: #61dafb;
+    --php-color: #777bb4;
+    --java-color: #007396;
+    --go-color: #00add8;
+    --cpp-color: #00599c;
+    --db-color: #f29111;
+    --docker-color: #2496ed;
+
+    /* Status colors */
+    --status-open: #22c55e;
+    --status-considering: #f59e0b;
+    --status-busy: #f97316;
+    --status-not-looking: #ef4444;
+    --status-vacation: #6b7280;
+
+}
+
+[data-theme="light"] {
+    --text: #111827;
+    --text-muted: #4b5563;
+    --text-light: #6b7280;
+    --bg: #f9fafb;
+    --card-bg: #ffffff;
+    --border: #e5e7eb;
+    --primary: #2563eb;
+    --accent: #0d9488;
+}

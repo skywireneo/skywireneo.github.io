@@ -1,0 +1,114 @@
+/* ============================================
+   DEVELOPER MODE BUTTONS
+   ============================================ */
+
+/* Developer Panel Button - positioned top right, visible only in dev mode */
+#devPanelBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 10000;
+    display: none;
+    /* Всегда скрыто по умолчанию */
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+/* Show dev panel button only when dev mode is active */
+body.dev-mode-active #devPanelBtn {
+    display: flex;
+}
+
+#devPanelBtn:hover {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+}
+
+#devPanelBtn:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Light theme */
+[data-theme="light"] #devPanelBtn {
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+/* Temporary Dev Mode Button (bottom left) */
+#tempDevModeBtn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #0d9488, #3b82f6);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(13, 148, 136, 0.4);
+    transition: all 0.3s ease;
+    font-family: monospace;
+}
+
+#tempDevModeBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(13, 148, 136, 0.6);
+}
+
+/* Exit Button in Panel */
+#devPanelExitBtn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.2));
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+#devPanelExitBtn:hover {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(220, 38, 38, 0.3));
+    border-color: rgba(239, 68, 68, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    #devPanelBtn {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+        top: 20px;
+        right: 16px;
+    }
+
+    #tempDevModeBtn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,115 @@
+{
+    "extraProjects": [
+        {
+            "id": "smart-home",
+            "title": "Умный дом на базе wirenboard",
+            "description": "Реализация умного дома на базе wirenboard. Требования: 1. Модули для коммутации 42-х розеток. 2. Модули для коммутации освещения (29 точек). 3. Модули и датчики для измерения температуры и влажности воздуха в 10 помещениях и 2 на улице. 4. Модули для управления автоматическими рулонным занавесками (10 окон). 5. Модули для подключения выключателей света (40 точек). 6. Модули для контроля и управления отоплением (8 датчиков температуры 7. контуров отопления (ТСП-100), 2 датчика давления (4-20 мА), управление 4-мя задвижками, управление котлом сигналом 0-10В. 8. Количество внешних цифровых линий связи Ethernet (медь) - не менее 1. 9. Бесперебойное питание Wiren Board на 30 минут. 10.Реализовать встроенную в шкаф панель управления с местным контролем (SCADA).",
+            "screenshots": [
+                {
+                    "path": "./assets/img/extra_projects/SH1.jpg",
+                    "title": "Схема умного дома Э4",
+                    "desc": "Схема Э4 для умного дома на базе wirenboard"
+                },
+                {
+                    "path": "./assets/img/extra_projects/SH2.jpg",
+                    "title": "Схема умного дома Э5",
+                    "desc": "Схема Э5 для умного дома на базе wirenboard"
+                }
+            ]
+        },
+        {
+            "id": "scada-system",
+            "title": "SCADA система",
+            "description": "Разработана SCADA-система на базе Python и OPC UA сервера. SCADA-система MasterSCADA 4D.",
+            "screenshots": [
+                {
+                    "path": "./assets/img/extra_projects/scada-0.png",
+                    "title": "Главное меню",
+                    "desc": "Показано разграничение доступов"
+                },
+                {
+                    "path": "./assets/img/extra_projects/scada-1.png",
+                    "title": "Схема помещения",
+                    "desc": "С исполнительными механизмами"
+                },
+                {
+                    "path": "./assets/img/extra_projects/scada-2.png",
+                    "title": "Аварии",
+                    "desc": "окно действующих аварий"
+                },
+                {
+                    "path": "./assets/img/extra_projects/scada-3.png",
+                    "title": "Статус системы",
+                    "desc": "Окно состояния системы"
+                },
+                {
+                    "path": "./assets/img/extra_projects/scada-4.png",
+                    "title": "Ручное управление",
+                    "desc": "Ручное задание управление системой"
+                },
+                {
+                    "path": "./assets/img/extra_projects/scada-5.png",
+                    "title": "События",
+                    "desc": "Архив всех событий системы"
+                },
+                {
+                    "path": "./assets/img/extra_projects/scada-6.png",
+                    "title": "Ограничения",
+                    "desc": "Задание параметров ограничений системы"
+                },
+                {
+                    "path": "./assets/img/extra_projects/scada-7.png",
+                    "title": "Графики",
+                    "desc": "Разные графики показаний датчиков"
+                }
+            ]
+        },
+        {
+            "id": "face-tracking",
+            "title": "Отслеживание лиц и движений",
+            "description": "Реализация отслеживания лиц и движений на Python с OpenCV без ИИ и трекинга лиц с dnn.",
+            "screenshots": [
+                {
+                    "path": "./assets/img/extra_projects/face-1.png",
+                    "title": "Трекинг лиц",
+                    "desc": "Результат работы распознавания лиц"
+                },
+                {
+                    "path": "./assets/img/extra_projects/face-2.png",
+                    "title": "Трекинг движения",
+                    "desc": "Отсутствие движение"
+                },
+                {
+                    "path": "./assets/img/extra_projects/face-3.png",
+                    "title": "Трекинг движения",
+                    "desc": "Наличие движения"
+                }
+            ]
+        },
+        {
+            "id": "hak",
+            "title": "MITM атака",
+            "description": "Моделировал MITM атаку на основе уязвимости DHCPv4 и защиту от неё.",
+            "screenshots": [
+                {
+                    "path": "./assets/img/extra_projects/hak-1.png",
+                    "title": "Схема сети",
+                    "desc": "Тестируемая сеть"
+                },
+                {
+                    "path": "./assets/img/extra_projects/hak-2.png",
+                    "title": "MITM атака",
+                    "desc": "Перехват HTTP пакета нарушителем"
+                },
+                {
+                    "path": "./assets/img/extra_projects/hak-3.png",
+                    "title": "Схема защиты",
+                    "desc": "Указание принципа защиты на портах"
+                }
+            ]
+        }
+    ],
+    "simpleList": [
+        "Настраивал Windows Server с Active Directory и wsus, kaspersky endpoint security, Dallas Lock, ViPNet"
+    ]
+}

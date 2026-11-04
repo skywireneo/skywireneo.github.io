@@ -1,0 +1,84 @@
+<!-- Skip to content link (Accessibility) -->
+<a href="#main-content" class="skip-to-content">Перейти к содержимому ↓</a>
+
+<!-- Aurora animated background -->
+<div class="aurora-bg"></div>
+
+
+<!-- Progress bar -->
+<div id="progressBar"></div>
+
+
+
+<!-- Sticky navigation -->
+<nav class="sticky-nav" id="stickyNav">
+    <div class="sticky-nav-content">
+        <!-- Hamburger button for mobile -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Desktop name + email -->
+        <div class="desktop-nav-info">
+            <span style="font-weight: 600; color: var(--text);">{{ site.data.contacts.profile.name }} {{
+                site.data.contacts.profile.nickname }}</span>
+            <a href="mailto:{{ site.data.contacts.resume.email }}" class="nav-email-text">
+                {{ site.data.contacts.resume.email }}
+            </a>
+        </div>
+
+        <!-- Desktop links - hide on mobile -->
+        <div class="sticky-nav-links desktop-nav-links">
+            <a href="#about" title="Обо мне"><i class="fas fa-user"></i></a>
+            <a href="#tech" title="Технологии"><i class="fas fa-code"></i></a>
+            <a href="#experience" title="Опыт работы"><i class="fas fa-briefcase"></i></a>
+            <a href="#projects" title="Проекты"><i class="fas fa-diagram-project"></i></a>
+            <a href="#extra-experience" title="Экстра опыт"><i class="fas fa-star"></i></a>
+            <a href="#education" title="Образование"><i class="fas fa-graduation-cap"></i></a>
+            <a href="#achievements" title="Достижения"><i class="fas fa-trophy"></i></a>
+            <a href="#faq" title="FAQ"><i class="fas fa-circle-question"></i></a>
+            <!-- <a href="/calculator.html" style="color: var(--accent);">🤝 Для заказчика</a> -->
+        </div>
+
+    </div>
+</nav>
+
+<!-- Mobile sidebar menu -->
+<nav class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+        <span>{{ site.data.contacts.profile.name }}</span>
+        <button class="mobile-menu-close" id="mobileMenuClose">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="mobile-menu-links">
+        <a href="#about" class="mobile-nav-link"><i class="fas fa-user"></i> Обо мне</a>
+        <a href="#tech" class="mobile-nav-link"><i class="fas fa-code"></i> Технологии</a>
+        <a href="#experience" class="mobile-nav-link"><i class="fas fa-briefcase"></i> Опыт работы</a>
+        <a href="#projects" class="mobile-nav-link"><i class="fas fa-diagram-project"></i> Проекты</a>
+        <a href="#extra-experience" class="mobile-nav-link"><i class="fas fa-star"></i> Экстра опыт</a>
+        <a href="#education" class="mobile-nav-link"><i class="fas fa-graduation-cap"></i> Образование</a>
+        <a href="#achievements" class="mobile-nav-link"><i class="fas fa-trophy"></i> Достижения</a>
+        <a href="#faq" class="mobile-nav-link"><i class="fas fa-circle-question"></i> FAQ</a>
+        <!-- <a href="/calculator.html" class="mobile-nav-link" style="color: var(--accent);">🤝 Для заказчика</a> -->
+        <a href="mailto:{{ site.data.contacts.resume.email }}" class="mobile-nav-link email">
+            Написать: {{ site.data.contacts.resume.email }}
+        </a>
+    </div>
+</nav>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+
+
+<!-- Scroll to top button -->
+<button id="scrollToTop" title="Наверх"><i class="fas fa-arrow-up"></i></button>
+
+<!-- Developer panel button -->
+<button id="devPanelBtn" title="Режим разработчика"><i class="fas fa-terminal"></i></button>
+
+<!-- Share button -->
+<!-- <button class="site-share-btn" id="siteShareBtn" title="Поделиться сайтом"><i class="fas fa-share-alt"></i></button> -->

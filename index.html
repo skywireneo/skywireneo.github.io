@@ -1,0 +1,65 @@
+---
+page_id: index
+---
+
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Backend / Fullstack Разработчик / Программный инженер / Менеджер по ИТ</title>
+	{% include head.html %}
+</head>
+
+<body data-theme="dark" data-page="index">
+
+	{% include preloader.html %}
+	{% include nav.html %}
+
+
+	<div class="container" id="main-content">
+		{% include header.html %}
+		{% include sections/about.html %}
+		{% include sections/tech.html %}
+		{% include sections/learning.html %}
+		{% include sections/experience.html %}
+		{% include sections/projects.html %}
+		{% include sections/extra-experience.html %}
+		{% include sections/education.html %}
+		{% include sections/achievements.html %}
+		{% include sections/faq.html %}
+		{% include sections/contact.html %}
+
+		{% include footer.html %}
+	</div>
+
+	{% include modals/all.html %}
+
+	<!-- JavaScript Bundles (Optimized) -->
+	<script src="/js/core.min.js?v={{ 'now' | date: '%Y%m%d%H%M' }}"></script>
+	<script src="/js/sections.min.js?v={{ 'now' | date: '%Y%m%d%H%M' }}" defer></script>
+	<script src="/js/seasonal.min.js?v={{ 'now' | date: '%Y%m%d%H%M' }}" defer></script>
+
+	<!-- Dev Mode (lazy loaded) -->
+	<script>
+		(function () {
+			var devMode = new URLSearchParams(window.location.search).has('dev_mode');
+			if (devMode) document.body.setAttribute('data-dev-mode', 'true');
+		})();
+	</script>
+	<script src="/js/dev-mode/core/welcome.js" defer></script>
+	<script src="/js/dev-mode/core/commands.js" defer></script>
+	<script src="/js/dev-mode/core/notifications.js" defer></script>
+	<script src="/js/dev-mode/modes/index.js" defer></script>
+	<script src="/js/dev-mode/panel/buttons.js" defer></script>
+	<script src="/js/dev-mode/panel/drag.js" defer></script>
+	<script src="/js/dev-mode/panel/exit.js" defer></script>
+	<script src="/js/dev-mode/panel/index.js" defer></script>
+	<script src="/js/dev-mode/easter-eggs/avatar.js" defer></script>
+	<script src="/js/dev-mode/init.js" defer></script>
+
+</body>
+
+</html>
