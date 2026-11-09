@@ -185,10 +185,8 @@
                 <div class="language-card">
                     <div class="language-header">
                         <span class="language-name">${lang.name}</span>
-                        <span class="language-level ${badgeClass}">${levelLabel}</span>
                     </div>
                     <p class="language-desc">${lang.details?.description || ''}</p>
-                    <div class="language-progress">Уровень владения: ${level}%</div>
                 </div>`;
 
             });

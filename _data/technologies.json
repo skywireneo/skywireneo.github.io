@@ -1222,8 +1222,7 @@
             "id": "go",
             "name": "GO",
             "categories": [
-                "Backend",
-                "В изучении"
+                "Backend"
             ],
             "color": "#00add8",
             "tooltip": "Системное программирование",

@@ -3,7 +3,7 @@
     document.querySelectorAll('.site-share-btn, .project-share-btn').forEach(btn => {
         btn.addEventListener('click', async () => {
             const projectCard = btn.closest('.project-card');
-            const title = projectCard?.querySelector('h3')?.textContent || 'Backend / Fullstack Разработчик / Программный инженер / Менеджер по ИТ';
+            const title = projectCard?.querySelector('h3')?.textContent || 'Backend / Fullstack Разработчик (Go / Node.js) / Программный инженер';
             const url = projectCard?.dataset.url || window.location.href;
 
             if (navigator.share) {
